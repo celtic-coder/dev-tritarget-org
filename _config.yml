@@ -10,3 +10,9 @@ maruku:
   use_divs:   true
   png_dir:    images/latex
   png_url:    /images/latex
+topicTitlePre:  '<h3>/* '
+topicTitlePost: '<br />&nbsp;* ------------------------------------------ */</h3>'
+rightTopicTitlePre:  '<h3>/* '
+rightTopicTitlePost: '<br />&nbsp;* ------------- */</h3>'
+topicSubtitlePre: '<h4>'
+topicSubtitlePost: '</h4>'

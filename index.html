@@ -3,4 +3,12 @@ layout: default
 title: TriTarget.org Development
 subtitle: Home
 ---
-Test
+{{ site.topicTitlePre }} Recent Activity {{ site.topicTitlePost }}
+{% for post in site.posts limit:10 %}
+    {{ site.topicSubtitlePre }} {{ post.title }} - {{ post.date | date_to_string }} {{ site.topicSubtitlePost }}
+    {{ post.content | truncate: 450 }}
+    {% if post.content.size > 450 %}
+    <p><a class="more" href="{{ post.url }}">Read More &raquo;</a></p>
+    {% endif %}
+    <p align="right">&raquo; <a href="#">back to top</a></p>
+{% endfor %}
