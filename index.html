@@ -7,8 +7,10 @@ subtitle: Home
 {% for post in site.posts limit:10 %}
     {{ site.topicSubtitlePre }} {{ post.title }} - {{ post.date | date_to_string }} {{ site.topicSubtitlePost }}
     {{ post.content | truncate: 450 }}
+    <p><a class="comment" href="{{ post.url }}#disqus_thread">comment</a>
     {% if post.content.size > 450 %}
-    <p><a class="more" href="{{ post.url }}">Read More &raquo;</a></p>
+    : <a class="more" href="{{ post.url }}">Read More &raquo;</a>
     {% endif %}
+    </p>
     <p align="right">&raquo; <a href="#">back to top</a></p>
 {% endfor %}

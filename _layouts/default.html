@@ -7,6 +7,9 @@
 <!-- <meta name="description" content="" /> -->
 <link href="/css/layout.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="http://www.onlineleaf.com/savetheenvironment.js"> </script>
+<script language="javascript">
+    var disqus_developer = 0;
+</script>
 </head>
 <body>
 <div id="wrap">
@@ -71,5 +74,19 @@ new TWTR.Widget({
   <p><a href="/index.html" title="Home"><span>home</span></a> : <a href="/about.html" title="About">about</a> : <a href="/projects.html" title="Projects">projects</a> : <a href="/archives.html" title="Archives">archives</a></p>
   <p><a href="http://www.dreamhost.com/green.cgi?tritarget.org"><img border="0" alt="Green Web Hosting! This site hosted by DreamHost." src="https://secure.newdream.net/green3.gif" height="15" width="80" valign="middle" /></a> : Copyright &copy; 2010 Devin Weaver : Design by <a href="mailto:jsepulveda@gmail.com">Justin Sepulveda</a></p>
 </div>
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+    var links = document.getElementsByTagName('a');
+    var query = '?';
+    for(var i = 0; i < links.length; i++) {
+    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+    }
+    }
+    document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/devtritargetorg/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+</script>
 </body>
 </html>
