@@ -1,0 +1,89 @@
+/* 
+----------------------------------------------------------------------------
+Copyright Justin Sepulveda 2005. Used with Permission.                             
+May not be duplicated or reproduced.
+
+Please check for cross-browser compatibility prior to making changes
+MINIMUM BROWSER CHECK :: IE5.x/IE6/Op7/NS7/Safari
+
+CSS Document - layout.css
+---------------------------------------------------------------------------- */
+
+/* undo some default styling of common (X)HTML browsers
+ * ------------------------------------------------------------------------- */
+
+/* remove default link styles */
+a:link,a:visited { text-decoration:none; }
+
+/* No list-markers by default - must redefine bullets w/ bg graphics */
+ul,ol { list-style:none; }
+
+/* Avoid browser default inconsistent heading font-sizes and pre/code */
+h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
+
+/* Remove inconsistent (among browsers) default padding or margin */
+html,body,div,h1,h2,h3,h4,h5,h6,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,input { margin:0; padding:0; }
+
+/* prevent blue linked image borders */
+a img,a:link img,a:visited img { border:none; }
+
+/* basic elements
+ * ------------------------------------------------------------------------- */
+body { background-color:#f5f5f5; text-align:left; }
+p,a:link,a:visited,ul,ol,li,dl,dt,dd,h1,h2,h3,h4 { font-family:"Courier New", Courier, mono; color:#1A2233; font-size:11px; text-decoration:none; }
+p,dl,dt,dd,ul,ol,li { line-height: 13px; }
+p,pre,blockquote { margin-bottom:7px; }
+a:link,a:visited { font-weight:bold; }
+a:hover,a:active { text-decoration:none; }
+h1 { font-size:18px; }
+h2,h3 { font-size:16px; }
+h4 { font-size:14px; }
+
+
+/* skeleton
+ * ------------------------------------------------------------------------- */
+#wrap { width:719px; margin:10px auto; }
+ #banner { background:url("../images/banner.gif") no-repeat; height:120px; margin:2px 0; }
+ #banner h1 { font-family:Arial, Helvetica, sans-serif; color:#f5f5f5; padding:80px 0 0 340px; }
+ 
+ #title { background-color:#0D111A; color:#f5f5f5; height:20px; margin:2px 0; padding:2px 10px 0 0; text-align:right; }
+ 
+ #content { background:url("../images/bg-index.gif") repeat-y; }
+ #content h3 { padding:10px 10px 5px 10px; }
+ #content h4 { padding:0 21px 3px 21px; }
+ #content p, #content dl { padding:0 21px; }
+ #content dl { padding-bottom:10px; }
+ #content dd { padding-bottom:20px; }
+ 
+  #column-left { width:500px; float:left; margin-right:2px; }
+  #column-left a:link, #column-left a:visited { color:#990033; margin: 3px; }
+  #column-left a:hover, #column-left a:active { color:#990033; text-decoration: none; background-color: white; margin: 2px; border: 1px dotted black; }
+  
+  #column-right { width:216px; float:left; }
+  #column-right a:link, #column-right a:visited { font-family:Arial, Helvetica, sans-serif; text-decoration:underline; margin: 3px; }
+  #column-right a:hover, #column-right a:active { color:#990033; text-decoration: none; background-color: white; margin: 2px; border: 1px dotted black; }
+  
+  #bottom { height:10px; clear:both; overflow:hidden; }
+
+
+/* footer
+ * ------------------------------------------------------------------------- */
+#footer { width:719px; text-align:center; margin:10px auto; }
+#footer p { margin-bottom:3px; }
+#footer a:link, #footer a:visited { font-weight:normal; }
+
+
+/* navigation
+ * ------------------------------------------------------------------------- */
+#nav { background-color:#334466; width:719px; height:60px; position:relative; }
+#nav li { position:absolute; }
+#nav li, #nav a { width:143px; height:60px; display:block; }
+#nav a { font-family:Arial, Helvetica, sans-serif; text-decoration:none; font-size:18px; text-align:center; color:#f5f5f5; line-height:60px; } 
+
+#nav-01 { left:2px; }
+#nav-02 { left:145px; }
+#nav-03 { left:288px; }
+#nav-04 { left:431px; }
+#nav-05 { left:574px; }
+
+#nav-01 a:hover, #nav-02 a:hover, #nav-03 a:hover, #nav-04 a:hover, #nav-05 a:hover { background-color:#9AA2B3; }
