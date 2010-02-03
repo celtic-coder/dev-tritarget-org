@@ -36,13 +36,13 @@ download it [here][4].
 
 Once installed let's do something simple: Our first program. Copy the following
 into a file ending with the suffix `.java` for example
-`C:\\My_First_Project\\hello.java`
+`C:\My_First_Project\hello.java`
 
-{% highlight ruby linenos %}
+{% highlight java %}
 /**
  * My First Program.
  * See the whole article at
- * {{ page.url }}
+ * {{ site.url }}{{ page.url }}
  */
 class Hello
 {
@@ -57,45 +57,102 @@ class Hello
     }
 }
 {% endhighlight %}
-<p>Now after you save it open up a command line (Most Windows computers will open a command line by selecting Start | Run... and typing in <tt>cmd</tt> or <tt>command</tt> depending on the Windows version. See <a href="http://commandwindows.com/command1.htm">commandwindows.com</a> for more info) and get yourself to that directory. Then compile the code and run it through the Virtual Machine. (The Java programs need to be in your PATH. If the following does not work as expected perhaps you can take a look at <a href="http://java.sun.com/javase/6/webnotes/install/jdk/install-windows.html#Environment">setting your PATH</a>)</p>
-<pre>
-C:> CD My_First_Project
-C:\My_First_Project> javac hello.java
-C:\My_First_Project> java Hello
-Hello World!
-</pre>
-<p>So lets take a look at what we did.
-<ul>
-    <li><b>Line 1:</b> We changed the directory to where we save the file. This allows us to perform actions contained within the directory. Helps with organizing things and simplifies how we interact with the command line.</li>
-    <li><b>Line 2:</b> We compile the source code into bytecode. the <tt>javac</tt> command will make a new file in this directory called <tt>Hello.class</tt> which is the bytecode.</li>
-    <li><b>Line 3:</b> We run the bytecode through the virtual machine. The command <tt>java</tt> only needs to know what <em>class</em> you want to execute (Will explain later) suffice it to say it does not need the <tt>.class</tt> and it is capitalized.</li>
-    <li><b>Line 4:</b> This what you should see if everything worked out.</li>
-</ul>
-Congratulations you just made your first program. I know kind of anti climatic but we'll get better. So lets look at parts of the program.</p>
-<h4>Comments</h4>
-<p>I don't care what anyone says. Comments make the code! Learn them and use them! A comment is a piece of text in your source code that doesn't do anything. It is there so when you read it or when others read it they know what the heck is going on and how to use things. You will see through out my code there are comments describing what it's doing or information that is useful to someone who is developing the program.</p>
-<p>A comment is created by surrounding the text in the characters '<code>/*</code>' and '<code>*/</code>' or if the line starts with '<code>//</code>'.</p>
-<h4>Wrappers</h4>
-<p>Ok so without getting into too much detail all Java programs must have the following: Class definition and an Entry Point. We will discuss this later as to why but for now every program you make will have a line that defines the <em>class</em>:
-<pre lang="java">
+
+Now after you save it open up a command line (Most Windows computers will open
+a command line by selecting Start | Run... and typing in `cmd` or `command`
+depending on the Windows version. See [commandwindows.com][5] for more info)
+and get yourself to that directory. Then compile the code and run it through
+the Virtual Machine. (The Java programs need to be in your PATH. If the
+following does not work as expected perhaps you can take a look at [setting
+your PATH][6])
+
+    C:> CD My_First_Project
+    C:\My_First_Project> javac hello.java
+    C:\My_First_Project> java Hello
+    Hello World!
+
+So lets take a look at what we did.
+
+- __Line 1:__ We changed the directory to where we save the file. This allows
+  us to perform actions contained within the directory. Helps with organizing
+  things and simplifies how we interact with the command line.
+  __Line 2:__ We compile the source code into bytecode. the `javac` command
+- will make a new file in this directory called `Hello.class` which is the
+  bytecode.
+- __Line 3:__ We run the bytecode through the virtual machine. The command
+  `java` only needs to know what _class_ you want to execute (Will
+  explain later) suffice it to say it does not need the `.class` and it is
+  capitalized.
+- __Line 4:__ This what you should see if everything worked out.
+
+Congratulations you just made your first program. I know kind of anti climatic
+but we'll get better. So lets look at parts of the program.
+
+#### Comments
+
+I don't care what anyone says. Comments make the code! Learn them and use them!
+A comment is a piece of text in your source code that doesn't do anything. It
+is there so when you read it or when others read it they know what the heck is
+going on and how to use things. You will see through out my code there are
+comments describing what it's doing or information that is useful to someone
+who is developing the program.
+
+A comment is created by surrounding the text in the characters '`/*`' and
+'`*/`' or if the line starts with '`//`'.
+
+#### Wrappers
+
+Ok so without getting into too much detail all Java programs must have the
+following: Class definition and an Entry Point. We will discuss this later as
+to why but for now every program you make will have a line that defines the
+_class_:
+
+{% highlight java %}
 class Hello
-</pre>
-Everything is surrounded by brackets. This give the code a look of hierarchy again for organization. So we use these curly brackets around all the "blocks" of code. Some people like to put the curly bracket on the same line some like it underneath it doesn't matter which either works just as well.</p>
-<h4>Entry Point</h4>
-<p>The entry point is where executing of your program starts. As we learn about OOP you'll understand that all programs have to start some where and they all start with the following line (We will explain the meaning of these commands in later modules):
-{% highlight java %}
-    public static void main(String[] args)
 {% endhighlight %}
-And again we surround the next block in curly brackets.</p>
-<h4>Execution</h4>
-<p>Last but not least that actual  part of the code that does anything. As we venture into OOP you understand why this command is so drawn out but for now just deal with it looking cumbersome.
+
+Everything is surrounded by brackets. This give the code a look of hierarchy
+again for organization. So we use these curly brackets around all the "blocks"
+of code. Some people like to put the curly bracket on the same line some like
+it underneath it doesn't matter which either works just as well.
+
+#### Entry Point
+
+The entry point is where executing of your program starts. As we learn about
+OOP you'll understand that all programs have to start some where and they all
+start with the following line (We will explain the meaning of these commands in
+later modules):
+
 {% highlight java %}
-    System.out.println("Hello World!");
+public static void main(String[] args)
 {% endhighlight %}
-First off all <em>commands</em> end with a semi-colon. Forget one of these and it all falls apart. Since this is our only statement we only have one. This is different from say the above wrappers which do not need an ending semi-colon. Now what we are asking the computer to do is ask the "System" object for the output object and telling the output object to print a line of text. This esentially just shows the "Hello World!" text on the screen since the output object is associated with the command line your typing in.</p>
-<p>That's it for now we will get much more detail later but for now you made your first program.</p>
+
+And again we surround the next block in curly brackets.
+
+#### Execution
+
+Last but not least that actual  part of the code that does anything. As we
+venture into OOP you understand why this command is so drawn out but for now
+just deal with it looking cumbersome.
+
+{% highlight java %}
+System.out.println("Hello World!");
+{% endhighlight %}
+
+First off all _commands_ end with a semi-colon. Forget one of these and it all
+falls apart. Since this is our only statement we only have one. This is
+different from say the above wrappers which do not need an ending semi-colon.
+Now what we are asking the computer to do is ask the "System" object for the
+output object and telling the output object to print a line of text. This
+esentially just shows the "Hello World!" text on the screen since the output
+object is associated with the command line your typing in.
+
+That's it for now we will get much more detail later but for now you made your
+first program.
 
 [1]: http://en.wikipedia.org/wiki/Java_Development_Kit "Wikipedia entry for Java Development Kit"
 [2]: http://java.sun.com/javase/ "Official download of JDK"
 [3]: http://java.sun.com/javase/6/webnotes/install/jdk/install-windows.html "How to install the JDK on windows"
 [4]: http://developer.apple.com/java/download/ "Java JDK Download"
+[5]: http://commandwindows.com/command1.htm "Using the command line"
+[6]: http://java.sun.com/javase/6/webnotes/install/jdk/install-windows.html#Environment "Setting up your evironment in windows"
