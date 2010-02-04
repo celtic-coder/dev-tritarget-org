@@ -2,8 +2,9 @@
 wordpress_id: 57
 layout: post
 title: Save the astronauts tether those pointers
+catagories: [ coding, objective-c, tips ]
 excerpt: Explanation about how Objective-C uses memory management while using a space shuttle astronaut metaphor.
-wordpress_url: http://git.tritarget.org/wp/?p=57
+wordpress_url: 'http://git.tritarget.org/wp/?p=57'
 ---
 I think a lot of confusion comes from the idea of pointers and release 
 responsibility. I find it is best to think of pointers as tether 
@@ -14,9 +15,7 @@ alloc/init is your astronaut and the variable (pointer) you assign it
 to is your first tether line. Now when you retain the object it 
 created another tether line. 
 
-<!--more-->
-
-<pre lang="objc">
+{% highlight objc %}
 // obj is now tethered to a spot on the space shuttle. 
 NSObject *obj = [[NSObject alloc] init];
  
@@ -78,7 +77,7 @@ NSObject *another_object = [array objectAtIndex:1];
 // before array goes inside he pulls in the original
 // astronaut still attached to himself. 
 [array release]; 
-</pre>
+{% endhighlight %}
 
 When you alloc/init you own that object it is your responsibility to 
 either release it appropriately or pass on the responsibility to 

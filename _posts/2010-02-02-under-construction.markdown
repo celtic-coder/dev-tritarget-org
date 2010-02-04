@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Under Construction
-catagory: site news
+catagories: [ site news, announcements ]
 ---
 This site is under construction.
 

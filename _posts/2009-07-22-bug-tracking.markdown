@@ -2,20 +2,34 @@
 wordpress_id: 41
 layout: post
 title: Bug tracking
-wordpress_url: http://git.tritarget.org/wp/?p=41
+wordpress_url: 'http://git.tritarget.org/wp/?p=41'
 ---
-I recently installed <a href="http://www.mantisbt.org/">MantisBT</a> a PHP based bug tracker. I found a <a href="http://git.mantisforge.org/">great plugin</a> that lets Mantis monitor a source repository and associate the logs to issue and bug tickets.
+I recently installed [MantisBT][1] a PHP based bug tracker. I found a
+[great plugin][2] that lets Mantis monitor a source repository and associate
+the logs to issue and bug tickets.
 
-I don't have much explanation of the process I used to install it. It was your basic PHP based system. I use gitosis to handle the Git repositories. I can config gitosis to authorize gitweb with a cherry picked set of repositories. However, Mantis uses gitweb to link into the git repositories. Since the gitosis config handles gitweb publicly I didn't want just anyone to browse the source via gitweb. But I need a gitweb for all repositories so mantis could track changes.
+I don't have much explanation of the process I used to install it. It was your
+basic PHP based system. I use gitosis to handle the Git repositories. I can
+config gitosis to authorize gitweb with a cherry picked set of repositories.
+However, Mantis uses gitweb to link into the git repositories. Since the
+gitosis config handles gitweb publicly I didn't want just anyone to browse the
+source via gitweb. But I need a gitweb for all repositories so mantis could
+track changes.
 
-<!--more-->
+What I did was copy the gitweb CGI directory to another directory. I change
+it's configuration to read all repositories (Yes this includes the
+gitosis-admin.git repo) and then use an apache .htaccess file to log access
+except from the webserver itself (mantis PHP script).
 
-What I did was copy the gitweb CGI directory to another directory. I change it's configuration to read all repositories (Yes this includes the gitosis-admin.git repo) and then use an apache .htaccess file to log access except from the webserver itself (mantis PHP script).
-
-<pre lang="apache">wwwroot/private_gitweb/.htaccess
+{% highlight apache %}
+# filename: wwwroot/private_gitweb/.htaccess
 order deny,allow
 deny from all
 allow from 127.0.0.1
-</pre>
+{% endhighlight %}
 
-<em>You might have to replace <code>127.0.0.1</code> with the IP of your site not loaclhost. (Use <code>ping mysite.com</code> to get the external IP)</em>
+_You might have to replace `127.0.0.1` with the IP of your site not loaclhost.
+(Use `ping yoursite` to get the external IP)_
+
+[1]: http://www.mantisbt.org/
+[2]: http://git.mantisforge.org/
