@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>TriTarget.org Development - {{ page.title }}</title>
+    <title>TriTarget.org Development{% if page.title %} - {{ page.title }}{% endif %}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <!-- <meta name="description" content="" /> -->
 <meta name="viewport" content="initial-scale=1.0" />
@@ -55,38 +55,9 @@
     <!-- end column-left -->
     <div id="column-right">
       {{ site.rightTopicTitlePre }} links {{ site.rightTopicTitlePost }}
+      {% include links.html %}
       {{ site.rightTopicTitlePre }} twitter {{ site.rightTopicTitlePost }}
-<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 5,
-  interval: 6000,
-  width: 216,
-  height: 250,
-  theme: {
-    shell: {
-      background: '#333333',
-      color: '#ffffff'
-    },
-    tweets: {
-      background: '#000000',
-      color: '#ffffff',
-      links: '#4aed05'
-    }
-  },
-  features: {
-    scrollbar: true,
-    loop: false,
-    live: false,
-    hashtags: true,
-    timestamp: true,
-    avatars: false,
-    behavior: 'all'
-  }
-}).render().setUser('sukima').start();
-</script>
+      {% include twitter.html %}
     </div>
     <!-- end column-right -->
     <div id="bottom"></div>
