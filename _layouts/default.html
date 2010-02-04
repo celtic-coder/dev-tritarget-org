@@ -37,7 +37,17 @@
     <li id="nav-04"><a href="/archives.html" title="Archives">archives</a></li>
     <!-- <li id="nav-05"><a href="#" title="Contact">contact</a></li> -->
   </ul>
-  <h2 id="title">#{% if page.subtitle %}{{ page.subtitle | downcase }}{% else %}{{ page.title | downcase }}{% endif %}</h2>
+  <h2 id="title">
+      {% if page.subpageTitle %}
+          #{{ page.subpageTitle | downcase }}
+      {% elsif page.catagories %}
+          $[{{ page.catagories | array_to_sentence_string | downcase }}]
+      {% elsif page.catagory %}
+          $[{{ page.catagory | downcase }}]
+      {% else %}
+          @"{{ page.title }}"
+      {% endif %}
+  </h2>
   <div id="content">
     <div id="column-left">
         {{ content }}
