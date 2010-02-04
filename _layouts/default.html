@@ -55,9 +55,13 @@
     <!-- end column-left -->
     <div id="column-right">
       {{ site.rightTopicTitlePre }} links {{ site.rightTopicTitlePost }}
-      {% include links.html %}
+      <div id="links">
+          {% include links.html %}
+      </div>
       {{ site.rightTopicTitlePre }} twitter {{ site.rightTopicTitlePost }}
-      {% include twitter.html %}
+      <div id="twitter">
+          {% include twitter.html %}
+      </div>
     </div>
     <!-- end column-right -->
     <div id="bottom"></div>
@@ -67,7 +71,7 @@
 <!-- end wrap -->
 <div id="footer">
   <p><a href="/index.html" title="Home"><span>home</span></a> : <a href="/about.html" title="About">about</a> : <a href="/projects.html" title="Projects">projects</a> : <a href="/archives.html" title="Archives">archives</a></p>
-  <p><a href="http://www.dreamhost.com/green.cgi?tritarget.org"><img border="0" alt="Green Web Hosting! This site hosted by DreamHost." src="https://secure.newdream.net/green3.gif" height="15" width="80" valign="middle" /></a> : Copyright &copy; 2010 Devin Weaver : Design by <a href="mailto:jsepulveda@gmail.com">Justin Sepulveda</a></p>
+  <p><a href="http://www.dreamhost.com/green.cgi?tritarget.org"><img border="0" alt="Green Web Hosting! This site hosted by DreamHost." src="https://secure.newdream.net/green3.gif" height="15" width="80" valign="middle" /></a> : Copyright &copy; 2010 Devin Weaver : Design by <a class="email" href="mailto:jsepulveda@gmail.com">Justin Sepulveda</a></p>
 </div>
 <script type="text/javascript">
 //<![CDATA[

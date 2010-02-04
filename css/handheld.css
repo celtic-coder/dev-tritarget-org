@@ -45,7 +45,8 @@ a:hover,a:active { text-decoration:none; }
   #column-left a:link, #column-left a:visited { color:#990033; margin: 3px; }
   #column-left a:hover, #column-left a:active { color:#990033; text-decoration: none; background-color: white; margin: 2px; border: 1px dotted black; }
   
-  #column-right a:link, #column-right a:visited { font-family:Arial, Helvetica, sans-serif; text-decoration:underline; margin: 3px; }
+  /* #column-right a:link, #column-right a:visited { font-family:Arial, Helvetica, sans-serif; text-decoration:underline; margin: 3px; } */
+  #column-right a:link, #column-right a:visited { color:#990033; margin: 3px; }
   #column-right a:hover, #column-right a:active { color:#990033; text-decoration: none; background-color: white; margin: 2px; border: 1px dotted black; }
   
   #bottom { height:10px; clear:both; overflow:hidden; }
@@ -65,3 +66,23 @@ a:hover,a:active { text-decoration:none; }
 
 #nav a { font-family:Arial, Helvetica, sans-serif; text-decoration:none; color:#f5f5f5; } 
 #nav-01 a:hover, #nav-02 a:hover, #nav-03 a:hover, #nav-04 a:hover, #nav-05 a:hover { background-color:#9AA2B3; }
+
+/* twitter widget
+ * ------------------------------------------------------------------------- */
+.twtr-tweet-text a:hover, .twtr-tweet-text a:active { text-decoration: none; background-color: #333333 !important; margin: 2px; border: 1px dotted white !important; }
+
+/* links section
+ * ------------------------------------------------------------------------- */
+#links ul { list-style: none; margin: 0 0 20px 21px; padding: 0; }
+#links li { font-size: 1.1em; margin: 0; }
+#links a { font-size: 1.0em; }
+#links dt { font-weight: bold; }
+#links dd { margin: 2px 0 2px 10px; padding: 0;}
+
+/* mini icons
+ * ------------------------------------------------------------------------- */
+.favorite { padding-right: 12px; background: url(../images/heart.gif) no-repeat center right; }
+.gold { padding-right: 14px; background: url(../images/gold.gif) no-repeat center right; }
+.silver { padding-right: 14px; background: url(../images/silver.gif) no-repeat center right; }
+.bronze { padding-right: 14px; background: url(../images/bronze.gif) no-repeat center right; }
+.email { padding-right: 18px; background: url(../images/mail.gif) no-repeat center right; }
