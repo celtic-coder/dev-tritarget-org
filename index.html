@@ -1,14 +1,14 @@
 ---
 layout: default
-title: TriTarget.org Development
 subpageTitle: Home
 ---
 {{ site.topicTitlePre }} Recent Activity {{ site.topicTitlePost }}
 {% for post in site.posts limit:10 %}
     {{ site.topicSubtitlePre }} {{ post.title }} - {{ post.date | date_to_string }} {{ site.topicSubtitlePost }}
-    {{ post.content | truncate: 450 }}
+    {% capture blob %}{{ post.content | strip_html | truncate: 450 | newline_to_br }}{% endcapture %}
+    <p>{{ blob }}</p>
     <p><a class="comment" href="{{ post.url }}#disqus_thread">comment</a>
-    {% if post.content.size > 450 %}
+    {% if blob.size >= 450 %}
     : <a class="more" href="{{ post.url }}">Read More &raquo;</a>
     {% endif %}
     </p>
