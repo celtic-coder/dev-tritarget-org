@@ -20,10 +20,16 @@
 <!-- Global Styles -->
 <link href="/css/syntax.css" rel="stylesheet" type="text/css" media="screen" />
 
+{% if site.screenSaver %}
 <script language="javascript" type="text/javascript" src="http://www.onlineleaf.com/savetheenvironment.js"> </script>
+{% endif %}
+
+{% if site.disqusComments %}
 <script language="javascript">
-    var disqus_developer = 0;
+    var disqus_developer = {% if site.debug %}1{% else %}0{% endif %};
 </script>
+{% endif %}
+
 </head>
 <body>
 <a href="http://github.com/sukima"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
@@ -74,6 +80,8 @@
   <p><a href="/index.html" title="Home"><span>home</span></a> : <a href="/about.html" title="About">about</a> : <a href="/projects.html" title="Projects">projects</a> : <a href="/archives.html" title="Archives">archives</a></p>
   <p><a href="http://www.dreamhost.com/green.cgi?tritarget.org"><img border="0" alt="Green Web Hosting! This site hosted by DreamHost." src="https://secure.newdream.net/green3.gif" height="15" width="80" valign="middle" /></a> : Copyright &copy; 2010 Devin Weaver : Design by <a class="email" href="mailto:jsepulveda@gmail.com">Justin Sepulveda</a></p>
 </div>
+
+{% if site.disqusComments %}
 <script type="text/javascript">
 //<![CDATA[
 (function() {
@@ -88,5 +96,7 @@
 })();
 //]]>
 </script>
+{% endif %}
+
 </body>
 </html>
