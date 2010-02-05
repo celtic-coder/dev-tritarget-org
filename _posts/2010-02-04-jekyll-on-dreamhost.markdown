@@ -5,7 +5,7 @@ catagories: [ site news ]
 tags: [ blogging, dreamhost, ruby, git, jekyll ]
 ---
 Well I took the learning exercise on getting [Jekyll][] working on
-[Dreamhost][] mainly because I has a [gitosis][] environment set up for my
+[Dreamhost][] mainly because I have a [gitosis][] environment set up for my
 personal projects. I had plans to write down the process I used to accomplish
 this. However, after it was all completed I found a [blog post][1] that
 detailed exactly the process I haphazardly stumbled onto.
