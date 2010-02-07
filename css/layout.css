@@ -58,6 +58,7 @@ h4 { font-size:14px; }
  #content h3 { padding:10px 10px 5px 10px; }
  #content h4 { padding:0 21px 3px 21px; }
  #content p, #content dl { padding:0 21px; }
+ #content p.blob { margin: 0px 0px 0px 20px; }
  #content dl { padding-bottom:10px; }
  #content dd { padding-bottom:20px; }
  #content pre { background: #F2F2F2; border: thin dashed blue; margin: 5px 15px; padding: 5px 5px 3px 5px; overflow: auto; }

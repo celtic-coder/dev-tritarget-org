@@ -5,8 +5,8 @@ subpageTitle: Home
 {{ site.topicTitlePre }} Recent Activity {{ site.topicTitlePost }}
 {% for post in site.posts limit:5 %}
     {{ site.topicSubtitlePre }} {{ post.title }} - {{ post.date | date_to_string }} {{ site.topicSubtitlePost }}
-    {% capture blob %}{{ post.content | strip_html | truncate: 450 | newline_to_br }}{% endcapture %}
-    <p>{{ blob }}</p>
+    {% capture blob %}{{ post.content | strip_html | strip_newlines | truncate: 450 }}{% endcapture %}
+    <p class="blob">{{ blob }}</p>
     <p>
     {% if site.dequsComments %}
         <a class="comment" href="{{ post.url }}#disqus_thread">comment</a>
