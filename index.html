@@ -8,7 +8,7 @@ subpageTitle: Home
     {% capture blob %}{{ post.content | strip_html | strip_newlines | truncate: 450 }}{% endcapture %}
     <p class="blob">{{ blob }}</p>
     <p>
-    {% if site.dequsComments %}
+    {% if site.disqusComments %}
         <a class="comment" href="{{ post.url }}#disqus_thread">comment</a>
         {% if blob.size >= 450 %} : {% endif %}
     {% endif %}
