@@ -101,6 +101,10 @@ h4 { font-size:14px; }
  * ------------------------------------------------------------------------- */
 .twtr-tweet-text a:hover, .twtr-tweet-text a:active { text-decoration: none; background-color: #333333 !important; margin: 2px; border: 1px dotted white !important; }
 
+/* Google Search
+ * ------------------------------------------------------------------------- */
+#searchcontrol { margin: 10px; width: 100%; text-align: left; }
+
 /* links section
  * ------------------------------------------------------------------------- */
 #links { font-family:"Courier New", Courier, mono; color:#1A2233; font-size:11px; text-decoration:none; line-height: 14px; }

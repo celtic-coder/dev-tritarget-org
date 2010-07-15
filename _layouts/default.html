@@ -30,6 +30,50 @@
 </script>
 {% endif %}
 
+<!-- Google API -->
+<script src="http://www.google.com/jsapi?key=ABQIAAAAqE6xAHX7wy0-s7qeRu49YxTgYSfghEm3OBKNO_2I0le4aTTIchRtUkDNZB6DhL23OdwaRr-MgcZ11A" type="text/javascript"></script>
+<script language="Javascript" type="text/javascript">
+//<![CDATA[
+// Load JQuery
+google.load("jquery", "1");
+
+// Load Google Searching
+google.load("search", "1");
+
+function OnLoad() {
+    // Create a search control
+    var searchControl = new google.search.SearchControl();
+    var drawOptions = new google.search.DrawOptions();
+
+    // Settings
+    drawOptions.setDrawMode(google.search.SearchControl.DRAW_MODE_TABBED);
+
+    // Add in a full set of searchers
+    //var localSearch = new google.search.LocalSearch();
+    //searchControl.addSearcher(localSearch);
+    var siteSearch = new google.search.WebSearch();
+    siteSearch.setUserDefinedLabel("Site Search");
+    siteSearch.setUserDefinedClassSuffix("siteSearch");
+    siteSearch.setSiteRestriction("{{ site.googleSiteSearch }}");
+    searchControl.addSearcher(siteSearch);
+    searchControl.addSearcher(new google.search.WebSearch());
+    searchControl.addSearcher(new google.search.VideoSearch());
+    searchControl.addSearcher(new google.search.BlogSearch());
+
+    // Set the Local Search center point
+    //localSearch.setCenterPoint("New York, NY");
+
+    // Tell the searcher to draw itself and tell it where to attach
+    searchControl.draw(document.getElementById("searchcontrol"), drawOptions);
+
+    // Execute an inital search
+    //searchControl.execute("Google");
+}
+
+google.setOnLoadCallback(OnLoad);
+//]]>
+</script>
+
 </head>
 <body>
     <div id="forkme">
@@ -47,7 +91,7 @@
     <li id="nav-02"><a href="/about.html" title="About">about</a></li>
     <li id="nav-03"><a href="/projects.html" title="Projects">projects</a></li>
     <li id="nav-04"><a href="/archives.html" title="Archives">archives</a></li>
-    <!-- <li id="nav-05"><a href="#" title="Contact">contact</a></li> -->
+    <li id="nav-05"><a href="#searchcontrol" title="Search">search</a></li>
   </ul>
   <h2 id="title">
       {% if page.subpageTitle %}
@@ -63,16 +107,17 @@
   <div id="content">
     <div id="column-left">
         {{ content }}
+        <p id="searchcontainer"><div id="searchcontrol">Loading...</div></p>
     </div>
     <!-- end column-left -->
     <div id="column-right">
-      {{ site.rightTopicTitlePre }} links {{ site.rightTopicTitlePost }}
       <div id="links">
-          {% include links.html %}
+          <div class="column-right-title">{{ site.rightTopicTitlePre }} links {{ site.rightTopicTitlePost }}</div>
+          <div class="column-right-content">{% include links.html %}</div>
       </div>
-      {{ site.rightTopicTitlePre }} twitter {{ site.rightTopicTitlePost }}
       <div id="twitter">
-          {% include twitter.html %}
+          {{ site.rightTopicTitlePre }} twitter {{ site.rightTopicTitlePost }}
+          <div class="column-right-content">{% include twitter.html %}</div>
       </div>
     </div>
     <!-- end column-right -->
