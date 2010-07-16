@@ -59,7 +59,7 @@ a clean.
 
     $ git clean -fdx
 
-** UPDATE: This branch now needs to manually be attached **
+**UPDATE: This branch now needs to manually be attached**
 
 Turns out (maybe a version thing) that I was unable to use the new branch
 created before because git claimed it was detached. After I had commited
@@ -74,7 +74,7 @@ Now Your ready. Add some files, Commit them and eventually push them.
 What's great is a clone by anyone will get the master branch and ignore this
 new branch unless they need it and they pull it manually.
 
-** UPDATE: full walk through **
+**UPDATE: full walk through**
 
     (no branch)$ git init test_repo
     Initialized empty Git repository in /Users/suki/tmp/test_repo/.git/
