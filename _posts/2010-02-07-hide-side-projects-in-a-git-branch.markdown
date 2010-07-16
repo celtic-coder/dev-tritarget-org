@@ -59,12 +59,53 @@ a clean.
 
     $ git clean -fdx
 
+** UPDATE: This branch now needs to manually be attached **
+
+Turns out (maybe a version thing) that I was unable to use the new branch
+created before because git claimed it was detached. After I had commited
+something (important or git thinks the branch hasn't been born yet) I had to
+explicitly check out the new branch for it to work:
+`git checkout -b newbranch`
+
 Now Your ready. Add some files, Commit them and eventually push them.
 
     $ git push origin newbranch
 
 What's great is a clone by anyone will get the master branch and ignore this
 new branch unless they need it and they pull it manually.
+
+** UPDATE: full walk through **
+
+    (no branch)$ git init test_repo
+    Initialized empty Git repository in /Users/suki/tmp/test_repo/.git/
+    (no branch)$ cd test_repo/
+    (master)$ echo "test data in master" > testdata-in-master
+    (master)$ git add testdata-in-master
+    (master)$ git ci -m "First commit on master branch"
+    [master (root-commit) b879d9f] First commit on master branch
+     1 files changed, 1 insertions(+), 0 deletions(-)
+     create mode 100644 testdata-in-master
+    (master)$ git symbolic-ref HEAD refs/head/newbranch
+    (refs/head/newbranch)$ rm .git/index
+    (refs/head/newbranch)$ git clean -fdx
+    Removing testdata-in-master
+    (refs/head/newbranch)$ echo "test data in newbranch" > testdata-in-newbranch
+    (refs/head/newbranch)$ git add testdata-in-newbranch
+    (refs/head/newbranch)$ git ci -m "First commit on newbranch branch"
+    [refs/head/newbranch (root-commit) ac63f64] First commit on newbranch branch
+     1 files changed, 1 insertions(+), 0 deletions(-)
+     create mode 100644 testdata-in-newbranch
+    (refs/head/newbranch)$ git checkout -b newbranch
+    Switched to a new branch 'newbranch'
+    (newbranch)$ git push origin newbranch
+    fatal: 'origin' does not appear to be a git repository
+    fatal: The remote end hung up unexpectedly
+    (newbranch)$ ls
+    testdata-in-newbranch
+    (newbranch)$ git checkout master
+    Switched to branch 'master'
+    (master)$ ls
+    testdata-in-master
 
 [1]: http://pages.github.com/
 [2]: http://madduck.net/blog/2007.07.11:creating-a-git-branch-without-ancestry/
