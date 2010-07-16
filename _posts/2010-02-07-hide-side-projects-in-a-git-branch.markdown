@@ -42,7 +42,7 @@ branch in the normal way because it will link itself to the current HEAD and
 what we want it to link it to nothing. That way any files on the new branch
 are unassociated to any branches you make with your code.
 
-    $ git symbolic-ref HEAD newbranch
+    $ git symbolic-ref HEAD refs/head/newbranch
 
 This will create the new branch _and_ put you in that branch. Next is a bit
 strange. Since the _index_ that Git knows about still has all the files in
