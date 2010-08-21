@@ -19,6 +19,7 @@ topicSubtitlePost: '</h4>'
 googleSiteSearch: 'dev.tritarget.org'
 url: 'http://dev.tritarget.org'
 postImagesPath: '/images/post_images'
-screenSaver: true
-disqusComments: true
-debug: false
+enableScreenSaver: false
+enableDisqusComments: true
+enableGoogleSearch: true
+debug: true

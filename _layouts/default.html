@@ -8,28 +8,29 @@
 <meta name="viewport" content="initial-scale=1.0" />
 
 <!-- Desktop Browsers Only -->
-<link href="/css/layout.css" rel="stylesheet" type="text/css" media="screen and (min-device-width: 481px)" />
+<link href="/css/aqua.css" rel="stylesheet" type="text/css" media="screen and (min-device-width: 481px)" />
 <!--[if IE]>
-<link href="/css/layout.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/aqua.css" rel="stylesheet" type="text/css" media="screen" />
 <![endif]-->
 
 <!-- iPhone Browser Only -->
-<link href="/css/handheld.css" rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" />
-<link href="/css/handheld.css" rel="stylesheet" type="text/css" media="handheld" />
+<!-- <link href="/css/handheld.css" rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" /> -->
+<!-- <link href="/css/handheld.css" rel="stylesheet" type="text/css" media="handheld" /> -->
 
 <!-- Global Styles -->
 <link href="/css/syntax.css" rel="stylesheet" type="text/css" media="screen" />
 
-{% if site.screenSaver %}
+{% if site.enableScreenSaver %}
 <script language="javascript" type="text/javascript" src="http://www.onlineleaf.com/savetheenvironment.js"> </script>
 {% endif %}
 
-{% if site.disqusComments %}
+{% if site.enableDisqusComments %}
 <script language="javascript">
     var disqus_developer = {% if site.debug %}1{% else %}0{% endif %};
 </script>
 {% endif %}
 
+{% if site.enableGoogleSearch %}
 <!-- Google API -->
 <script src="http://www.google.com/jsapi?key=ABQIAAAAqE6xAHX7wy0-s7qeRu49YxTgYSfghEm3OBKNO_2I0le4aTTIchRtUkDNZB6DhL23OdwaRr-MgcZ11A" type="text/javascript"></script>
 <script language="Javascript" type="text/javascript">
@@ -73,6 +74,7 @@ function OnLoad() {
 google.setOnLoadCallback(OnLoad);
 //]]>
 </script>
+{% endif %}
 
 <!-- Custom Scripts -->
 <script language="javascript" type="text/javascript" src="/js/site.js"> </script>
@@ -117,7 +119,7 @@ google.setOnLoadCallback(OnLoad);
   <div id="content">
     <div id="column-left">
         {{ content }}
-        <p id="searchcontainer"><div id="searchcontrol">Loading...</div></p>
+        {% if site.enableGoogleSearch %}<p id="searchcontainer"><div id="searchcontrol">Loading...</div></p>{% endif %}
     </div>
     <!-- end column-left -->
     <div id="column-right">
@@ -145,7 +147,7 @@ google.setOnLoadCallback(OnLoad);
   <p><a href="http://www.dreamhost.com/green.cgi?tritarget.org"><img border="0" alt="Green Web Hosting! This site hosted by DreamHost." src="https://secure.newdream.net/green3.gif" height="15" width="80" valign="middle" /></a> : Copyright &copy; 2010 Devin Weaver : Design by <a class="email" href="mailto:jsepulveda@gmail.com">Justin Sepulveda</a></p>
 </div>
 
-{% if site.disqusComments %}
+{% if site.enableDisqusComments %}
 <script type="text/javascript">
 //<![CDATA[
 (function() {
