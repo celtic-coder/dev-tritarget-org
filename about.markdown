@@ -1,9 +1,11 @@
 ---
 layout: default
-title: About
+title: About Me
 subpageTitle: About
 ---
-{{ site.topicTitlePre }}About Me{{ site.topicTitlePost }}
+About Me
+--------
+
 TriTarget.org is a name I came up with in high school. I was big into computer
 programming and wanted a company name that was kinda catchy. When I made a few
 programs in [BASIC][] I would brand them with __TriTarget__ as a way to show

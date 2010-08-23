@@ -19,6 +19,7 @@
 
 <!-- Global Styles -->
 <link href="/css/syntax.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/site.css" rel="stylesheet" type="text/css" media="screen" />
 
 {% if site.enableScreenSaver %}
 <script language="javascript" type="text/javascript" src="http://www.onlineleaf.com/savetheenvironment.js"> </script>
@@ -91,59 +92,55 @@ google.setOnLoadCallback(OnLoad);
     <div id="forkme">
         <a href="http://github.com/sukima"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
     </div>
+    <!--
     <div id="forkme-text">
         * <a href="http://github.com/sukima">Fork me on GitHub</a> *
     </div>
-<div id="wrap">
-  <div id="banner">
-    <h1>TriTarget.org Development</h1>
+    -->
+<div id="page">
+  <div id="header">
+    <div id="companyname">TriTarget.org Development</div>
+    <div id="menu">
+      <ul>
+        <li><a href="/index.html" title="Home"><span>home</span></a></li>
+        <li><a href="/about.html" title="About">about</a></li>
+        <li><a href="/projects.html" title="Projects">projects</a></li>
+        <li><a href="/archives.html" title="Archives">archives</a></li>
+        <li><a href="#searchcontrol" title="Search">search</a></li>
+      </ul>
+    </div>
   </div>
-  <ul id="nav">
-    <li id="nav-01"><a href="/index.html" title="Home"><span>home</span></a></li>
-    <li id="nav-02"><a href="/about.html" title="About">about</a></li>
-    <li id="nav-03"><a href="/projects.html" title="Projects">projects</a></li>
-    <li id="nav-04"><a href="/archives.html" title="Archives">archives</a></li>
-    <li id="nav-05"><a href="#searchcontrol" title="Search">search</a></li>
-  </ul>
-  <h2 id="title">
-      {% if page.subpageTitle %}
-          #{{ page.subpageTitle | downcase }}
-      {% elsif page.catagories %}
-          $[{{ page.catagories | array_to_sentence_string | downcase }}]
-      {% elsif page.catagory %}
-          $[{{ page.catagory | downcase }}]
-      {% else %}
-          @"{{ page.title }}"
-      {% endif %}
-  </h2>
   <div id="content">
-    <div id="column-left">
-        {{ content }}
-        {% if site.enableGoogleSearch %}<p id="searchcontainer"><div id="searchcontrol">Loading...</div></p>{% endif %}
+    <div id="contenttext">
+      {{ content }}
+      {% if site.enableGoogleSearch %}<p id="searchcontainer"><div id="searchcontrol">Loading...</div></p>{% endif %}
     </div>
-    <!-- end column-left -->
-    <div id="column-right">
-      <div id="links">
-          <div class="column-right-title">{{ site.rightTopicTitlePre }} links {{ site.rightTopicTitlePost }}</div>
-          <div class="column-right-content">{% include links.html %}</div>
+
+    <div id="panel">
+      {% if site.enableTwitter %}
+      <div class="panel_box">
+        <div class="box_top">twitter</div>
+        <div id="twitter" class="box_text">
+          {% include twitter.html %}
+        </div>
+        <div class="box_bottom"></div>
       </div>
-      <div id="twitter">
-          {{ site.rightTopicTitlePre }} twitter {{ site.rightTopicTitlePost }}
-          <div class="column-right-content">{% include twitter.html %}</div>
-      </div>
-      <div id="meebo">
-          {{ site.rightTopicTitlePre }} meebo {{ site.rightTopicTitlePost }}
-          <div class="column-right-content">{% include meebo.html %}</div>
+      {% endif %}
+
+      <div class="panel_box">
+        <div class="box_top collapsed">links</div>
+        <div class="box_text links">
+          {% include links.html %}
+        </div>
+        <div class="box_bottom"></div>
       </div>
     </div>
-    <!-- end column-right -->
-    <div id="bottom"></div>
+
   </div>
   <!-- end content -->
 </div>
 <!-- end wrap -->
 <div id="footer">
-  <p><a href="/index.html" title="Home"><span>home</span></a> : <a href="/about.html" title="About">about</a> : <a href="/projects.html" title="Projects">projects</a> : <a href="/archives.html" title="Archives">archives</a></p>
   <p><a href="http://www.dreamhost.com/green.cgi?tritarget.org"><img border="0" alt="Green Web Hosting! This site hosted by DreamHost." src="https://secure.newdream.net/green3.gif" height="15" width="80" valign="middle" /></a> : Copyright &copy; 2010 Devin Weaver : Design by <a class="email" href="mailto:jsepulveda@gmail.com">Justin Sepulveda</a></p>
 </div>
 

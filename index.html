@@ -2,12 +2,13 @@
 layout: default
 subpageTitle: Home
 ---
-{{ site.topicTitlePre }} Recent Activity {{ site.topicTitlePost }}
+<h2 class="title_blue"> Recent Activity </h2>
 {% for post in site.posts limit:5 %}
-    {{ site.topicSubtitlePre }} {{ post.title }} - {{ post.date | date_to_string }} {{ site.topicSubtitlePost }}
+  <div class="post_summery">
+    <h4 class="news_date"><a href="{{ post.url }}">{{ post.title }} - {{ post.date | date_to_string }}</a></h4>
     {% capture blob %}{{ post.content | strip_html | strip_newlines | truncate: 450 }}{% endcapture %}
-    <p class="blob">{{ blob }}</p>
-    <p>
+    <p class="news_text blob">{{ blob }}</p>
+    <p class="news_more">
     {% if site.disqusComments %}
         <a class="comment" href="{{ post.url }}#disqus_thread">comment</a>
         {% if blob.size >= 450 %} : {% endif %}
@@ -15,4 +16,5 @@ subpageTitle: Home
     {% if blob.size >= 450 %}<a class="more" href="{{ post.url }}">Read More &raquo;</a>{% endif %}
     </p>
     <!-- <p align="right">&raquo; <a href="#">back to top</a></p> -->
+  </div>
 {% endfor %}

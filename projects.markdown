@@ -3,7 +3,8 @@ layout: default
 title: Projects
 subpageTitle: Projects
 ---
-{{ site.topicTitlePre }} Projects {{ site.topicTitlePost }}
+Projects
+--------
 
 These are some of the projects I am working on or have worked on.
 
