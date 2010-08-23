@@ -1,31 +1,23 @@
-var site = function() {
+var site = {};
 
-    return {
-        initCollapsibleDivs : function () {
-            var titleDiv;
-            var contentDiv;
-            $('#column-right > div').each(function() {
-                titleDiv = $('.column-right-title', this);
-                contentDiv = $('.column-right-content', this);
-                console.log(this);
-                titleDiv.click(function(){
-                    contentDiv.slideToggle();
-                    contentDiv.toggleClass("content-visible");
-                    if (contentDiv.hasClass("content-visible"))
-                    {
-                        $('.headerLine', this).html("-------------");
-                    }
-                    else
-                    {
-                        $('.headerLine', this).html("+++++++++++++");
-                    }
-                });
+// Function: initCollapsibleDivs() {{{1
+site.initCollapsibleDivs = function () {
+    $(".box_top").each(function() {
+        $(this).click(function() {
+            $(this).siblings(".box_text").slideToggle("fast", function() {
+                $(this).siblings(".box_bottom").toggle();
             });
-        },
+            $(this).toggleClass("collapsed");
+        });
+    });
+};
 
-        collapseAll : function () {
-            $('.column-right-content').hide();
-        }
-    };
+// Function: collapseDivs() {{{1
+site.collapseDivs = function () {
+    $(".box_top.collapsed").each(function() {
+        $(this).siblings(".box_text").hide();
+        $(this).siblings(".box_bottom").hide();
+    });
+};
 
-}();
+/* vim:set sw=4 ts=4 et fdm=marker: */
