@@ -23,7 +23,6 @@
 
 <!-- Load jQuery -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
-<!-- <script src="http://github.com/sukima/skiQuery/raw/master/skiQuery.js" type="text/javascript"></script> -->
 
 {% if site.enableScreenSaver %}
 <script language="javascript" type="text/javascript" src="http://www.onlineleaf.com/savetheenvironment.js"> </script>
@@ -84,6 +83,11 @@ google.setOnLoadCallback(OnLoad);
     $(document).ready(function() {
         site.initCollapsibleDivs();
         site.collapseDivs();
+        site.initDialogBoxes();
+
+        {% if site.enableSki %}
+        site.initKonamiCode();
+        {% endif %}
     });
 </script>
 
@@ -160,6 +164,15 @@ google.setOnLoadCallback(OnLoad);
 //]]>
 </script>
 {% endif %}
+
+<div id="dialog-boxes">  
+    <!-- #customize your modal window here -->  
+    {% if site.enableSki %}
+    <div id="game" class="window"></div>  
+    {% endif %}
+    <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->    
+    <div id="mask"></div>  
+</div>  
 
 </body>
 </html>
