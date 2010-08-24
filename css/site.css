@@ -1,5 +1,5 @@
 /* GitHub fork me */
-#forkme { position: absolute; top: 0; right: 0; border: 0; z-index: 5000; }
+#forkme { position: absolute; top: 0; right: 0; border: 0; z-index: 10; }
 #forkme img { border: none; }
 #forkme-text { display: none; }
 
@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Z-index of #mask must lower than #boxes .window */  
 #mask {  
   position:absolute;  
-  z-index:9000;  
+  z-index:90;  
   background-color:#000;  
   display:none;  
 }  
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
   height:400px;  
   overflow: scroll;
   display:none;  
-  z-index:9999;  
+  z-index:99;  
   padding:20px;  
   text-align: left;
 }  
