@@ -1,3 +1,7 @@
+require "rake/clean"
+
+CLEAN.include "_site"
+
 def jekyll(opts = "", path = "/usr/bin/")
   sh "rm -rf _site"
   sh path + "jekyll " + opts
@@ -37,4 +41,23 @@ namespace :deploy do
   def rsync(location)
     sh "rsync -rtz --delete _site/ #{location}/"
   end
+end
+
+desc "Create a new blog post"
+task :blog do
+  print "Please enter in the title of the blog post: "
+  title = $stdin.gets.chomp.strip
+  name = title.gsub(/\s+/, '-')
+  name = name.gsub(/[^a-zA-Z0-9_-]/, "").downcase
+  time = Time.now.strftime("%Y-%m-%d")
+  File.open("_posts/#{time}-#{name}.markdown", "w+") do |file|
+    file.puts <<-EOF
+--- 
+title: #{title}
+layout: post
+tags:
+---
+    EOF
+  end
+  puts "Created '_posts/#{time}-#{name}.markdown'"
 end
