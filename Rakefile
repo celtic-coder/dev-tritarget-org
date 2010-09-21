@@ -44,20 +44,21 @@ namespace :deploy do
 end
 
 desc "Create a new blog post"
-task :blog do
+task :post do
   print "Please enter in the title of the blog post: "
   title = $stdin.gets.chomp.strip
   name = title.gsub(/\s+/, '-')
   name = name.gsub(/[^a-zA-Z0-9_-]/, "").downcase
   time = Time.now.strftime("%Y-%m-%d")
-  File.open("_posts/#{time}-#{name}.markdown", "w+") do |file|
+  Dir.mkdir("_drafts") unless File::exists?("_drafts")
+  File.open("_drafts/#{time}-#{name}.markdown", "w+") do |file|
     file.puts <<-EOF
 --- 
 title: #{title}
 layout: post
-tags:
+tags: [ ]
 ---
     EOF
   end
-  puts "Created '_posts/#{time}-#{name}.markdown'"
+  puts "Created '_drafts/#{time}-#{name}.markdown'"
 end

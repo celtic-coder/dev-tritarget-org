@@ -19,3 +19,4 @@ enableGoogleSearch: true
 enableTwitter: true
 enableSki: true
 debug: false
+theme: redmond
