@@ -36,7 +36,7 @@ My final solution was to use gmail's awesome mobile app. But that was slow and
 since I had two gmail accounts (one for work and one for home) it was a pain
 to have to log in and out each time. I found this great app called
 [mailroom][] which fixes all those issues. It is like [mailplane][] for the
-iPhone. It basically opens the gmail mobil email app inside and then saves it
+iPhone. It basically opens the gmail mobile email app inside and then saves it
 to a cache so that it opens fast and with a better interface. It also allows
 multiple gmail accounts. Perfect!
 
