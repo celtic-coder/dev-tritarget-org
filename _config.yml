@@ -13,7 +13,7 @@ maruku:
 googleSiteSearch: 'dev.tritarget.org'
 url: 'http://dev.tritarget.org'
 postImagesPath: '/images/post_images'
-enableScreenSaver: true
+enableScreenSaver: false
 enableDisqusComments: true
 enableGoogleSearch: true
 enableTwitter: true

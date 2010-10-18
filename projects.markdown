@@ -16,3 +16,8 @@ These are some of the projects I am working on or have worked on.
   Mode (Incude missing pre block) (Add jekyll YAML support)
 - [skiQuery](http://sukima.github.com/skiQuery/) - A JavaScript port of the old
   classic command-line game ski.
+- [SimNotify](http://sukima.github.com/SimNotify/) - A Ruby on Rails scheduling
+  program for medical simulation centers. This app is very site specific for a
+  simulation center that I work for. This project is my attempt to allow people
+  to schedule a simulation by entering in key data needed and the
+  administrators can place that scheduled session on a calendar.
