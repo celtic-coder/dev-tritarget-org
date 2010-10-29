@@ -11,18 +11,17 @@ programming and wanted a company name that was kinda catchy. When I made a few
 programs in [BASIC][] I would brand them with __TriTarget__ as a way to show
 my company (Even though I didn't have one).
 
-After highschool I began college as a computer scientists. Partly through I
+After high school I began college as a computer scientist. Part way through I
 scored a job as a computer programmer and continued that path for about 6
 years. During the dot com burst I was laid off and left to fend in a world were
 software development was not a valued commodity anymore (too many fish in the
-sea). I began work as an electricion for about 3 years while I trained to be an
-[EMT][] I began that carreer in the medical field where I expanded my knowledge
-into a paramedic. I finished my associates degree and after 10 years in the
-medical field I found a job at a top hospital as a medical simulation
-technition.
+sea). I began work as an electrician for about 3 years while I trained to be an
+[EMT][]. I began that career in the medical field where I eventually became a
+Paramedic. I finished my associates degree and after 10 years in the medical
+field I found a job at a top hospital as a medical simulation technician.
 
-I am currently manageing the technical department for our simulation center and
-am in school to complete my batchulars in science with a major in information
+I am currently managing the technical department for our simulation center and
+am in school to complete my bachelors in science with a major in information
 systems. My goal is to develop the skills to design and develop software for
 the medical community based on good human user interface design.
 
