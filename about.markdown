@@ -3,6 +3,12 @@ layout: default
 title: About Me
 subpageTitle: About
 ---
+<div class="ui-widget" style="text-align:center; font-size:0.6em">
+<div class="ui-state-highlight ui-corner-all">
+Have you tried using the <a href="http://en.wikipedia.org/wiki/Konami_code">Konami code</a> on this site?
+</div>
+</div>
+
 About Me
 --------
 
