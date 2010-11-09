@@ -4,7 +4,7 @@ CLEAN.include "_site"
 
 def jekyll(opts = "", path = "/usr/bin/")
   sh "rm -rf _site"
-  sh path + "jekyll " + opts
+  sh path + "ejekyll " + opts
 end
 
 desc "Build site using Jekyll"
@@ -14,11 +14,11 @@ end
 
 desc "Serve on Localhost with port 4000"
 task :default do
-  jekyll("--server --auto --growl")
+  jekyll("--server --auto")
 end
 
 task :stable do
-  jekyll("--server --auto --growl", "")
+  jekyll("--server --auto", "")
 end
 
 desc "Deploy to Dev"
