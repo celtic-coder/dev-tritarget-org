@@ -2,7 +2,7 @@ require "rake/clean"
 
 CLEAN.include "_site"
 
-def jekyll(opts = "", path = "/usr/bin/")
+def jekyll(opts = "", path = "")
   sh "rm -rf _site"
   sh path + "ejekyll " + opts
 end
