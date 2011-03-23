@@ -123,37 +123,51 @@ body {
 }
 
 /*TABLE*/
-.panel_box{
+/*
+ * [> Not needed <]
+ * .panel_box{
+ *     width: 204px;
+ * }
+ */
+#panel {
     width: 204px;
 }
-.box_top {
-    width: 100%;
+#panel .panel_box {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.box_top, #panel .box_top {
+    /* width: 100%; */
     height: 27px;
     margin: 0;
+    padding: 0;
     text-align: center;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 12px;
     font-weight: bold;
     background-image: url(../images/aqua/table_top.jpg);
     background-repeat: no-repeat;
+    border: none;
 }
-.box_text {
-    width: 100%;
+.box_text, #panel .box_text {
+    /* width: 100%; */
     margin: 0;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px;
     text-align: justify;
+    border: none;
     background-image: url(../images/aqua/table_content.jpg);
     background-repeat: repeat-y;
 }
-.box_bottom {
+.box_bottom, #panel .box_bottom {
     width: 100%;
     height: 23px;
     margin: 0 0 10px 0;
     background-image: url(../images/aqua/table_bottom.jpg);
     background-repeat: no-repeat;
+    border: none;
 }
-.collapsed {
+#panel .collapsed {
     background-image: url(../images/aqua/table_collapsed.jpg);
 }
 
