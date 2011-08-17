@@ -1,25 +1,41 @@
 require "rake/clean"
 
+DEVELOPMENT_URI = "$HOME/Sites/dev.tritarget.org"
+PRODUCTION_URI = "ktohg@tritarget.org:dev.tritarget.org"
+
 CLEAN.include "_site"
+CLOBBER.include "_includes/*.html_frag"
 
 def jekyll(opts = "", path = "")
   sh "rm -rf _site"
-  sh path + "ejekyll " + opts
+  sh path + "jekyll " + opts
 end
 
-desc "Build site using Jekyll"
-task :build do
-  jekyll
+namespace :build do
+  desc "Build markdown include files manually"
+  task :includes do
+    Dir.glob("_includes/*.md").each do |f|
+      sh "maruku --html-frag #{f}"
+    end
+  end
+
+  desc "Build site using Jekyll"
+  task :site do
+    jekyll
+  end
 end
+
+desc "Build both site and includes"
+task :build => [:"build:includes", :"build:site"]
 
 desc "Serve on Localhost with port 4000"
-task :default do
+task :default => :"build:includes" do
   jekyll("--server --auto")
 end
 
-task :stable do
-  jekyll("--server --auto", "")
-end
+# task :stable => :"build:includes" do
+  # jekyll("--server --auto", "")
+# end
 
 desc "Deploy to Dev"
 task :deploy => :"deploy:live"
@@ -27,12 +43,12 @@ task :deploy => :"deploy:live"
 namespace :deploy do
   desc "Deploy to Dev"
   task :dev => :build do
-    rsync "$HOME/Sites/dev.tritarget.org"
+    rsync DEVELOPMENT_URI
   end
   
   desc "Deploy to Live"
   task :live => :build do
-    rsync "ktohg@tritarget.org:dev.tritarget.org"
+    rsync PRODUCTION_URI
   end
   
   desc "Deploy to Dev and Live"
@@ -51,14 +67,15 @@ task :post do
   name = name.gsub(/[^a-zA-Z0-9_-]/, "").downcase
   time = Time.now.strftime("%Y-%m-%d")
   Dir.mkdir("_drafts") unless File::exists?("_drafts")
-  File.open("_drafts/#{time}-#{name}.markdown", "w+") do |file|
+  File.open("_drafts/#{time}-#{name}.md", "w+") do |file|
     file.puts <<-EOF
 --- 
-title: #{title}
 layout: post
+title: #{title}
 tags: [ ]
+author: 
 ---
     EOF
   end
-  puts "Created '_drafts/#{time}-#{name}.markdown'"
+  puts "Created '_drafts/#{time}-#{name}.md'"
 end
