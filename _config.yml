@@ -12,6 +12,10 @@ maruku:
   png_url:    /images/latex
 googleSiteSearch: 'dev.tritarget.org'
 url: 'http://dev.tritarget.org'
+title: TriTarget Development
+author:
+  name: Devin Weaver (Sukima)
+  email: suki@tritarget.org
 postImagesPath: '/images/post_images'
 enableScreenSaver: false
 enableDisqusComments: true
