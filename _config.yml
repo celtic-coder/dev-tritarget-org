@@ -10,17 +10,32 @@ maruku:
   use_divs:   true
   png_dir:    images/latex
   png_url:    /images/latex
-googleSiteSearch: 'dev.tritarget.org'
+postImagesPath: '/images/post_images'
 url: 'http://dev.tritarget.org'
 title: TriTarget Development
 author:
   name: Devin Weaver (Sukima)
   email: suki@tritarget.org
-postImagesPath: '/images/post_images'
-enableScreenSaver: false
-enableDisqusComments: true
-enableGoogleSearch: true
-enableTwitter: true
-enableSki: true
 debug: false
 theme: redmond
+
+# features:
+google:
+  analytics:
+    enabled: false
+    id: "UA-25176709-2"
+  search:
+    enabled: true
+    domain: "dev.tritarget.org"
+
+screenasver:
+  enabled: true
+
+disqus:
+  enabled: true
+
+ski:
+  enabled: true
+
+twitter:
+  enabled: true

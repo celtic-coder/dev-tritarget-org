@@ -29,12 +29,12 @@
 <link href="/css/syntax.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="/css/site.css" rel="stylesheet" type="text/css" media="screen" />
 
-{% if site.enableScreenSaver %}
+{% if site.screensaver.enabled %}
 <script language="javascript" type="text/javascript" src="http://www.onlineleaf.com/savetheenvironment.js"> </script>
 {% endif %}
 
 {% include debug.html %}
-{% if site.enableDisqusComments %}
+{% if site.disqus.enabled %}
 <script language="javascript">
     <!--
     var disqus_developer = site_debug;
@@ -42,7 +42,7 @@
 </script>
 {% endif %}
 
-{% if site.enableGoogleSearch %}
+{% if site.google.search.enabled %}
 <!-- Google API -->
 <script src="http://www.google.com/jsapi?key=ABQIAAAAqE6xAHX7wy0-s7qeRu49YxTgYSfghEm3OBKNO_2I0le4aTTIchRtUkDNZB6DhL23OdwaRr-MgcZ11A" type="text/javascript"></script>
 <script language="Javascript" type="text/javascript">
@@ -64,7 +64,7 @@ function GoogleOnLoad() {
     var siteSearch = new google.search.WebSearch();
     siteSearch.setUserDefinedLabel("Site Search");
     siteSearch.setUserDefinedClassSuffix("siteSearch");
-    siteSearch.setSiteRestriction("{{ site.googleSiteSearch }}");
+    siteSearch.setSiteRestriction("{{ site.google.search.domain }}");
     searchControl.addSearcher(siteSearch);
     searchControl.addSearcher(new google.search.WebSearch());
     searchControl.addSearcher(new google.search.VideoSearch());
@@ -104,12 +104,15 @@ function GoogleOnLoad() {
         });
         site.initDialogBoxes();
 
-        {% if site.enableSki %}
+        {% if site.ski.enabled %}
         site.initKonamiCode();
         {% endif %}
     });
 </script>
 
+{% if site.google.analytics.enabled %}
+{% include google_analytics.html %}
+{% endif %}
 </head>
 <body>
     <div id="forkme">
@@ -137,11 +140,11 @@ function GoogleOnLoad() {
   <div id="content">
     <div id="contenttext">
       {{ content }}
-      {% if site.enableGoogleSearch %}<p id="searchcontainer"><div id="searchcontrol">Loading...</div></p>{% endif %}
+      {% if site.google.search.enabled %}<p id="searchcontainer"><div id="searchcontrol">Loading...</div></p>{% endif %}
     </div>
 
     <div id="panel">
-      {% if site.enableTwitter %}
+      {% if site.twitter.enabled %}
       <div class="box_top">twitter</div>
       <div class="panel_box">
         <div id="twitter" class="box_text">
@@ -168,7 +171,7 @@ function GoogleOnLoad() {
   <p><a href="http://www.dreamhost.com/green.cgi?tritarget.org"><img border="0" alt="Green Web Hosting! This site hosted by DreamHost." src="https://secure.newdream.net/green3.gif" height="15" width="80" valign="middle" /></a> : Copyright &copy; 2010 Devin Weaver : Design by <a class="email" href="mailto:jsepulveda@gmail.com">Justin Sepulveda</a></p>
 </div>
 
-{% if site.enableDisqusComments %}
+{% if site.disqus.enabled %}
 <script type="text/javascript">
 //<![CDATA[
 (function() {
@@ -187,7 +190,7 @@ function GoogleOnLoad() {
 
 <div id="dialog-boxes">  
     <!-- #customize your modal window here -->  
-    {% if site.enableSki %}
+    {% if site.ski.enabled %}
     <div id="game" class="window"></div>  
     {% endif %}
     <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->    
