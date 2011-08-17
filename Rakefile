@@ -73,7 +73,7 @@ task :post do
 layout: post
 title: #{title}
 tags: [ ]
-author: 
+author: Sukima
 ---
     EOF
   end
