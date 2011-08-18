@@ -22,7 +22,7 @@ theme: redmond
 # features:
 google:
   analytics:
-    enabled: false
+    enabled: true
     id: "UA-25176709-2"
   search:
     enabled: true
