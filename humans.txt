@@ -1,0 +1,18 @@
+--- 
+layout: nil
+--- 
+/* TEAM */
+Author, Designer, Programmer: Devin Weaver
+Site: https://plus.google.com/104981501099138892251
+Twitter: sukima
+Location: New Haven, CT, USA
+
+Layout Design by Justin Sepulveda (jsepulveda@gmail.com)
+                            
+
+/* SITE */
+Last Updated: {{ site.time }}
+Standards: HTML4, CSS2, Markdown
+Components: jQuery, jQuery-UI, Disqus
+Software: Jekyll, Maruku, VIM
+Source: https://github.com/sukima/dev-tritarget-org
