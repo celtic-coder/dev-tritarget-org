@@ -95,6 +95,7 @@ function GoogleOnLoad() {
         $("#panel").accordion({
             header: ".box_top",
             icons: false,
+            autoHeight: false,
             changestart: function (event, ui) {
                 ui.newHeader.removeClass('collapsed');
             },
