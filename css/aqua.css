@@ -99,13 +99,16 @@ body {
     /* font-family: Verdana, Arial, Helvetica, sans-serif; */
     font-size: 0.6em;
     font-weight: bold;
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
 }
 #footer p,
 #footer div {
     margin: 0;
-    height: 15px;
-    padding-top: 10px;
+    /* height: 15px; */
+    padding-top: 1px;
+}
+#footer .under-footer-text {
+    color: #000000;
 }
 #footer img {
     vertical-align: middle;
@@ -115,7 +118,7 @@ body {
     /* font-family: Verdana, Arial, Helvetica, sans-serif; */
     /* font-size: 10px;                                    */
     font-weight: bold;
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
     text-decoration: none;
 }
 #footer a:hover {
