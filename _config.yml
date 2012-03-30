@@ -65,6 +65,9 @@ default_asides:
 #   3rd Party Settings    #
 # ----------------------- #
 
+# Jquery Theme
+jqueryui_theme: base
+
 # Github repositories
 github_user: sukima
 github_repo_count: 4

@@ -2,12 +2,12 @@ var site = {};
 
 // Function: initCollapsibleDivs() {{{1
 site.initCollapsibleDivs = function () {
-    $(".box_top").each(function() {
-        $(this).click(function() {
-            $(this).siblings(".box_text").slideToggle("fast", function() {
-                $(this).siblings(".box_bottom").toggle();
+    jQuery(".box_top").each(function() {
+        jQuery(this).click(function() {
+            jQuery(this).siblings(".box_text").slideToggle("fast", function() {
+                jQuery(this).siblings(".box_bottom").toggle();
             });
-            $(this).toggleClass("collapsed");
+            jQuery(this).toggleClass("collapsed");
         });
     });
 };
@@ -15,85 +15,92 @@ site.initCollapsibleDivs = function () {
 // Function: initDialogBoxes() {{{1
 site.initDialogBoxes = function () {
     // Set div to correct location in layout
-    $("#dialog-boxes").appendTo("body");
+    jQuery("#dialog-boxes").appendTo("body");
 
     //if close button is clicked
-    $('.window .close').click(function (e) {
+    jQuery('.window .close').click(function (e) {
         //Cancel the link behavior
         e.preventDefault();
-        $('#mask, .window').hide();
+        jQuery('#mask, .window').hide();
     });
 
     //if mask is clicked
-    $('#mask').click(function () {
-        $(this).hide();
-        $('.window').hide();
+    jQuery('#mask').click(function () {
+        jQuery(this).hide();
+        jQuery('.window').hide();
     });
+};
+
+// Function: keyed() {{{1
+site.keyed = function (e) {
+    site.kkeys.push( e.keyCode );
+    if ( site.kkeys.toString().indexOf( site.konami ) >= 0 ){
+        site.openDialog("#game");
+
+        if ( typeof SKI != "undefined" )
+        {
+            SKI.run(jQuery("#game"));
+        }
+        else
+        {
+            jQuery.getScript("http://github.com/sukima/skiQuery/raw/master/skiQuery.js", function() {
+                SKI.run(jQuery("#game"))
+            });
+        }
+
+        site.kkeys = [];
+        return false;
+    }
+    // Prevent an ever growing array
+    if ( site.kkeys.length > 10 )
+        site.kkeys.shift();
+    return true;
 };
 
 // Function: initKonamiCode() {{{1
 site.initKonamiCode = function () {
     site.kkeys = [];
     site.konami = "38,38,40,40,37,39,37,39,66,65";
-    $(document).keydown(function(e) {
-        site.kkeys.push( e.keyCode );
-        if ( site.kkeys.toString().indexOf( site.konami ) >= 0 ){
-            site.openDialog("#game");
-
-            if ( typeof SKI != "undefined" )
-            {
-                SKI.run($("#game"));
-            }
-            else
-            {
-                $.getScript("http://github.com/sukima/skiQuery/raw/master/skiQuery.js", function() {
-                    SKI.run($("#game"))
-                });
-            }
-
-            site.kkeys = [];
-            return false;
-        }
-        // Prevent an ever growing array
-        if ( site.kkeys.length > 10 )
-            site.kkeys.shift();
-        return true;
-    });
+    if (jQuery.browser.mozilla) {
+        jQuery(document).keypress (site.keyed);
+    } else {
+        jQuery(document).keydown (site.keyed);
+    }
 };
 
 // Function: collapseDivs() {{{1
 site.collapseDivs = function () {
-    $(".box_top.collapsed").each(function() {
-        $(this).siblings(".box_text").hide();
-        $(this).siblings(".box_bottom").hide();
+    jQuery(".box_top.collapsed").each(function() {
+        jQuery(this).siblings(".box_text").hide();
+        jQuery(this).siblings(".box_bottom").hide();
     });
 };
 
 // Function: openDialog() {{{1
 site.openDialog = function (id) {
     //Get the screen height and width
-    var maskHeight = $(document).height();
-    var maskWidth = $(window).width();
+    var maskHeight = jQuery(document).height();
+    var maskWidth = jQuery(window).width();
 
     //Set height and width to mask to fill up the whole screen
-    $('#mask').css({'width':maskWidth,'height':maskHeight});
+    jQuery('#mask').css({'width':maskWidth,'height':maskHeight});
     //Set the position to the top of the page
-    $('#mask').css({'top':0,'left':0});
+    jQuery('#mask').css({'top':0,'left':0});
 
     //transition effect
-    $('#mask').fadeIn(1000);
-    $('#mask').fadeTo("slow",0.8);
+    jQuery('#mask').fadeIn(1000);
+    jQuery('#mask').fadeTo("slow",0.8);
 
     //Get the window height and width
-    var winH = $(window).height();
-    var winW = $(window).width();
+    var winH = jQuery(window).height();
+    var winW = jQuery(window).width();
 
     //Set the popup window to center
-    $(id).css('top', winH/2-$(id).height()/2);
-    $(id).css('left', winW/2-$(id).width()/2);
+    jQuery(id).css('top', winH/2-jQuery(id).height()/2);
+    jQuery(id).css('left', winW/2-jQuery(id).width()/2);
 
     //transition effect
-    $(id).fadeIn(2000);
+    jQuery(id).fadeIn(2000);
 }
 
 /* vim:set sw=4 ts=4 et fdm=marker: */
