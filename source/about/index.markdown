@@ -1,10 +1,10 @@
 ---
 layout: page
-title: "About"
+title: "About Me"
 date: 2012-03-29 16:54
-comments: true
+comments: false
 sharing: true
-footer: true
+footer: false
 ---
 <div class="ui-widget" style="text-align:center; font-size:0.6em">
 <div class="ui-state-highlight ui-corner-all">
