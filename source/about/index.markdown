@@ -12,9 +12,6 @@ Have you tried using the <a href="http://en.wikipedia.org/wiki/Konami_code">Kona
 </div>
 </div>
 
-About Me
---------
-
 TriTarget.org is a name I came up with in high school. I was big into computer
 programming and wanted a company name that was kinda catchy. When I made a few
 programs in [BASIC][] I would brand them with __TriTarget__ as a way to show
@@ -34,8 +31,7 @@ am in school to complete my bachelors in science with a major in information
 systems. My goal is to develop the skills to design and develop software for
 the medical community based on good human user interface design.
 
-What is Medical Simulation?
----------------------------
+## What is Medical Simulation?
 Medical simulation is a term I use to describe what I do. The premise is the
 doctors and nurses and students will enter a scenario or classroom with a high
 fidelity manikin that is capable of simulating many form of medical cases. I
