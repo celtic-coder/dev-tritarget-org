@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Save the astronauts tether those pointers - TriTarget</title>
+  <meta name="author" content="Devin Weaver">
+
+  
+  <meta name="description" content="I think a lot of confusion comes from the idea of pointers and release
+responsibility. I find it is best to think of pointers as tether
+lines. Like &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tritarget.org/blog/2009/10/10/save-the-astronauts-tether-those-pointers">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="TriTarget" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<!-- Load jQuery -->
+<!-- <link rel="stylesheet" href="/css//jquery-ui.css" type="text/css" media="all" /> -->
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes//jquery-ui.css" type="text/css" media="all"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<!-- Custom Scripts -->
+<script language="javascript" type="text/javascript" src="/javascripts/site.js"> </script>
+<script language="Javascript" type="text/javascript">
+    $(document).ready(function() {
+        site.initDialogBoxes();
+
+        site.initKonamiCode();
+    });
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30456823-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">TriTarget</a></h1>
+  
+    <h2>A blog of personal quality</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tritarget.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/badges">Badges</a></li>
+  <li><a href="/projects">Codeing</a></li>
+  <li><a href="http://photos.tritarget.org/">Photography</a></li>
+  <li><a href="/stories">Creative Writing</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Save the Astronauts Tether Those Pointers</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-10T00:00:00-04:00" pubdate data-updated="true">Oct 10<span>th</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I think a lot of confusion comes from the idea of pointers and release
+responsibility. I find it is best to think of pointers as tether
+lines. Like in space the astronauts need to be very careful to
+maintain their tether lines or else the astronaut will float way and
+die a horrible death. Pointers are very much like that. The object you
+alloc/init is your astronaut and the variable (pointer) you assign it
+to is your first tether line. Now when you retain the object it
+created another tether line.</p>
+
+<div>
+  <pre>
+    <code class='objc'>// obj is now tethered to a spot on the space shuttle. 
+NSObject *obj = [[NSObject alloc] init];
+ 
+// Another tether line has just been tied to the SAME
+// EXACT HOOK on the shuttle craft. 
+[obj retain]; 
+
+// You just removed one of the tethers. Since there is
+// another one still attached you don't attempt to
+// being the astronaut back inside. 
+[obj release]; 
+
+// You just sawed off the one hook you had and the
+// astronaut and the last tether line is floating far
+// away to die a horrible death. 
+obj = nil; 
+
+// A new astronaut has been attached to tether line
+// attached to the shuttle craft. You have also just
+// told the maintenance droid that when it is done
+// swabbing the deck to cut only the tether line you
+// just made. If that's the last line get the astronaut
+// inside if not let the astronaut float some more with
+// the other tether lines. 
+obj = [[[NSObject alloc] init] autorelease]; 
+
+// You have just attached another tether line to the
+// astronaut however this time the new tether line is
+// not attached to the same hook but to another
+// astronaut floating around. 
+NSMutableArray *array = [[NSMutableArray alloc] init]; 
+[array addObject:obj]; 
+
+// The maintenance droid has finished it's tasks (run
+// loop complete pool is released) so it cuts the
+// designated tether line. However there was another
+// line that array attached to in its addObject: method
+// so the astronaut doesn't float away. In other words
+// array is responsible for the astronaut now and the
+// original code doesn't care. What this does is tell
+// you were the hook that holds the tether line is
+// allowing you to pull the astronaut in to talk and
+// let go without him floating away. It doesn't add a
+// tether or remove one it simple says &quot;here I am&quot; If
+// you want to not loose where the astronaut is then
+// you have to take ownership by adding another tether
+// line of your own so that when array cut it's tether
+// line you still have the astronaut. 
+NSObject *another_object = [array objectAtIndex:1]; 
+[another_object retain]; 
+
+// Second tether line cut. array still has one.
+// Astronaut safe. 
+[another_object release]; 
+
+// And finally when you cut array's tether line both
+// astronauts are brought in safely. The last line
+// attached to array is pulled in and removed. Just
+// before array goes inside he pulls in the original
+// astronaut still attached to himself. 
+[array release];</code>
+  </pre>
+</div>
+
+
+<p>When you alloc/init you own that object it is your responsibility to
+either release it appropriately or pass on the responsibility to
+another object. NSArray will take one the responsibility (addObject:)
+but it will not give that responsibility back (objectAtIndex:) when it
+returns the object from objectAtIndex: it is your responsibility to
+either not worry about it as you don&#8217;t need the object later. or if
+you do to retain it yourself so that when array goes away it doesn&#8217;t
+take you object that you made yourself responsible for away under your
+nose.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Devin Weaver</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-10T00:00:00-04:00" pubdate data-updated="true">Oct 10<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tritarget.org/blog/2009/10/10/save-the-astronauts-tether-those-pointers/" data-via="sukima" data-counturl="http://tritarget.org/blog/2009/10/10/save-the-astronauts-tether-those-pointers/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/07/22/bug-tracking/" title="Previous Post: Bug tracking">&laquo; Bug tracking</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/02/04/jekyll-on-dreamhost/" title="Next Post: Jekyll on Dreamhost">Jekyll on Dreamhost &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+<section>
+  <img src="http://gravatar.com/avatar/a33233f156a5531707f130c28565de69" alt="Gravatar image" title="Gravatar Image" />
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/weaver.devin@gmail.com?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/08/17/im-getting-married-no-really/">I'm getting married no really</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/02/24/do-presentations-need-to-be-this-complicated/">Do presentations need to be this complicated?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/01/11/keeping-track-of-your-todo/">Keeping track of your todo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/10/26/source-code-is-not-documentation/">Source code is NOT documentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/10/18/why-is-testing-so-hard/">Why is testing so hard</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("sukima", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/sukima" class="twitter-follow-button" data-show-count="false">Follow @sukima</a>
+  
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/sukima">@sukima</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sukima',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="flickr">
+<h1>Flickr</h1>
+<style type="text/css">
+	#flickrList li{ text-align: center; }
+</style>
+<ul id="flickrList"></ul>
+
+<script lang="Javascript">
+var flickrNickname = "SirSuki";
+
+function jsonFlickrApi(rsp) {
+
+	if (rsp.stat != "ok"){
+  		return;
+ 	}
+
+ 	var list = "";
+
+ 	for (var i=0; i < rsp.photos.photo.length; i++) {
+ 	
+  		var photo    = rsp.photos.photo[i];
+  		var imgUrl   = 'http://farm'+ photo.farm +'.static.flickr.com/'+ photo.server +'/'+ photo.id +'_'+ photo.secret +'_m.jpg';
+  		var photoUrl = 'http://www.flickr.com/photos/'+ flickrNickname +'/'+ photo.id;
+
+  		list += '<li id="flickrItem_'+i+'"><a href="'+ photoUrl +'" title="'+ photo.title +'"><img alt="'+ photo.title +'" src="'+ imgUrl +'" /></a></li>';
+ 	}
+ 	
+ 	list += '<li class="flickrLink"><a href="http://www.flickr.com/photos/'+ flickrNickname + '">Flickr page</a></li>';
+ 	
+ 	document.getElementById('flickrList').innerHTML = list;
+}
+</script>
+<script lang="Javascript" src="http://api.flickr.com/services/rest/?format=json&method=flickr.photos.search&user_id=55325630@N02&per_page=5&api_key=631ea8b903507b0dedec09169d5774e5"></script>
+
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Devin Weaver -
+  <a href="/humans.txt"><img class="bottom-img" src="/images/humanstxt.png" alt="humans.txt" width="88" height="31" /></a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'devtritargetorg';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tritarget.org/blog/2009/10/10/save-the-astronauts-tether-those-pointers/';
+        var disqus_url = 'http://tritarget.org/blog/2009/10/10/save-the-astronauts-tether-those-pointers/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+<!-- Easter egg dialog -->
+<div id="dialog-boxes">  
+    <!-- #customize your modal window here -->  
+    <div id="game" class="window"></div>  
+    <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->    
+    <div id="mask"></div>  
+</div>  
+
+
+</body>
+</html>

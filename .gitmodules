@@ -1,6 +1,0 @@
-[submodule "_extensions/my_jekyll_extensions"]
-	path = _extensions/my_jekyll_extensions
-	url = https://github.com/rfelix/my_jekyll_extensions.git
-[submodule "_extensions/haml-jekyll-extension"]
-	path = _extensions/haml-jekyll-extension
-	url = https://github.com/codegram/haml-jekyll-extension.git

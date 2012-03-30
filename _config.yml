@@ -1,41 +1,116 @@
-destination: ./_site
-auto:        false
-lsi:         false
-server_port: 4000
-pygments:    true
-markdown:    maruku
-permalink:   date
-maruku:
-  use_tex:    false
-  use_divs:   true
-  png_dir:    images/latex
-  png_url:    /images/latex
-postImagesPath: '/images/post_images'
-url: 'http://dev.tritarget.org'
-title: TriTarget Development
-author:
-  name: Devin Weaver (Sukima)
-  email: suki@tritarget.org
-debug: false
-theme: redmond
+# ----------------------- #
+#      Main Configs       #
+# ----------------------- #
 
-# features:
-google:
-  analytics:
-    enabled: true
-    id: "UA-25176709-2"
-  search:
-    enabled: true
-    domain: "dev.tritarget.org"
+url: http://tritarget.org
+title: TriTarget
+subtitle: A blog of personal quality
+author: Devin Weaver
+simple_search: http://google.com/search
+description: "My personal blog of random musings. From software development to creative writing to just what's on my mind."
 
-screenasver:
-  enabled: true
+# Default date format is "ordinal" (resulting in "July 22nd 2007")
+# You can customize the format as defined in
+# http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
+# Additionally, %o will give you the ordinal representation of the day
+date_format: "ordinal"
 
-disqus:
-  enabled: true
+# RSS / Email (optional) subscription links (change if using something like Feedburner)
+subscribe_rss: /atom.xml
+subscribe_email:
+# RSS feeds can list your email address if you like
+email:
 
-ski:
-  enabled: true
+# ----------------------- #
+#    Jekyll & Plugins     #
+# ----------------------- #
 
-twitter:
-  enabled: true
+# If publishing to a subdirectory as in http://site.com/project set 'root: /project'
+root: /
+permalink: /blog/:year/:month/:day/:title/
+source: source
+destination: public
+plugins: plugins
+code_dir: downloads/code
+category_dir: blog/categories
+markdown: rdiscount
+pygments: false # default python pygments have been replaced by pygments.rb
+
+paginate: 10          # Posts per page on the blog index
+pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
+recent_posts: 5       # Posts in the sidebar Recent Posts section
+excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+
+titlecase: true       # Converts page and post titles to titlecase
+
+# list each of the sidebar modules you want to include, in the order you want them to appear.
+# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
+default_asides:
+    - 'custom/asides/gravatar.html'
+    - asides/googleplus.html
+    - asides/recent_posts.html
+    - asides/twitter.html
+    - asides/github.html
+    - asides/delicious.html
+    - asides/pinboard.html
+    - 'custom/asides/flickr.html'
+
+# Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
+# and add an array with the asides you want to use.
+# blog_index_asides:
+# post_asides:
+# page_asides:
+
+# ----------------------- #
+#   3rd Party Settings    #
+# ----------------------- #
+
+# Github repositories
+github_user: sukima
+github_repo_count: 4
+github_show_profile_link: true
+github_skip_forks: true
+
+# Twitter
+twitter_user: sukima
+twitter_tweet_count: 4
+twitter_show_replies: false
+twitter_follow_button: true
+twitter_show_follower_count: false
+twitter_tweet_button: true
+
+# Google +1
+google_plus_one: true
+google_plus_one_size: medium
+
+# Google Plus Profile
+# Hidden: No visible button, just add author information to search results
+googleplus_user: weaver.devin@gmail.com
+googleplus_hidden: false
+
+# Pinboard
+pinboard_user:
+pinboard_count: 3
+
+# Delicious
+delicious_user:
+delicious_count: 3
+
+# Disqus Comments
+disqus_short_name: devtritargetorg
+disqus_show_comment_count: true
+
+# Google Analytics
+google_analytics_tracking_id: UA-30456823-1
+
+# Facebook Like
+facebook_like: false
+
+# Flickr Photos
+flickr_userid: 55325630@N02
+flickr_nickname: SirSuki
+flickr_apikey: 631ea8b903507b0dedec09169d5774e5
+flickr_count: 5
+
+# Gravatar plugin
+gravatar_hash: a33233f156a5531707f130c28565de69

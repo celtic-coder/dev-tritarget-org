@@ -1,0 +1,1069 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>TriTarget</title>
+  <meta name="author" content="Devin Weaver">
+
+  
+  <meta name="description" content="So I found this really cool trick. A way to use Git branches to store complete
+new repositories inside another. What I mean is basically hiding a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tritarget.org/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="TriTarget" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<!-- Load jQuery -->
+<!-- <link rel="stylesheet" href="/css//jquery-ui.css" type="text/css" media="all" /> -->
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes//jquery-ui.css" type="text/css" media="all"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<!-- Custom Scripts -->
+<script language="javascript" type="text/javascript" src="/javascripts/site.js"> </script>
+<script language="Javascript" type="text/javascript">
+    $(document).ready(function() {
+        site.initDialogBoxes();
+
+        site.initKonamiCode();
+    });
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30456823-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">TriTarget</a></h1>
+  
+    <h2>A blog of personal quality</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tritarget.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/badges">Badges</a></li>
+  <li><a href="/projects">Codeing</a></li>
+  <li><a href="http://photos.tritarget.org/">Photography</a></li>
+  <li><a href="/stories">Creative Writing</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div id="site-quote" class="quote">
+  Be a yardstick of quality. Some people aren&#8217;t used to an environment where excellence is expected.
+  <div class="cite">~ Steve Jobs</div>
+</div>
+
+<div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/02/07/hide-side-projects-in-a-git-branch/">Hiding Side Projects in a Git Branch</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-07T00:00:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2010</time>
+        
+         | <a href="/blog/2010/02/07/hide-side-projects-in-a-git-branch/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So I found this really cool trick. A way to use Git branches to store complete
+new repositories inside another. What I mean is basically hiding a side
+project in a Git branch. This is great for things like unmodified images, HTML
+source for a project page attached to the project itself, documentation,
+storing large files that are not needed with every clone of the master branch,
+storing approved copies of libraries and other dependencies.</p>
+
+<p>I use this feature to store meta data on a project for example many of my
+website projects have the actual web files but the design was first created
+using comps (usually blank markups and/or Photoshop files). Once I use these
+comps to make the site they are usually no longer needed. However later down
+the road when I need to reference them because the client wished for a change
+I find them deleted. I though about storing them out on the server but then
+there is two locations I have to remember instead of the source repository.</p>
+
+<p>In the SVN days I used to add a forth directory:</p>
+
+<pre><code>Root
+|+Tags
+|+Branches
+|+Trunk
+`+Comps
+</code></pre>
+
+<p>There were the usual directories and another for the comps. Working on the
+source you would checkout the Trunk directory and never see Comps unless you
+checked it out manually.</p>
+
+<p>Git also allows this only much easier and cleaner. And Github has a great how to
+with there <a href="http://pages.github.com/">Github Pages</a> section and also from this <a href="http://madduck.net/blog/2007.07.11:creating-a-git-branch-without-ancestry/">blog post</a>.
+However I&#8217;ll repost the instructions here.</p>
+
+<p><strong>Make sure you have no local or un-committed changes or they will be lost!</strong></p>
+
+<p>First create a new symbolic reference to a new branch. We don&#8217;t make a new
+branch in the normal way because it will link itself to the current HEAD and
+what we want it to link it to nothing. That way any files on the new branch
+are unassociated to any branches you make with your code.</p>
+
+<pre><code>$ git symbolic-ref HEAD refs/head/newbranch
+</code></pre>
+
+<p>This will create the new branch <em>and</em> put you in that branch. Next is a bit
+strange. Since the <em>index</em> that Git knows about still has all the files in
+the master branch and so doing a <code>git status</code> will show all those files ready
+to be committed. This isn&#8217;t what we want we need to clear out the index.
+Easiest way is to delete the index file since Git will recreate it if missing.
+It will recreate it properly based on the branch we are in.</p>
+
+<pre><code>$ rm .git/index
+</code></pre>
+
+<p>Last but not least all those files are still in the working directory. It&#8217;s a
+pain to go through and <code>rm -rf</code> everything (And dangerous) make Git do it with
+a clean.</p>
+
+<pre><code>$ git clean -fdx
+</code></pre>
+
+<p><strong>UPDATE: This branch now needs to manually be attached</strong></p>
+
+<p>Turns out (maybe a version thing) that I was unable to use the new branch
+created before because git claimed it was detached. After I had commited
+something (important or git thinks the branch hasn&#8217;t been born yet) I had to
+explicitly check out the new branch for it to work:
+<code>git checkout -b newbranch</code></p>
+
+<p>Now Your ready. Add some files, Commit them and eventually push them.</p>
+
+<pre><code>$ git push origin newbranch
+</code></pre>
+
+<p>What&#8217;s great is a clone by anyone will get the master branch and ignore this
+new branch unless they need it and they pull it manually.</p>
+
+<p><strong>UPDATE: full walk through</strong></p>
+
+<pre><code>(no branch)$ git init test_repo
+Initialized empty Git repository in /Users/suki/tmp/test_repo/.git/
+(no branch)$ cd test_repo/
+(master)$ echo "test data in master" &gt; testdata-in-master
+(master)$ git add testdata-in-master
+(master)$ git ci -m "First commit on master branch"
+[master (root-commit) b879d9f] First commit on master branch
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 testdata-in-master
+(master)$ git symbolic-ref HEAD refs/head/newbranch
+(refs/head/newbranch)$ rm .git/index
+(refs/head/newbranch)$ git clean -fdx
+Removing testdata-in-master
+(refs/head/newbranch)$ echo "test data in newbranch" &gt; testdata-in-newbranch
+(refs/head/newbranch)$ git add testdata-in-newbranch
+(refs/head/newbranch)$ git ci -m "First commit on newbranch branch"
+[refs/head/newbranch (root-commit) ac63f64] First commit on newbranch branch
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 testdata-in-newbranch
+(refs/head/newbranch)$ git checkout -b newbranch
+Switched to a new branch 'newbranch'
+(newbranch)$ git push origin newbranch
+fatal: 'origin' does not appear to be a git repository
+fatal: The remote end hung up unexpectedly
+(newbranch)$ ls
+testdata-in-newbranch
+(newbranch)$ git checkout master
+Switched to branch 'master'
+(master)$ ls
+testdata-in-master
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/02/05/markdown-editor-on-ipad-iphone/">Markdown Editor on an iPad or iPhone?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-05T00:00:00-05:00" pubdate data-updated="true">Feb 5<span>th</span>, 2010</time>
+        
+         | <a href="/blog/2010/02/05/markdown-editor-on-ipad-iphone/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Is it possible to have a <a href="http://daringfireball.net/projects/markdown/syntax">markdown</a> editor on an <a href="http://www.apple.com/ipad/">iPad</a> or <a href="http://www.apple.com/iphone/">iPhone</a>?</p>
+
+<p>This idea came to me on the basis that there are times when a full laptop is
+overkill for a quick blog entry and yet my blogs are done in <a href="http://jekyllrb.com/">Jekyll</a> which
+is <em>text</em> based not <em>word processor</em> based. Jekyll is starting to become more
+popular with geeks. But you can only edit on a computer. Brushing aside the
+question if blogging <em>should</em> be done on an iPhone and adding the concept of
+an appliance with the iPad the need to have a <em>geek</em> text editor (as opposed
+to Apple&#8217;s Pages) will become more apparent.</p>
+
+<p>So lets look at the idea of a programmer inspired text editor on the iPhone
+OS. Some of the key ideas needed in a successful editor could be:</p>
+
+<ul>
+<li>Syntax Highlighting</li>
+<li>Easy cursor movement</li>
+<li>Long line support</li>
+<li>Ability to gain context of the text without sacrificing the readability</li>
+<li>simplified text manipulation functions</li>
+<li>file management (FTP, SSH, Git, Etc.)</li>
+</ul>
+
+
+<p>I&#8217;m a big <a href="http://www.vim.org/">VIM</a> fan but the idea of having many <em>modes</em> would be ridicules
+on a touch device. Not to mention having keyboard shortcuts would be a
+nightmare on a touch device. One idea would be to use gestures. But that&#8217;s a
+lot of memorization and defeats the ease of use motto.</p>
+
+<p>I had the thought of using the rotate gesture just like <a href="http://www.apple.com/accessibility/iphone/vision.html">VoiceOver</a>. One
+could rotate their fingers to change the <em>modes</em>. Also one could use a finger
+touch with slide to quickly move the cursor from column one to the last
+column.</p>
+
+<p>I&#8217;ll keep playing with interface ideas. I think there is some way git Jekyll
+based blogs updated via an iPhone / iPad.</p>
+
+<p>On a final note I think integrating Git would be awesome but is that overkill?</p>
+
+<p>Please any ideas comments?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/02/04/jekyll-on-dreamhost/">Jekyll on Dreamhost</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-04T00:00:00-05:00" pubdate data-updated="true">Feb 4<span>th</span>, 2010</time>
+        
+         | <a href="/blog/2010/02/04/jekyll-on-dreamhost/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Well I took the learning exercise on getting <a href="http://jekyllrb.com/">Jekyll</a> working on
+<a href="http://dreamhost.com/">Dreamhost</a> mainly because I have a <a href="http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way">gitosis</a> environment set up for my
+personal projects. I had plans to write down the process I used to accomplish
+this. However, after it was all completed I found a <a href="http://tatey.com/2009/04/29/jekyll-meets-dreamhost-automated-deployment-for-jekyll-with-git/">blog post</a> that
+detailed exactly the process I haphazardly stumbled onto.</p>
+
+<p>It should be noted that the author mentions that this method of deployment is
+not ideal. And that a <a href="http://tatey.com/2009/10/29/simpler-deployment-for-jekyll-using-a-rakefile-and-rsync/">better solution</a> is available to most users.</p>
+
+<p>I do like the Rakefile and rsync solution as it is quite elegant however for
+my site which is under gitosis it isn&#8217;t usable. Gitosis blocks shell access
+via SSH for the Git repo user in order to facilitate authentication. And
+because the website is owned by the Git repo user rsync will never reach the
+file system to sync. So in my case I have to use Git hooks and compile the
+site on the server with Jekyll.</p>
+
+<p>I have decided to allow the use of <a href="http://lesscss.org/">LESS</a> by using a <a href="http://tatey.com/2009/12/05/forking-jekyll-now-with-less-and-growl-notifications/">fork of Jekyll by
+tatey</a> even if I don&#8217;t intend to use LESS soon at least I have it and this
+fork has <a href="http://growl.info/">Growl</a> notifications (<a href="http://gemcutter.org/gems/growl">gem</a>).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/10/10/save-the-astronauts-tether-those-pointers/">Save the Astronauts Tether Those Pointers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-10T00:00:00-04:00" pubdate data-updated="true">Oct 10<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/10/10/save-the-astronauts-tether-those-pointers/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I think a lot of confusion comes from the idea of pointers and release
+responsibility. I find it is best to think of pointers as tether
+lines. Like in space the astronauts need to be very careful to
+maintain their tether lines or else the astronaut will float way and
+die a horrible death. Pointers are very much like that. The object you
+alloc/init is your astronaut and the variable (pointer) you assign it
+to is your first tether line. Now when you retain the object it
+created another tether line.</p>
+
+<div>
+  <pre>
+    <code class='objc'>// obj is now tethered to a spot on the space shuttle. 
+NSObject *obj = [[NSObject alloc] init];
+ 
+// Another tether line has just been tied to the SAME
+// EXACT HOOK on the shuttle craft. 
+[obj retain]; 
+
+// You just removed one of the tethers. Since there is
+// another one still attached you don't attempt to
+// being the astronaut back inside. 
+[obj release]; 
+
+// You just sawed off the one hook you had and the
+// astronaut and the last tether line is floating far
+// away to die a horrible death. 
+obj = nil; 
+
+// A new astronaut has been attached to tether line
+// attached to the shuttle craft. You have also just
+// told the maintenance droid that when it is done
+// swabbing the deck to cut only the tether line you
+// just made. If that's the last line get the astronaut
+// inside if not let the astronaut float some more with
+// the other tether lines. 
+obj = [[[NSObject alloc] init] autorelease]; 
+
+// You have just attached another tether line to the
+// astronaut however this time the new tether line is
+// not attached to the same hook but to another
+// astronaut floating around. 
+NSMutableArray *array = [[NSMutableArray alloc] init]; 
+[array addObject:obj]; 
+
+// The maintenance droid has finished it's tasks (run
+// loop complete pool is released) so it cuts the
+// designated tether line. However there was another
+// line that array attached to in its addObject: method
+// so the astronaut doesn't float away. In other words
+// array is responsible for the astronaut now and the
+// original code doesn't care. What this does is tell
+// you were the hook that holds the tether line is
+// allowing you to pull the astronaut in to talk and
+// let go without him floating away. It doesn't add a
+// tether or remove one it simple says &quot;here I am&quot; If
+// you want to not loose where the astronaut is then
+// you have to take ownership by adding another tether
+// line of your own so that when array cut it's tether
+// line you still have the astronaut. 
+NSObject *another_object = [array objectAtIndex:1]; 
+[another_object retain]; 
+
+// Second tether line cut. array still has one.
+// Astronaut safe. 
+[another_object release]; 
+
+// And finally when you cut array's tether line both
+// astronauts are brought in safely. The last line
+// attached to array is pulled in and removed. Just
+// before array goes inside he pulls in the original
+// astronaut still attached to himself. 
+[array release];</code>
+  </pre>
+</div>
+
+
+<p>When you alloc/init you own that object it is your responsibility to
+either release it appropriately or pass on the responsibility to
+another object. NSArray will take one the responsibility (addObject:)
+but it will not give that responsibility back (objectAtIndex:) when it
+returns the object from objectAtIndex: it is your responsibility to
+either not worry about it as you don&#8217;t need the object later. or if
+you do to retain it yourself so that when array goes away it doesn&#8217;t
+take you object that you made yourself responsible for away under your
+nose.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/22/bug-tracking/">Bug Tracking</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-22T00:00:00-04:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2009</time>
+        
+         | <a href="/blog/2009/07/22/bug-tracking/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I recently installed <a href="http://www.mantisbt.org/">MantisBT</a> a PHP based bug tracker. I found a
+<a href="http://git.mantisforge.org/">great plugin</a> that lets Mantis monitor a source repository and associate
+the logs to issue and bug tickets.</p>
+
+<p>I don&#8217;t have much explanation of the process I used to install it. It was your
+basic PHP based system. I use gitosis to handle the Git repositories. I can
+config gitosis to authorize gitweb with a cherry picked set of repositories.
+However, Mantis uses gitweb to link into the git repositories. Since the
+gitosis config handles gitweb publicly I didn&#8217;t want just anyone to browse the
+source via gitweb. But I need a gitweb for all repositories so mantis could
+track changes.</p>
+
+<p>What I did was copy the gitweb CGI directory to another directory. I change
+it&#8217;s configuration to read all repositories (Yes this includes the
+gitosis-admin.git repo) and then use an apache .htaccess file to log access
+except from the webserver itself (mantis PHP script).</p>
+
+<div>
+  <pre>
+    <code class='apache'># filename: wwwroot/private_gitweb/.htaccess
+order deny,allow
+deny from all
+allow from 127.0.0.1</code>
+  </pre>
+</div>
+
+
+<p><em>You might have to replace <code>127.0.0.1</code> with the IP of your site not loaclhost.
+(Use <code>ping yoursite</code> to get the external IP)</em></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/30/git-the-new-vcs/">Git the New VCS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-30T00:00:00-04:00" pubdate data-updated="true">Mar 30<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/03/30/git-the-new-vcs/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I did a lot of reading last night. Enough to convince me to switch my
+versioning software from Subversion to Git. I will be moving my sources there
+soon. As this domain will also be moving. More later.</p>
+
+<p><a href="http://git-scm.com/">Check out Git</a></p>
+
+<p><strong>UPDATE:</strong> The switch has been made. I will be moving the old Subversion
+repositories over soon.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/10/29/privacy-in-wordpress/">Privacy in Wordpress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-29T00:00:00-04:00" pubdate data-updated="true">Oct 29<span>th</span>, 2008</time>
+        
+         | <a href="/blog/2008/10/29/privacy-in-wordpress/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For the longest time I couldn&#8217;t ever find any information on having a private
+blog. My problem was I wanted a homepage accessible to all and yet allow family
+members to contribute having their entries hidden from the public eye. Although
+I could never decide if it should be blocked by catagory (role
+based/authorization) or blocked globally (authentication).</p>
+
+<p>I found the following solutions for Wordpress from a
+<a href="http://wordpress.org/support/topic/100054?replies=6">forum entry</a>.</p>
+
+<p>Role based: <a href="http://www.coppit.org/code/">Category Access</a> (scroll to bottom)</p>
+
+<p>Authentication: <a href="http://wordpress.org/extend/plugins/private-wp/">Private WP</a>
+and better Authentication:
+<a href="http://wordpress.org/extend/plugins/members-only/">Members Only</a></p>
+
+<p>Or using an outside (read site-wide) solution:
+<a href="http://wordpress.org/extend/plugins/http-authentication/">HTTP Authentication</a>
+(<a href="http://webscripts.softpedia.com/script/Snippets/Htaccess-User-Management-and-Authentication-System-10102.html">htaccess admin</a>)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/10/29/my-first-program/">My First Program</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-29T00:00:00-04:00" pubdate data-updated="true">Oct 29<span>th</span>, 2008</time>
+        
+         | <a href="/blog/2008/10/29/my-first-program/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So lets take a look at programming. This will be our first installment on
+programming. In this module we will look at making the computer do something
+for us. There are two steps. Setting up the system to listen to us and telling
+the system what to do.</p>
+
+<p>We have chosen to use Java as the programming language. Mainly the choice was
+because of OOP and tight Type Casting. We&#8217;ll get more into these later on. But
+what we will get into now is the basics for getting the computer to talk to
+us.</p>
+
+<p>Now the computer uses what we call <em>Machine Code</em> to tell the CPU
+(Computer) what to do. It is a series of one&#8217;s and zero&#8217;s that are specific to
+that type of computer. When we write a program we have to translate that
+program into this machine code and that is done through another program call a
+compiler. Now for the monkey wrench. Java is a  bit different. Instead of
+compiling it into machine code for your type of computer (PC, Mac, Etc.) it
+will compile it into machine code for a <em>virtual</em> computer that doesn&#8217;t
+exists. We call this special machine code <em>bytecode</em>. When you run a
+compiled Java program (bytecode) your computer emulates this virtual computer
+that the bytecode was meant for. We call this process the <em>Java Virtual
+Machine</em>.</p>
+
+<p><img src="/javavm.jpg" alt="Diagram of the application process" /></p>
+
+<p>So how do we do this? First off you need the <a href="http://en.wikipedia.org/wiki/Java_Development_Kit" title="Wikipedia entry for Java Development Kit">Java Development</a> Kit. Head
+over to <a href="http://java.sun.com/javase/" title="Official download of JDK">http://java.sun.com/javase/</a> and choose the <strong>JDK</strong> not the JRE to
+download. (<a href="http://java.sun.com/javase/6/webnotes/install/jdk/install-windows.html" title="How to install the JDK on windows">Installation instructions</a> for windows users) Mac users can
+download it <a href="http://developer.apple.com/java/download/" title="Java JDK Download">here</a>.</p>
+
+<p>Once installed let&#8217;s do something simple: Our first program. Copy the following
+into a file ending with the suffix <code>.java</code> for example
+<code>C:\My_First_Project\hello.java</code></p>
+
+<div>
+  <pre>
+    <code class='java'>/**
+ * My First Program.
+ * See the whole article at
+ * http://tritarget.org/blog/2008/10/29/my-first-program/
+ */
+class Hello
+{
+    /**
+     * Entry point.
+     * @param args the command line parameters.
+     */
+    public static void main(String[] args)
+    {
+        // Output to the screen the following phrase.
+        System.out.println(&quot;Hello World!&quot;);
+    }
+}</code>
+  </pre>
+</div>
+
+
+<p>Now after you save it open up a command line (Most Windows computers will open
+a command line by selecting Start | Run&#8230; and typing in <code>cmd</code> or <code>command</code>
+depending on the Windows version. See <a href="http://commandwindows.com/command1.htm" title="Using the command line">commandwindows.com</a> for more info)
+and get yourself to that directory. Then compile the code and run it through
+the Virtual Machine. (The Java programs need to be in your PATH. If the
+following does not work as expected perhaps you can take a look at <a href="http://java.sun.com/javase/6/webnotes/install/jdk/install-windows.html#Environment" title="Setting up your evironment in windows">setting
+your PATH</a>)</p>
+
+<pre><code>C:&gt; CD My_First_Project
+C:\My_First_Project&gt; javac hello.java
+C:\My_First_Project&gt; java Hello
+Hello World!
+</code></pre>
+
+<p>So lets take a look at what we did.</p>
+
+<ul>
+<li><strong>Line 1:</strong> We changed the directory to where we save the file. This allows
+us to perform actions contained within the directory. Helps with organizing
+things and simplifies how we interact with the command line.
+<strong>Line 2:</strong> We compile the source code into bytecode. the <code>javac</code> command</li>
+<li>will make a new file in this directory called <code>Hello.class</code> which is the
+bytecode.</li>
+<li><strong>Line 3:</strong> We run the bytecode through the virtual machine. The command
+<code>java</code> only needs to know what <em>class</em> you want to execute (Will
+explain later) suffice it to say it does not need the <code>.class</code> and it is
+capitalized.</li>
+<li><strong>Line 4:</strong> This what you should see if everything worked out.</li>
+</ul>
+
+
+<p>Congratulations you just made your first program. I know kind of anti climatic
+but we&#8217;ll get better. So lets look at parts of the program.</p>
+
+<h4>Comments</h4>
+
+<p>I don&#8217;t care what anyone says. Comments make the code! Learn them and use them!
+A comment is a piece of text in your source code that doesn&#8217;t do anything. It
+is there so when you read it or when others read it they know what the heck is
+going on and how to use things. You will see through out my code there are
+comments describing what it&#8217;s doing or information that is useful to someone
+who is developing the program.</p>
+
+<p>A comment is created by surrounding the text in the characters &#8217;<code>/*</code>&#8217; and
+&#8217;<code>*/</code>&#8217; or if the line starts with &#8217;<code>//</code>&#8217;.</p>
+
+<h4>Wrappers</h4>
+
+<p>Ok so without getting into too much detail all Java programs must have the
+following: Class definition and an Entry Point. We will discuss this later as
+to why but for now every program you make will have a line that defines the
+<em>class</em>:</p>
+
+<div>
+  <pre>
+    <code class='java'>class Hello</code>
+  </pre>
+</div>
+
+
+<p>Everything is surrounded by brackets. This give the code a look of hierarchy
+again for organization. So we use these curly brackets around all the &#8220;blocks&#8221;
+of code. Some people like to put the curly bracket on the same line some like
+it underneath it doesn&#8217;t matter which either works just as well.</p>
+
+<h4>Entry Point</h4>
+
+<p>The entry point is where executing of your program starts. As we learn about
+OOP you&#8217;ll understand that all programs have to start some where and they all
+start with the following line (We will explain the meaning of these commands in
+later modules):</p>
+
+<div>
+  <pre>
+    <code class='java'>public static void main(String[] args)</code>
+  </pre>
+</div>
+
+
+<p>And again we surround the next block in curly brackets.</p>
+
+<h4>Execution</h4>
+
+<p>Last but not least that actual  part of the code that does anything. As we
+venture into OOP you understand why this command is so drawn out but for now
+just deal with it looking cumbersome.</p>
+
+<div>
+  <pre>
+    <code class='java'>System.out.println(&quot;Hello World!&quot;);</code>
+  </pre>
+</div>
+
+
+<p>First off all <em>commands</em> end with a semi-colon. Forget one of these and it all
+falls apart. Since this is our only statement we only have one. This is
+different from say the above wrappers which do not need an ending semi-colon.
+Now what we are asking the computer to do is ask the &#8220;System&#8221; object for the
+output object and telling the output object to print a line of text. This
+esentially just shows the &#8220;Hello World!&#8221; text on the screen since the output
+object is associated with the command line your typing in.</p>
+
+<p>That&#8217;s it for now we will get much more detail later but for now you made your
+first program.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    
+<section>
+  <img src="http://gravatar.com/avatar/a33233f156a5531707f130c28565de69" alt="Gravatar image" title="Gravatar Image" />
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/weaver.devin@gmail.com?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/08/17/im-getting-married-no-really/">I&#8217;m getting married no really</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/02/24/do-presentations-need-to-be-this-complicated/">Do presentations need to be this complicated?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/01/11/keeping-track-of-your-todo/">Keeping track of your todo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/10/26/source-code-is-not-documentation/">Source code is NOT documentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/10/18/why-is-testing-so-hard/">Why is testing so hard</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("sukima", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/sukima" class="twitter-follow-button" data-show-count="false">Follow @sukima</a>
+  
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/sukima">@sukima</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sukima',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="flickr">
+<h1>Flickr</h1>
+<style type="text/css">
+	#flickrList li{ text-align: center; }
+</style>
+<ul id="flickrList"></ul>
+
+<script lang="Javascript">
+var flickrNickname = "SirSuki";
+
+function jsonFlickrApi(rsp) {
+
+	if (rsp.stat != "ok"){
+  		return;
+ 	}
+
+ 	var list = "";
+
+ 	for (var i=0; i < rsp.photos.photo.length; i++) {
+ 	
+  		var photo    = rsp.photos.photo[i];
+  		var imgUrl   = 'http://farm'+ photo.farm +'.static.flickr.com/'+ photo.server +'/'+ photo.id +'_'+ photo.secret +'_m.jpg';
+  		var photoUrl = 'http://www.flickr.com/photos/'+ flickrNickname +'/'+ photo.id;
+
+  		list += '<li id="flickrItem_'+i+'"><a href="'+ photoUrl +'" title="'+ photo.title +'"><img alt="'+ photo.title +'" src="'+ imgUrl +'" /></a></li>';
+ 	}
+ 	
+ 	list += '<li class="flickrLink"><a href="http://www.flickr.com/photos/'+ flickrNickname + '">Flickr page</a></li>';
+ 	
+ 	document.getElementById('flickrList').innerHTML = list;
+}
+</script>
+<script lang="Javascript" src="http://api.flickr.com/services/rest/?format=json&method=flickr.photos.search&user_id=55325630@N02&per_page=5&api_key=631ea8b903507b0dedec09169d5774e5"></script>
+
+</section>
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Devin Weaver -
+  <a href="/humans.txt"><img class="bottom-img" src="/images/humanstxt.png" alt="humans.txt" width="88" height="31" /></a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'devtritargetorg';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+<!-- Easter egg dialog -->
+<div id="dialog-boxes">  
+    <!-- #customize your modal window here -->  
+    <div id="game" class="window"></div>  
+    <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->    
+    <div id="mask"></div>  
+</div>  
+
+
+</body>
+</html>

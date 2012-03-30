@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Markdown editor on an iPad or iPhone? - TriTarget</title>
+  <meta name="author" content="Devin Weaver">
+
+  
+  <meta name="description" content="Is it possible to have a markdown editor on an iPad or iPhone? This idea came to me on the basis that there are times when a full laptop is
+overkill &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tritarget.org/blog/2010/02/05/markdown-editor-on-ipad-iphone">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="TriTarget" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<!-- Load jQuery -->
+<!-- <link rel="stylesheet" href="/css//jquery-ui.css" type="text/css" media="all" /> -->
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes//jquery-ui.css" type="text/css" media="all"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<!-- Custom Scripts -->
+<script language="javascript" type="text/javascript" src="/javascripts/site.js"> </script>
+<script language="Javascript" type="text/javascript">
+    $(document).ready(function() {
+        site.initDialogBoxes();
+
+        site.initKonamiCode();
+    });
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30456823-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">TriTarget</a></h1>
+  
+    <h2>A blog of personal quality</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tritarget.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/badges">Badges</a></li>
+  <li><a href="/projects">Codeing</a></li>
+  <li><a href="http://photos.tritarget.org/">Photography</a></li>
+  <li><a href="/stories">Creative Writing</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Markdown Editor on an iPad or iPhone?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-05T00:00:00-05:00" pubdate data-updated="true">Feb 5<span>th</span>, 2010</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Is it possible to have a <a href="http://daringfireball.net/projects/markdown/syntax">markdown</a> editor on an <a href="http://www.apple.com/ipad/">iPad</a> or <a href="http://www.apple.com/iphone/">iPhone</a>?</p>
+
+<p>This idea came to me on the basis that there are times when a full laptop is
+overkill for a quick blog entry and yet my blogs are done in <a href="http://jekyllrb.com/">Jekyll</a> which
+is <em>text</em> based not <em>word processor</em> based. Jekyll is starting to become more
+popular with geeks. But you can only edit on a computer. Brushing aside the
+question if blogging <em>should</em> be done on an iPhone and adding the concept of
+an appliance with the iPad the need to have a <em>geek</em> text editor (as opposed
+to Apple&#8217;s Pages) will become more apparent.</p>
+
+<p>So lets look at the idea of a programmer inspired text editor on the iPhone
+OS. Some of the key ideas needed in a successful editor could be:</p>
+
+<ul>
+<li>Syntax Highlighting</li>
+<li>Easy cursor movement</li>
+<li>Long line support</li>
+<li>Ability to gain context of the text without sacrificing the readability</li>
+<li>simplified text manipulation functions</li>
+<li>file management (FTP, SSH, Git, Etc.)</li>
+</ul>
+
+
+<p>I&#8217;m a big <a href="http://www.vim.org/">VIM</a> fan but the idea of having many <em>modes</em> would be ridicules
+on a touch device. Not to mention having keyboard shortcuts would be a
+nightmare on a touch device. One idea would be to use gestures. But that&#8217;s a
+lot of memorization and defeats the ease of use motto.</p>
+
+<p>I had the thought of using the rotate gesture just like <a href="http://www.apple.com/accessibility/iphone/vision.html">VoiceOver</a>. One
+could rotate their fingers to change the <em>modes</em>. Also one could use a finger
+touch with slide to quickly move the cursor from column one to the last
+column.</p>
+
+<p>I&#8217;ll keep playing with interface ideas. I think there is some way git Jekyll
+based blogs updated via an iPhone / iPad.</p>
+
+<p>On a final note I think integrating Git would be awesome but is that overkill?</p>
+
+<p>Please any ideas comments?</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Devin Weaver</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-05T00:00:00-05:00" pubdate data-updated="true">Feb 5<span>th</span>, 2010</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tritarget.org/blog/2010/02/05/markdown-editor-on-ipad-iphone/" data-via="sukima" data-counturl="http://tritarget.org/blog/2010/02/05/markdown-editor-on-ipad-iphone/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/02/04/jekyll-on-dreamhost/" title="Previous Post: Jekyll on Dreamhost">&laquo; Jekyll on Dreamhost</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/02/07/hide-side-projects-in-a-git-branch/" title="Next Post: Hiding side projects in a Git branch">Hiding side projects in a Git branch &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+<section>
+  <img src="http://gravatar.com/avatar/a33233f156a5531707f130c28565de69" alt="Gravatar image" title="Gravatar Image" />
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/weaver.devin@gmail.com?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/08/17/im-getting-married-no-really/">I'm getting married no really</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/02/24/do-presentations-need-to-be-this-complicated/">Do presentations need to be this complicated?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/01/11/keeping-track-of-your-todo/">Keeping track of your todo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/10/26/source-code-is-not-documentation/">Source code is NOT documentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/10/18/why-is-testing-so-hard/">Why is testing so hard</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("sukima", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/sukima" class="twitter-follow-button" data-show-count="false">Follow @sukima</a>
+  
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/sukima">@sukima</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sukima',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="flickr">
+<h1>Flickr</h1>
+<style type="text/css">
+	#flickrList li{ text-align: center; }
+</style>
+<ul id="flickrList"></ul>
+
+<script lang="Javascript">
+var flickrNickname = "SirSuki";
+
+function jsonFlickrApi(rsp) {
+
+	if (rsp.stat != "ok"){
+  		return;
+ 	}
+
+ 	var list = "";
+
+ 	for (var i=0; i < rsp.photos.photo.length; i++) {
+ 	
+  		var photo    = rsp.photos.photo[i];
+  		var imgUrl   = 'http://farm'+ photo.farm +'.static.flickr.com/'+ photo.server +'/'+ photo.id +'_'+ photo.secret +'_m.jpg';
+  		var photoUrl = 'http://www.flickr.com/photos/'+ flickrNickname +'/'+ photo.id;
+
+  		list += '<li id="flickrItem_'+i+'"><a href="'+ photoUrl +'" title="'+ photo.title +'"><img alt="'+ photo.title +'" src="'+ imgUrl +'" /></a></li>';
+ 	}
+ 	
+ 	list += '<li class="flickrLink"><a href="http://www.flickr.com/photos/'+ flickrNickname + '">Flickr page</a></li>';
+ 	
+ 	document.getElementById('flickrList').innerHTML = list;
+}
+</script>
+<script lang="Javascript" src="http://api.flickr.com/services/rest/?format=json&method=flickr.photos.search&user_id=55325630@N02&per_page=5&api_key=631ea8b903507b0dedec09169d5774e5"></script>
+
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Devin Weaver -
+  <a href="/humans.txt"><img class="bottom-img" src="/images/humanstxt.png" alt="humans.txt" width="88" height="31" /></a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'devtritargetorg';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tritarget.org/blog/2010/02/05/markdown-editor-on-ipad-iphone/';
+        var disqus_url = 'http://tritarget.org/blog/2010/02/05/markdown-editor-on-ipad-iphone/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+<!-- Easter egg dialog -->
+<div id="dialog-boxes">  
+    <!-- #customize your modal window here -->  
+    <div id="game" class="window"></div>  
+    <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->    
+    <div id="mask"></div>  
+</div>  
+
+
+</body>
+</html>

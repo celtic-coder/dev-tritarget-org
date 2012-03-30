@@ -1,0 +1,541 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My First Program - TriTarget</title>
+  <meta name="author" content="Devin Weaver">
+
+  
+  <meta name="description" content="So lets take a look at programming. This will be our first installment on
+programming. In this module we will look at making the computer do &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tritarget.org/blog/2008/10/29/my-first-program">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="TriTarget" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<!-- Load jQuery -->
+<!-- <link rel="stylesheet" href="/css//jquery-ui.css" type="text/css" media="all" /> -->
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes//jquery-ui.css" type="text/css" media="all"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<!-- Custom Scripts -->
+<script language="javascript" type="text/javascript" src="/javascripts/site.js"> </script>
+<script language="Javascript" type="text/javascript">
+    $(document).ready(function() {
+        site.initDialogBoxes();
+
+        site.initKonamiCode();
+    });
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30456823-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">TriTarget</a></h1>
+  
+    <h2>A blog of personal quality</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tritarget.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/badges">Badges</a></li>
+  <li><a href="/projects">Codeing</a></li>
+  <li><a href="http://photos.tritarget.org/">Photography</a></li>
+  <li><a href="/stories">Creative Writing</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">My First Program</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-29T00:00:00-04:00" pubdate data-updated="true">Oct 29<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>So lets take a look at programming. This will be our first installment on
+programming. In this module we will look at making the computer do something
+for us. There are two steps. Setting up the system to listen to us and telling
+the system what to do.</p>
+
+<p>We have chosen to use Java as the programming language. Mainly the choice was
+because of OOP and tight Type Casting. We&#8217;ll get more into these later on. But
+what we will get into now is the basics for getting the computer to talk to
+us.</p>
+
+<p>Now the computer uses what we call <em>Machine Code</em> to tell the CPU
+(Computer) what to do. It is a series of one&#8217;s and zero&#8217;s that are specific to
+that type of computer. When we write a program we have to translate that
+program into this machine code and that is done through another program call a
+compiler. Now for the monkey wrench. Java is a  bit different. Instead of
+compiling it into machine code for your type of computer (PC, Mac, Etc.) it
+will compile it into machine code for a <em>virtual</em> computer that doesn&#8217;t
+exists. We call this special machine code <em>bytecode</em>. When you run a
+compiled Java program (bytecode) your computer emulates this virtual computer
+that the bytecode was meant for. We call this process the <em>Java Virtual
+Machine</em>.</p>
+
+<p><img src="/javavm.jpg" alt="Diagram of the application process" /></p>
+
+<p>So how do we do this? First off you need the <a href="http://en.wikipedia.org/wiki/Java_Development_Kit" title="Wikipedia entry for Java Development Kit">Java Development</a> Kit. Head
+over to <a href="http://java.sun.com/javase/" title="Official download of JDK">http://java.sun.com/javase/</a> and choose the <strong>JDK</strong> not the JRE to
+download. (<a href="http://java.sun.com/javase/6/webnotes/install/jdk/install-windows.html" title="How to install the JDK on windows">Installation instructions</a> for windows users) Mac users can
+download it <a href="http://developer.apple.com/java/download/" title="Java JDK Download">here</a>.</p>
+
+<p>Once installed let&#8217;s do something simple: Our first program. Copy the following
+into a file ending with the suffix <code>.java</code> for example
+<code>C:\My_First_Project\hello.java</code></p>
+
+<div>
+  <pre>
+    <code class='java'>/**
+ * My First Program.
+ * See the whole article at
+ * http://tritarget.org/blog/2008/10/29/my-first-program/
+ */
+class Hello
+{
+    /**
+     * Entry point.
+     * @param args the command line parameters.
+     */
+    public static void main(String[] args)
+    {
+        // Output to the screen the following phrase.
+        System.out.println(&quot;Hello World!&quot;);
+    }
+}</code>
+  </pre>
+</div>
+
+
+<p>Now after you save it open up a command line (Most Windows computers will open
+a command line by selecting Start | Run&#8230; and typing in <code>cmd</code> or <code>command</code>
+depending on the Windows version. See <a href="http://commandwindows.com/command1.htm" title="Using the command line">commandwindows.com</a> for more info)
+and get yourself to that directory. Then compile the code and run it through
+the Virtual Machine. (The Java programs need to be in your PATH. If the
+following does not work as expected perhaps you can take a look at <a href="http://java.sun.com/javase/6/webnotes/install/jdk/install-windows.html#Environment" title="Setting up your evironment in windows">setting
+your PATH</a>)</p>
+
+<pre><code>C:&gt; CD My_First_Project
+C:\My_First_Project&gt; javac hello.java
+C:\My_First_Project&gt; java Hello
+Hello World!
+</code></pre>
+
+<p>So lets take a look at what we did.</p>
+
+<ul>
+<li><strong>Line 1:</strong> We changed the directory to where we save the file. This allows
+us to perform actions contained within the directory. Helps with organizing
+things and simplifies how we interact with the command line.
+<strong>Line 2:</strong> We compile the source code into bytecode. the <code>javac</code> command</li>
+<li>will make a new file in this directory called <code>Hello.class</code> which is the
+bytecode.</li>
+<li><strong>Line 3:</strong> We run the bytecode through the virtual machine. The command
+<code>java</code> only needs to know what <em>class</em> you want to execute (Will
+explain later) suffice it to say it does not need the <code>.class</code> and it is
+capitalized.</li>
+<li><strong>Line 4:</strong> This what you should see if everything worked out.</li>
+</ul>
+
+
+<p>Congratulations you just made your first program. I know kind of anti climatic
+but we&#8217;ll get better. So lets look at parts of the program.</p>
+
+<h4>Comments</h4>
+
+<p>I don&#8217;t care what anyone says. Comments make the code! Learn them and use them!
+A comment is a piece of text in your source code that doesn&#8217;t do anything. It
+is there so when you read it or when others read it they know what the heck is
+going on and how to use things. You will see through out my code there are
+comments describing what it&#8217;s doing or information that is useful to someone
+who is developing the program.</p>
+
+<p>A comment is created by surrounding the text in the characters &#8217;<code>/*</code>&#8217; and
+&#8217;<code>*/</code>&#8217; or if the line starts with &#8217;<code>//</code>&#8217;.</p>
+
+<h4>Wrappers</h4>
+
+<p>Ok so without getting into too much detail all Java programs must have the
+following: Class definition and an Entry Point. We will discuss this later as
+to why but for now every program you make will have a line that defines the
+<em>class</em>:</p>
+
+<div>
+  <pre>
+    <code class='java'>class Hello</code>
+  </pre>
+</div>
+
+
+<p>Everything is surrounded by brackets. This give the code a look of hierarchy
+again for organization. So we use these curly brackets around all the &#8220;blocks&#8221;
+of code. Some people like to put the curly bracket on the same line some like
+it underneath it doesn&#8217;t matter which either works just as well.</p>
+
+<h4>Entry Point</h4>
+
+<p>The entry point is where executing of your program starts. As we learn about
+OOP you&#8217;ll understand that all programs have to start some where and they all
+start with the following line (We will explain the meaning of these commands in
+later modules):</p>
+
+<div>
+  <pre>
+    <code class='java'>public static void main(String[] args)</code>
+  </pre>
+</div>
+
+
+<p>And again we surround the next block in curly brackets.</p>
+
+<h4>Execution</h4>
+
+<p>Last but not least that actual  part of the code that does anything. As we
+venture into OOP you understand why this command is so drawn out but for now
+just deal with it looking cumbersome.</p>
+
+<div>
+  <pre>
+    <code class='java'>System.out.println(&quot;Hello World!&quot;);</code>
+  </pre>
+</div>
+
+
+<p>First off all <em>commands</em> end with a semi-colon. Forget one of these and it all
+falls apart. Since this is our only statement we only have one. This is
+different from say the above wrappers which do not need an ending semi-colon.
+Now what we are asking the computer to do is ask the &#8220;System&#8221; object for the
+output object and telling the output object to print a line of text. This
+esentially just shows the &#8220;Hello World!&#8221; text on the screen since the output
+object is associated with the command line your typing in.</p>
+
+<p>That&#8217;s it for now we will get much more detail later but for now you made your
+first program.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Devin Weaver</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-29T00:00:00-04:00" pubdate data-updated="true">Oct 29<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tritarget.org/blog/2008/10/29/my-first-program/" data-via="sukima" data-counturl="http://tritarget.org/blog/2008/10/29/my-first-program/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/10/29/privacy-in-wordpress/" title="Next Post: Privacy in Wordpress">Privacy in Wordpress &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+<section>
+  <img src="http://gravatar.com/avatar/a33233f156a5531707f130c28565de69" alt="Gravatar image" title="Gravatar Image" />
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/weaver.devin@gmail.com?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/08/17/im-getting-married-no-really/">I'm getting married no really</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/02/24/do-presentations-need-to-be-this-complicated/">Do presentations need to be this complicated?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/01/11/keeping-track-of-your-todo/">Keeping track of your todo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/10/26/source-code-is-not-documentation/">Source code is NOT documentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/10/18/why-is-testing-so-hard/">Why is testing so hard</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("sukima", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/sukima" class="twitter-follow-button" data-show-count="false">Follow @sukima</a>
+  
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/sukima">@sukima</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'sukima',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="flickr">
+<h1>Flickr</h1>
+<style type="text/css">
+	#flickrList li{ text-align: center; }
+</style>
+<ul id="flickrList"></ul>
+
+<script lang="Javascript">
+var flickrNickname = "SirSuki";
+
+function jsonFlickrApi(rsp) {
+
+	if (rsp.stat != "ok"){
+  		return;
+ 	}
+
+ 	var list = "";
+
+ 	for (var i=0; i < rsp.photos.photo.length; i++) {
+ 	
+  		var photo    = rsp.photos.photo[i];
+  		var imgUrl   = 'http://farm'+ photo.farm +'.static.flickr.com/'+ photo.server +'/'+ photo.id +'_'+ photo.secret +'_m.jpg';
+  		var photoUrl = 'http://www.flickr.com/photos/'+ flickrNickname +'/'+ photo.id;
+
+  		list += '<li id="flickrItem_'+i+'"><a href="'+ photoUrl +'" title="'+ photo.title +'"><img alt="'+ photo.title +'" src="'+ imgUrl +'" /></a></li>';
+ 	}
+ 	
+ 	list += '<li class="flickrLink"><a href="http://www.flickr.com/photos/'+ flickrNickname + '">Flickr page</a></li>';
+ 	
+ 	document.getElementById('flickrList').innerHTML = list;
+}
+</script>
+<script lang="Javascript" src="http://api.flickr.com/services/rest/?format=json&method=flickr.photos.search&user_id=55325630@N02&per_page=5&api_key=631ea8b903507b0dedec09169d5774e5"></script>
+
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Devin Weaver -
+  <a href="/humans.txt"><img class="bottom-img" src="/images/humanstxt.png" alt="humans.txt" width="88" height="31" /></a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'devtritargetorg';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tritarget.org/blog/2008/10/29/my-first-program/';
+        var disqus_url = 'http://tritarget.org/blog/2008/10/29/my-first-program/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+<!-- Easter egg dialog -->
+<div id="dialog-boxes">  
+    <!-- #customize your modal window here -->  
+    <div id="game" class="window"></div>  
+    <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->    
+    <div id="mask"></div>  
+</div>  
+
+
+</body>
+</html>
