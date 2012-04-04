@@ -20,7 +20,7 @@ While I was ridding home on a train I got the inspiration to wonder just how
 many computer bits it took to represent a [googol][] (one followed by 100
 zeros):
 
-10,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000
+10, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000, 000
 
 Because of the size of this value there is no computer that could do the math
 with basic binary arithmetic. Instead you have to rely on the kindergarten method

@@ -33,7 +33,13 @@ site.initDialogBoxes = function () {
 
 // Function: keyed() {{{1
 site.keyed = function (e) {
-    site.kkeys.push( e.keyCode );
+    return;
+    // FIXME: This does not run.
+    // e.keyCode and e.which is 0 but e.charCode is correct for characters like 'a' or 'b'
+    // e.charCode is 0 but e.keyCode and e.which is correct for non characters like <Up> and <Down>
+    console.log(e);
+    console.log("key: " + e.which);
+    site.kkeys.push( e.which );
     if ( site.kkeys.toString().indexOf( site.konami ) >= 0 ){
         site.openDialog("#game");
 
