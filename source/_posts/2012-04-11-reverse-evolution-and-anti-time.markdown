@@ -49,8 +49,8 @@ expanded on this experiment where they ran it but didn't directly observe the
 results. They re order the results but never showed it to anyone. Put the
 results in a special box to prevent any tampering. Sent the box far away to sit
 for a month. Then they brought in a panel of people who would vote what the
-    result *should* be. Once they agreed the panel opened the. I. And reviled
-    the result as exactly what they voted on.
+result *should* be. Once they agreed the panel opened the. I. And reviled the
+result as exactly what they voted on.
 
 This describes a phenomenon where the act of observation takes place in the
 future and the *information* travels back in time so when the event happens it
@@ -94,9 +94,9 @@ is conjecture and the nature of probability is a fickle lady.
 
 Yet there are other strange phenomenon concerning evolution. What is the need
 for hair? It keeps the head warm but so does a small patch of curly hair. Long
-    strait hair seems a bit frivolous considering the function it provides.
-    Then again how many bare animals survived evolution and how many gained
-    intelligence and self awareness?
+strait hair seems a bit frivolous considering the function it provides. Then
+again how many bare animals survived evolution and how many gained intelligence
+and self awareness?
 
 Lets just give in for the moment that there has to have been something more
 then *just* pure probability that got us here today. Some consider this *Devine
