@@ -50,10 +50,11 @@ default_asides:
     - asides/googleplus.html
     - asides/recent_posts.html
     - asides/twitter.html
+    - 'custom/asides/flickr.html'
     - asides/github.html
     - asides/delicious.html
     - asides/pinboard.html
-    - 'custom/asides/flickr.html'
+    - 'custom/asides/dailyom.html'
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
@@ -113,7 +114,7 @@ facebook_like: false
 flickr_userid: 55325630@N02
 flickr_nickname: SirSuki
 flickr_apikey: 631ea8b903507b0dedec09169d5774e5
-flickr_count: 5
+flickr_count: 3
 
 # Gravatar plugin
 gravatar_hash: a33233f156a5531707f130c28565de69
