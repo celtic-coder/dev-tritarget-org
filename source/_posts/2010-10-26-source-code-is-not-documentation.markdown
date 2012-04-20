@@ -11,9 +11,11 @@ Far to many times I see the response to documentation to be "Look at the source
 code" Or if you can't figure it out by looking at the source code you shouldn't
 be coding. This kind of thinking is viral in the open source community.
 
+<!-- more -->
+
 I going to give an example of a project I was working on. It halted for 3
 weeks because all I had was the source code to use for documentation. I was
-making a Ruby on Rails app and wazs attempting to make a [shoulda][1] add on
+making a Ruby on Rails app and was attempting to make a [shoulda][1] add-on
 that would complement the testing well.
 
 The only examples were to look at the source code for shoulda so I went to

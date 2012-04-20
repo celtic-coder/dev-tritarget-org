@@ -11,16 +11,18 @@ recent RoR application. Some back history is that my RoR project uses
 user to be logged in. I ran into a quandary when I realized that shoulda has
 deprecated macros in favor of matchers.
 
+<!-- more -->
+
 So. For an example If I wanted to check that a specific action would fail if
 there was no use logged in I would have done this in the past:
 
-<script src="http://gist.github.com/632707.js?file=require_logged_in_macro.rb"> </script>
+{% gist 632707 require_logged_in_macro.rb %}
 
 However this is limited in it's use and **does not** conform to the direction
 that shoulda has moved to (matchers) A better way to accomplish this is to
 write a matcher like so:
 
-<script src="http://gist.github.com/632707.js?file=require_logged_in.rb"> </script>
+{% gist 632707 require_logged_in.rb %}
 
 This affords you the flexibility as such:
 

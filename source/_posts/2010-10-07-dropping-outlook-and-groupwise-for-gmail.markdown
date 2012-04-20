@@ -10,6 +10,8 @@ a post about how much Groupwise is not agreeable but instead I'm going to
 describe my solution to making my work email much more agreeable. First I'll
 describe what solutions didn't work and why.
 
+<!-- more -->
+
 First Outlook was not a solution as my IS department couldn't figure out how
 to do that even after months of emails claiming that it was "gonna" happen. As
 you can tell I have great faith in that department. Moving on...

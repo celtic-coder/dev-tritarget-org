@@ -27,6 +27,8 @@ it was centralized to one database as well. Tons of features but I still wanted
 my databases based per project (directory) and optionally commit the database
 to version control.
 
+<!-- more -->
+
 #### Developer Todo List
 
 To the rescue is this gem called the [Dev Todo][5]. It is a task manager that

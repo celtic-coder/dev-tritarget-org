@@ -16,6 +16,8 @@ autocomplete. However to get the values of the autocomplete I also created a
 seperate action that returns a **map** to the correct path to the AJAX action.
 I don't like how complicated that sounds. Maybe some code snippits?
 
+<!-- more -->
+
 First lets set up the formtastic input (place this in the `lib` directory):
 
 <script src="http://gist.github.com/590498.js?file=application_formtastic_builder.rb"> </script>
