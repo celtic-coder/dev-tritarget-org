@@ -32,5 +32,5 @@ Fiction][1].
 The following is any creative writing I have posted to this site:
 
 {% for story in site.categories['creative writing'] %}
-  1. [{{ story['title'] }}]({{ story['url'] }}) on {{ story['date_formatted'] }}
+* [{{ story['title'] }}]({{ story['url'] }}) on {{ story['date_formatted'] }}
 {% endfor %}
