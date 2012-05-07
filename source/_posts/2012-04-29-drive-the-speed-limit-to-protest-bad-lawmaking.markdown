@@ -3,8 +3,8 @@ layout: post
 title: "Drive the Speed Limit to Protest Bad Lawmaking"
 date: 2012-05-07 12:55
 comments: true
-published: false
-categories: 
+published: true
+categories: rantings, political
 ---
 I wonder how many people are so sick of getting pulled over for going five
 miles over? I know that when I see a police car on the side of the road I have
