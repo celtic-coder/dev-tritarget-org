@@ -8,6 +8,11 @@
 # then it will prefix the `_config.yml` setting `photos_prefix` to the path.
 # This allows using a CDN if desired.
 #
+# To make FancyBox work well with OctoPress You need to include the style fix.
+# In your `source/_include/custom/head.html` add the following:
+#
+#     {% fancyboxstylefix %}
+#
 # Examples:
 # {% photo photo1.jpg My Photo %}
 # {% photo /path/to/photo.jpg %}
@@ -124,3 +129,4 @@ end
 
 Liquid::Template.register_tag('photo', Jekyll::PhotoTag)
 Liquid::Template.register_tag('gallery', Jekyll::GalleryTag)
+Liquid::Template.register_tag('fancyboxstylefix', Jekyll::FancyboxStylePatch)
