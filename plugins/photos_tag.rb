@@ -2,6 +2,14 @@
 # Authors: Devin Weaver
 # Description: Allows photos tag to place photos as thumbnails and open in fancybox. Uses a CDN if needed.
 #
+# ** This only covers the markup. Not the integration of FancyBox **
+#
+# To see an unabridged explination on integrating this with [FancyBox][1]
+# Please read my [blog post about it][2].
+#
+# [1]: http://fancyapps.com/fancybox/
+# [2]: http://tritarget.org/blog/2012/05/07/integrating-photos-into-octopress-using-fancybox-and-plugin/
+#
 # Syntax {% photo filename [tumbnail] [title] %}
 # Syntax {% photos filename [filename] [filename] [...] %}
 # If the filename has no path in it (no slashes)
