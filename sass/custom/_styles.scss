@@ -233,3 +233,21 @@ body > footer{
   padding:20px;  
   text-align: left;
 }  
+
+/* FancyBox Galleries */
+
+
+/* FancyBox Galleries */
+$rad: 6px;
+ul.gallery {
+  border: thin solid gray;
+  -webkit-border-radius: $rad;
+  -moz-border-radius: $rad;
+  border-radius: $rad;
+  text-align: center;
+  padding: 5px;
+  li {
+    display: inline;
+    padding: 5px;
+  }
+}
