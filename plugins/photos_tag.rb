@@ -1,30 +1,106 @@
 # Title: Photos tag for Jekyll
 # Authors: Devin Weaver
-# Description: Allows photos tag to place photos as thumbnails and open in lightbox. Uses a CDN if needed.
+# Description: Allows photos tag to place photos as thumbnails and open in fancybox. Uses a CDN if needed.
 #
-# Syntax {% photos filename [filename ...] %}
-# (photo is alias to photos) If the filename has no path in it (no slashes)
+# Syntax {% photo filename [tumbnail] [title] %}
+# Syntax {% photos filename [filename] [filename] [...] %}
+# If the filename has no path in it (no slashes)
 # then it will prefix the `_config.yml` setting `photos_prefix` to the path.
-# This allows using a CDN is desired.
+# This allows using a CDN if desired.
 #
 # Examples:
-# {% photos photo1.jpg %}
-# {% photos /path/to/photo.jpg %}
-# {% photos photo1.jpg photo2.jpg %}
+# {% photo photo1.jpg My Photo %}
+# {% photo /path/to/photo.jpg %}
+# {% gallery %}
+# photo1.jpg: my title 1
+# photo2.jpg[thumnail.jpg]: my title 2
+# photo3.jpg: my title 3
+# {% endgallery %}
+#
+# Output:
+# <a href="photo1.jpg" class="fancybox" title="My Photo"><img src="photo1_m.jpg" alt="My Photo" /></a>
+# <a href="/path/to/photo.jpg" class="fancybox" title="My Photo"><img src="/path/to/photo_m.jpg" alt="My Photo" /></a>
+# <ul class="gallery">
+#   <li><a href="photo1.jpg" class="fancybox" rel="gallery-e566c90e554eb6c157de1d5869547f7a" title="my title 1"><img src="photo1_m.jpg" alt="my title 1" /></a></li>
+#   <li><a href="photo2.jpg" class="fancybox" rel="gallery-e566c90e554eb6c157de1d5869547f7a" title="my title 2"><img src="photo2_m.jpg" alt="my title 2" /></a></li>
+#   <li><a href="photo3.jpg" class="fancybox" rel="gallery-e566c90e554eb6c157de1d5869547f7a" title="my title 3"><img src="photo3_m.jpg" alt="my title 3" /></a></li>
+# </ul>
+
+require 'digest/md5'
 
 module Jekyll
   
-  class PhotosTag < Liquid::Tag
+  class PhotosUtil
+    def initialize(context)
+      @context = context
+    end
 
+    def path_for(filename)
+      filename = filename.strip
+      prefix = (@context.environments.first['site']['photos_prefix'] unless filename[0] =~ /^(?:\/|http)/i) || ""
+      "#{prefix}#{filename}"
+    end
+
+    def thumb_for(filename, thumb=nil)
+      filename = filename.strip
+      # FIXME: This seems excessive
+      if filename =~ /\./
+        thumb = (thumb unless thumb == 'default') || filename.gsub(/(?:_b)?\.(?<ext>[^\.]+)?$/, "_m.#{ext}")
+      else
+        thumb = (thumb unless thumb == 'default') || "#{filename}_m"
+      end
+      path_for(thumb)
+    end
+  end
+
+  class PhotoTag < Liquid::Tag
     def initialize(tag_name, markup, tokens)
-
+      if /(?<filename>\S*\s+)(?<thumb>(?:\S*))?(?<title>\s+.+)?/i =~ markup
+        @filename = filename
+        @thumb = thumb
+        @title = title
+      end
     end
 
     def render(context)
-      # context.environments.first['site']['photos_prefix']
+      p = PhotosUtil.new(context)
+      if @filename
+        <<-eof
+          <a href="#{p.path_for(@filename)}" class="fancybox" title="#{@title}">
+            <img src="#{p.thumb_for(@filename,@thumb)}" alt="#{@title}" />
+          </a>
+        eof
+      else
+        "Error processing input, expected syntax: {% photo filename [thumbnail] [title] %}"
+      end
     end
   end
+
+  class GalleryTag < Liquid::Block
+    def initialize(tag_name, markup, tokens)
+      # No initializing needed
+      super
+    end
+
+    def render(context)
+      lines = super
+      md5 = Digest::MD5.hexdigest(lines.join)
+      p = PhotosUtil.new(context)
+      list = ""
+      lines.each do |line|
+        if /^(?<filename>[^\[\]:]+)(?:\[(?<thumb>\S*)\])?(?::(?<title>.*))?$/ =~ line
+          list << <<-eof
+            <li><a href="#{p.path_for(filename)}" class="fancybox" rel="gallery-#{md5}" title="#{title}">
+              <img src="#{p.thumb_for(filename,thumb)}" alt="#{title}" />
+            </a></li>
+          eof
+        end
+      end
+      "<ul class=\"gallery\">\n#{list}\n</ul>"
+    end
+  end
+
 end
 
-Liquid::Template.register_tag('photos', Jekyll::PhotosTag)
-Liquid::Template.register_tag('photo', Jekyll::PhotosTag)
+Liquid::Template.register_tag('photo', Jekyll::PhotoTag)
+Liquid::Template.register_tag('gallery', Jekyll::GalleryTag)

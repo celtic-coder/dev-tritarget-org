@@ -118,3 +118,6 @@ flickr_count: 3
 
 # Gravatar plugin
 gravatar_hash: a33233f156a5531707f130c28565de69
+
+# Photos CDN
+photos_prefix: "http://photos.tritarget.org/"
