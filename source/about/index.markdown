@@ -6,11 +6,13 @@ comments: false
 sharing: true
 footer: false
 ---
+<!--
 <div class="ui-widget" style="text-align:center; font-size:0.6em">
 <div class="ui-state-highlight ui-corner-all">
 Have you tried using the <a href="http://en.wikipedia.org/wiki/Konami_code">Konami code</a> on this site?
 </div>
 </div>
+-->
 
 TriTarget.org is a name I came up with in high school. I was big into computer
 programming and wanted a company name that was kinda catchy. When I made a few
