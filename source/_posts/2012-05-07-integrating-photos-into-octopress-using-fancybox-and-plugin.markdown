@@ -3,7 +3,7 @@ layout: post
 title: "Integrating photos into OctoPress using FancyBox and Plugin"
 date: 2012-05-07 16:41
 comments: true
-published: false
+published: true
 categories: coding
 ---
 I wanted to use my [OctoPress][1] blog with my Photography hobby. I loved
@@ -15,15 +15,18 @@ these photos show up into my post as I talk about what I did. I also wanted
 to use a different server for storing the images that I have and not Flickr
 (since I have some photos I don't want on Flickr)
 
-I developed an OctoPress plugin to handle this. It uses [FancyBox][fb] as
-the display method. The integration is a bit involved which is why I am
-writing this post. BTW, I use FancyBox because it allows the use for
-displaying media beyond just images which will be important to me when I
+I developed an [OctoPress plugin][download] to handle this. It uses
+[FancyBox][fb] as the display method. The integration is a bit involved which
+is why I am writing this post. BTW, I use FancyBox because it allows the use
+for displaying media beyond just images which will be important to me when I
 start posting about my [Panoramas][3].
+
+Download the plugin from [this gist][download].
 
 [1]: http://octopress.org/
 [fb]: http://fancyapps.com/fancybox/
 [3]: http://en.wikipedia.org/wiki/Panorama
+[download]: https://gist.github.com/2631877
 
 <!-- more -->
 
