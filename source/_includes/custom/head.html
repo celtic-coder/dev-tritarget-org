@@ -32,15 +32,17 @@
         //site.initKonamiCode();
 
         // Load fancybox
-        jQuery(".fancybox").fancybox({
-            helpers: {
-                thumbs: {
-                    width: 50,
-                    height: 50
+        if (!pano.isIOS()) {
+            jQuery(".fancybox").fancybox({
+                helpers: {
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
                 }
-            }
-        });
+            });
+        }
 
-        jQuery(".fancybox-pano").click(pano.open);
+        jQuery(".fancybox-pano").click(pano.openPano);
     });
 </script>
