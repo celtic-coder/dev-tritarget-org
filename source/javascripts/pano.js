@@ -9,15 +9,9 @@ pano.open = function (e) {
         window.location.href = el.data('vr5-path');
     } else {
         jQuery.fancybox.open({
-            href: el.data('player-path'),
+            href: el.attr('href'),
             title: el.attr('title'),
-            type: 'swf',
-            swf: {
-                'menu': "false",
-                'quality': "high",
-                'allowfullscreen': "true",
-                'flashvars': "xml=" + el.data('xml-path')
-            }
+            type: 'iframe'
         });
     }
 };
