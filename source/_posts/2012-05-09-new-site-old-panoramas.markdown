@@ -11,8 +11,6 @@ wanted to place all my older Panoramas here for archive sake.
 
 <!-- more -->
 
-* A war memorial I found in Providence, RI.  
-  {% pano ri_memorial %}
 * My back yard.  
   {% pano backyard %}
 * Jean Lafiette Park in New Orleans.  
