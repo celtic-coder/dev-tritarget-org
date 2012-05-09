@@ -38,22 +38,32 @@ module Jekyll
       "#{prefix}#{filename}"
     end
 
-    def pano_path_for(panoname)
-      # default to salado file to handle backwards compatability
-      # vr5 supported by javascript after the fact.
-      path_for("#{panoname}/salado.html")
+    def player_path
+      @context.environments.first['site']['salado_player']
     end
 
-    def thumb_for(panoname, thumb=nil)
+    def pano_path_for(pano)
+      path_for("#{pano}/salado.html")
+    end
+
+    def xml_path_for(pano)
+      path_for("#{pano}/salado.xml")
+    end
+
+    def vr5_path_for(pano)
+      path_for("#{pano}/vr5.html")
+    end
+
+    def thumb_for(pano, thumb=nil)
       thumb = (thumb unless thumb == 'default') || "preview.jpg"
-      path_for("#{panoname}/#{thumb}")
+      path_for("#{pano}/#{thumb}")
     end
   end
 
   class PanoTag < Liquid::Tag
     def initialize(tag_name, markup, tokens)
-      if /(?<panoname>\S+)(?:\s+(?<thumb>\S+))?(?:\s+(?<title>.+))?/i =~ markup
-        @panoname = panoname
+      if /(?<pano>\S+)(?:\s+(?<thumb>\S+))?(?:\s+(?<title>.+))?/i =~ markup
+        @pano = pano
         @title = title
         @thumb = thumb
       end
@@ -61,11 +71,15 @@ module Jekyll
     end
 
     def render(context)
-      p = PanoUtil.new(context)
-      if @panoname
-        "<a href=\"#{p.pano_path_for(@panoname)}\" class=\"fancybox-pano\" title=\"#{@title}\"><img src=\"#{p.thumb_for(@panoname,@thumb)}\" alt=\"#{@title}\" /></a>"
+      unless context.environments.first['site']['salado_player'].nil?
+        p = PanoUtil.new(context)
+        if @pano
+          "<a href=\"#{p.pano_path_for(@pano)}\" data-vr5-path=\"#{p.vr5_path_for(@pano)}\" data-player-path=\"#{p.player_path}\" data-xml-path=\"#{p.xml_path_for(@pano)}\" class=\"fancybox-pano\" title=\"#{@title}\"><img src=\"#{p.thumb_for(@pano,@thumb)}\" alt=\"#{@title}\" /></a>"
+        else
+          "Error processing input, expected syntax: {% pano filename [title] %}"
+        end
       else
-        "Error processing input, expected syntax: {% pano filename [title] %}"
+        "Error: 'salado_player' not defined in _config.yml"
       end
     end
   end
