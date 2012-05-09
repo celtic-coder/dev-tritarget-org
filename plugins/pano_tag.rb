@@ -52,7 +52,7 @@ module Jekyll
 
   class PanoTag < Liquid::Tag
     def initialize(tag_name, markup, tokens)
-      if /(?<filename>\S+)(?:\s+(?<thumb>\S+))?(?:\s+(?<title>.+))?/i =~ markup
+      if /(?<panoname>\S+)(?:\s+(?<thumb>\S+))?(?:\s+(?<title>.+))?/i =~ markup
         @panoname = panoname
         @title = title
         @thumb = thumb
@@ -61,7 +61,7 @@ module Jekyll
     end
 
     def render(context)
-      p = PhotosUtil.new(context)
+      p = PanoUtil.new(context)
       if @panoname
         "<a href=\"#{p.pano_path_for(@panoname)}\" class=\"fancybox-pano\" title=\"#{@title}\"><img src=\"#{p.thumb_for(@panoname,@thumb)}\" alt=\"#{@title}\" /></a>"
       else
