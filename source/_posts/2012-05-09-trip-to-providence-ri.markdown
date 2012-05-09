@@ -10,6 +10,13 @@ So I took a small road trip to Providence Rhode Island. Where I found the
 
 <!-- more -->
 
+This panoramic was taken using a plub line (explained in [this tutorial][1]).
+Because I did not use a tripod I got a lot of [paraallax][2] issues. You can
+see them when you look down.
+
+[1]: http://www.youtube.com/watch?v=ouOEM4cKKGc
+[2]: http://www.panoguide.com/howto/panoramas/parallax.jsp
+
 {% pano ri_memorial %}
 
 I also took a few other neat photos.
