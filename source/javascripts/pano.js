@@ -1,20 +1,20 @@
 var pano = {};
 
 pano.vr5_path_for = function (href) {
-    href = href.replace(/salado\.html/, "vr5.html");
-    return href;
+    return href.replace(/salado\.html/, "vr5.html");
 };
 
 pano.open = function (e) {
     e.preventDefault();
     // detect browser
     var deviceAgent = navigator.userAgent.toLowerCase();
+    var el = $(this);
     if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
-        window.location.href = pano.vr5_path_for(this.attr('href'));
+        window.location.href = pano.vr5_path_for(el.attr('href'));
     } else {
         jQuery.fancybox.open({
-            href: this.attr('href'),
-            title: this.attr('title')
+            href: el.attr('href'),
+            title: el.attr('title')
         }, { type: 'ajax' });
     }
 };
