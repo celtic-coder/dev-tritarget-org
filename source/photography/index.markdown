@@ -16,11 +16,18 @@ A lot of my knowlwdge came from the following tutorials:
 
 ## Blog Posts ##
 
-These posts have photos and panoramics for you to view:
+These are the latest _five_ posts which have photos and panoramics for you to
+view:
 
-{% for post in site.categories['photography'] %}
-* [{{ post['title'] }}]({{ post['url'] }}) on {{ post['date_formatted'] }}
+<div id="blog-archives">
+{% for post in site.categories['photography'] limit: 5 %}
+<article>
+  {% include archive_post.html %}
+</article>
 {% endfor %}
+</div>
+
+[View all posts]({{ root_url }}blog/categories/photography/)
 
 ## What I use ##
 

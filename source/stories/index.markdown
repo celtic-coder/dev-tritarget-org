@@ -31,6 +31,12 @@ Fiction][1].
 
 The following is any creative writing I have posted to this site:
 
-{% for story in site.categories['creative writing'] %}
-* [{{ story['title'] }}]({{ story['url'] }}) on {{ story['date_formatted'] }}
+<div id="blog-archives">
+{% for post in site.categories['creative writing'] limit: 10 %}
+<article>
+  {% include archive_post.html %}
+</article>
 {% endfor %}
+</div>
+
+[View all posts]({{ root_url }}blog/categories/creative_writing/)
