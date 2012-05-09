@@ -120,4 +120,6 @@ flickr_count: 3
 gravatar_hash: a33233f156a5531707f130c28565de69
 
 # Photos CDN
-photos_prefix: "http://photos.tritarget.org/"
+photos_prefix: "http://photos.tritarget.org/photos/"
+salado_player: "http://photos.tritarget.org/salado/SaladoPlayer-1.3.swf"
+panos_prefix: "http://photos.tritarget.org/panoramas/"
