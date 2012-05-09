@@ -10,13 +10,17 @@
 # This also assumes you have integrated [FancyBox][4]. Please read
 # [how to do this][5] from my blog.
 #
-# This uses convention over customization. It is dependent on 
+# This uses convention over customization. It is dependent on the
+# [pano-skel][6] project.
+#
+# Site option `panos_prefix` will determine where panos are stored.
 #
 # [1]: https://github.com/mstandio/SaladoConverter/downloads
 # [2]: http://www.vrhabitat.com/#vr5
 # [3]: 
 # [4]: http://fancyapps.com/fancybox/
 # [5]: http://tritarget.org/blog/2012/05/07/integrating-photos-into-octopress-using-fancybox-and-plugin/
+# [6]: 
 #
 # Syntax {% pano filename %}
 
@@ -29,7 +33,8 @@ module Jekyll
 
     def path_for(filename)
       filename = filename.strip
-      prefix = (@context.environments.first['site']['photos_prefix'] unless filename =~ /^(?:\/|http)/i) || ""
+      prefix = (@context.environments.first['site']['panos_prefix'] unless filename =~ /^(?:\/|http)/i) || ""
+      prefix = "#{prefix}/" unless prefix =~ /^$|\/$/
       "#{prefix}#{filename}"
     end
 

@@ -51,6 +51,7 @@ module Jekyll
     def path_for(filename)
       filename = filename.strip
       prefix = (@context.environments.first['site']['photos_prefix'] unless filename =~ /^(?:\/|http)/i) || ""
+      prefix = "#{prefix}/" unless prefix =~ /^$|\/$/
       "#{prefix}#{filename}"
     end
 
