@@ -1,9 +1,7 @@
 var pano = {};
 
-pano.vr5_path_for = function (el) {
-    el = jQuery(el);
-    var href = el.attr('href');
-    href = href.replace(/\/salado\//, "/vr5/");
+pano.vr5_path_for = function (href) {
+    href = href.replace(/salado\.html/, "vr5.html");
     return href;
 };
 

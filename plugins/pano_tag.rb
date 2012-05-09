@@ -12,8 +12,8 @@
 #
 # This uses convention over customization. It is dependent on 
 #
-# [1]: 
-# [2]: 
+# [1]: https://github.com/mstandio/SaladoConverter/downloads
+# [2]: http://www.vrhabitat.com/#vr5
 # [3]: 
 # [4]: http://fancyapps.com/fancybox/
 # [5]: http://tritarget.org/blog/2012/05/07/integrating-photos-into-octopress-using-fancybox-and-plugin/
@@ -36,7 +36,7 @@ module Jekyll
     def pano_path_for(panoname)
       # default to salado file to handle backwards compatability
       # vr5 supported by javascript after the fact.
-      path_for("#{panoname}/salado/index.html")
+      path_for("#{panoname}/salado.html")
     end
 
     def thumb_for(panoname, thumb=nil)
