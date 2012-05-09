@@ -6,7 +6,7 @@ comments: true
 categories: photography
 ---
 So I took a small road trip to Providence Rhode Island. Where I found the
-[South Main Stree Park][1] and a War Veterans Memorial.
+[South Main Street Park][1] and a War Veterans Memorial.
 
 <!-- more -->
 
