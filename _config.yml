@@ -49,8 +49,8 @@ default_asides:
     - 'custom/asides/gravatar.html'
     - asides/googleplus.html
     - asides/recent_posts.html
-    - asides/twitter.html
     - 'custom/asides/flickr.html'
+    - asides/twitter.html
     - asides/github.html
     - asides/delicious.html
     - asides/pinboard.html
