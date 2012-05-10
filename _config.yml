@@ -108,7 +108,7 @@ disqus_show_comment_count: true
 google_analytics_tracking_id: UA-30456823-1
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
 
 # Flickr Photos
 flickr_userid: 55325630@N02
