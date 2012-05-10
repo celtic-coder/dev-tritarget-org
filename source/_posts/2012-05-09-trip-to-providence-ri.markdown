@@ -3,7 +3,7 @@ layout: post
 title: "Trip to Providence RI"
 date: 2012-05-09 17:46
 comments: true
-categories: photography
+categories: [photography, panos]
 ---
 So I took a small road trip to Providence Rhode Island. Where I found the
 [South Main Street Park][1] and a War Veterans Memorial.
