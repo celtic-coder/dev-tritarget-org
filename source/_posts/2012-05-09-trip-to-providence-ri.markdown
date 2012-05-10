@@ -3,14 +3,14 @@ layout: post
 title: "Trip to Providence RI"
 date: 2012-05-09 17:46
 comments: true
-categories: photography
+categories: [photography, panos]
 ---
 So I took a small road trip to Providence Rhode Island. Where I found the
 [South Main Street Park][1] and a War Veterans Memorial.
 
 <!-- more -->
 
-This panoramic was taken using a plub line (explained in [this tutorial][1]).
+This panoramic was taken using a plumb-bob (explained in [this tutorial][1]).
 Because I did not use a tripod I got a lot of [paraallax][2] issues. You can
 see them when you look down.
 

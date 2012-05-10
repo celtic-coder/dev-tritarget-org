@@ -49,8 +49,8 @@ default_asides:
     - 'custom/asides/gravatar.html'
     - asides/googleplus.html
     - asides/recent_posts.html
-    - asides/twitter.html
     - 'custom/asides/flickr.html'
+    - asides/twitter.html
     - asides/github.html
     - asides/delicious.html
     - asides/pinboard.html
@@ -89,7 +89,7 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user: weaver.devin@gmail.com
+googleplus_user: 104981501099138892251
 googleplus_hidden: false
 
 # Pinboard
@@ -108,7 +108,7 @@ disqus_show_comment_count: true
 google_analytics_tracking_id: UA-30456823-1
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
 
 # Flickr Photos
 flickr_userid: 55325630@N02
