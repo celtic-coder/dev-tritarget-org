@@ -8,8 +8,6 @@ footer: false
 ---
 These are some of the projects I am working on or have worked on.
 
-#### My Coding Projects
-
 - **[SimNotify](http://sukima.github.com/SimNotify/)** - A Ruby on Rails
   scheduling program for medical simulation centers. This app is very site
   specific for a simulation center that I work for. This project is my attempt
@@ -36,6 +34,16 @@ These are some of the projects I am working on or have worked on.
 [jQuery]: http://jquery.com/
 [PERL]: http://www.perl.org/
 [jekyll]: http://jekyllrb.com/
+
+## Blog Posts
+
+<div id="blog-archives">
+{% for post in site.categories['coding'] limit: 5 %}
+<article>
+  {% include archive_post.html %}
+</article>
+{% endfor %}
+</div>
 
 #### Not-so-random fortune quote
 
