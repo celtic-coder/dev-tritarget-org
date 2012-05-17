@@ -3,7 +3,7 @@ layout: post
 title: "Mother's Day Photos"
 date: 2012-05-13 22:31
 comments: true
-categories: [ photos, family ]
+categories: [ photography, family ]
 ---
 Happy Mother's day!
 
