@@ -5,7 +5,7 @@ date: 2012-05-13 22:31
 comments: true
 categories: [ photos, family ]
 ---
-Happy Mother's day to the pendleton family.
+Happy Mother's day!
 
 {% gallery %}
 pendleton1.jpg: Grandma and the grand-kids
