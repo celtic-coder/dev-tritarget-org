@@ -9,8 +9,6 @@ With this new site I decided to consolidate all my hobbies and muses into one
 place. So I will be posting my photos as blog posts here. To start off with I
 wanted to place all my older Panoramas here for archive sake.
 
-<!-- more -->
-
 * My back yard.  
   {% pano backyard %}
 * Jean Lafiette Park in New Orleans.  
