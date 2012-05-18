@@ -9,6 +9,8 @@ footer: true
 I wanted to share some panoramas of the Yale [SYN:APSE Simulation Center][1]
 simulation rooms.
 
+Click on an image to view the panorama.
+
 {% pano 8-827 default Simulation room 8-827 %}
 {% pano 8-830 default Simulation room 8-830 %}
 
