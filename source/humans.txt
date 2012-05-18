@@ -6,6 +6,10 @@ Author, Designer, Programmer: Devin Weaver
 Site: https://plus.google.com/104981501099138892251
 Twitter: sukima
 Location: New Haven, CT, USA
+PGP Key ID: 162967F9
+PGP Key Fingerprint: 540C 8343 2521 10D4 9E3A  73E0 C6B6 0A3D 1629 67F9
+PGP Key URL: http://tritarget.org/key
+
 
 
 /* SITE */
@@ -14,3 +18,13 @@ Standards: HTML4, CSS2, Markdown
 Components: jQuery, jQuery-UI, Disqus
 Software: OctoPress, Jekyll, Maruku, VIM
 Source: https://github.com/sukima/dev-tritarget-org
+
+
+     _____      _ _____                     _                     
+    |_   _|_ __(_)_   _|__ _ _ __ __ _  ___| |_    ___  _ __ __ _ 
+      | | | '__| | | | / _` | '__/ _` |/ _ \ __|  / _ \| '__/ _` |
+      | | | |  | | | || (_| | | | (_| |  __/ |_ _| (_) | | | (_| |
+      |_| |_|  |_| |_| \__,_|_|  \__, |\___|\__(_)\___/|_|  \__, |
+                                 |___/                      |___/ 
+    01010100 01110010 01101001 01010100 01100001 01110010 01100111
+        01100101 01110100 00101110 01101111 01110010 01100111
