@@ -74,7 +74,7 @@ module Jekyll
       unless context.environments.first['site']['salado_player'].nil?
         p = PanoUtil.new(context)
         if @pano
-          "<a href=\"#{p.pano_path_for(@pano)}\" data-vr5-path=\"#{p.vr5_path_for(@pano)}\" data-player-path=\"#{p.player_path}\" data-xml-path=\"#{p.xml_path_for(@pano)}\" class=\"fancybox-pano\" title=\"#{@title}\"><img src=\"#{p.thumb_for(@pano,@thumb)}\" alt=\"#{@title}\" /></a>"
+          "<p class=\"pano\"><a href=\"#{p.pano_path_for(@pano)}\" data-vr5-path=\"#{p.vr5_path_for(@pano)}\" data-player-path=\"#{p.player_path}\" data-xml-path=\"#{p.xml_path_for(@pano)}\" class=\"fancybox-pano\" title=\"#{@title}\"><img src=\"#{p.thumb_for(@pano,@thumb)}\" alt=\"#{@title}\" /></a></p>"
         else
           "Error processing input, expected syntax: {% pano filename [title] %}"
         end
