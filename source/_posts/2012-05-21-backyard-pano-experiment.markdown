@@ -3,7 +3,7 @@ layout: post
 title: "Backyard Pano experiment"
 date: 2012-05-21 23:05
 comments: true
-categories: photography, panos
+categories: [ photography, panos ]
 ---
 So my friend and I were out in the back yard taking photos. I tried to do a
 quick panorama experiment.
