@@ -6,6 +6,17 @@ comments: false
 sharing: true
 footer: false
 ---
+This site is built with a static site generator called [Jekyll][] Using the
+[OctoPress][] engine. What this means is I write the code in [Markdown][] and
+it is compiled into the website you see now. You can [view the source code][1]
+for this site on GitHub.
+
+[Jekyll]: http://jekyllrb.com/
+[OctoPress]: http://octopress.org/
+[Markdown]: http://daringfireball.net/projects/markdown/
+[1]: https://github.com/sukima/dev-tritarget-org
+
+## About Me
 TriTarget.org is a name I came up with in high school. I was big into computer
 programming and wanted a company name that was kinda catchy. When I made a few
 programs in [BASIC][] I would brand them with __TriTarget__ as a way to show
@@ -19,11 +30,6 @@ sea). I began work as an electrician for about 3 years while I trained to be an
 [EMT][]. I began that career in the medical field where I eventually became a
 Paramedic. I finished my associates degree and after 10 years in the medical
 field I found a job at a top hospital as a medical simulation technician.
-
-I am currently managing the technical department for our simulation center and
-am in school to complete my bachelors in science with a major in information
-systems. My goal is to develop the skills to design and develop software for
-the medical community based on good human user interface design.
 
 ## What is Medical Simulation?
 Medical simulation is a term I use to describe what I do. The premise is the
