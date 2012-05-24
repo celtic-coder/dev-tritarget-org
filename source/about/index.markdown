@@ -11,10 +11,13 @@ This site is built with a static site generator called [Jekyll][] Using the
 it is compiled into the website you see now. You can [view the source code][1]
 for this site on GitHub.
 
+[![Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License](http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png)][2]
+
 [Jekyll]: http://jekyllrb.com/
 [OctoPress]: http://octopress.org/
 [Markdown]: http://daringfireball.net/projects/markdown/
 [1]: https://github.com/sukima/dev-tritarget-org
+[2]: {{ root_url }}/license.html
 
 ## About Me
 TriTarget.org is a name I came up with in high school. I was big into computer
