@@ -3,7 +3,7 @@ layout: nil
 --- 
 /* TEAM */
 Author, Designer, Programmer: Devin Weaver
-Site: https://plus.google.com/104981501099138892251
+Site: http://tritarget.org/
 Twitter: sukima
 Location: New Haven, CT, USA
 PGP Key ID: 162967F9
