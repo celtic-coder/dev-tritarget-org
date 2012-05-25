@@ -4,7 +4,7 @@ title: "Hanging out with the Myth Of Reason podcast crew"
 date: 2012-05-24 15:03
 comments: true
 categories: [ photography, panos ]
-published: false
+published: true
 ---
 Yesterday I got the opportunity to go to the recording of the
 [Myth of Reason][1] podcast with my friend [Sean Tyler][2] and his
@@ -25,8 +25,8 @@ there so I took a 360 Panorama:
 
 {% pano myth %}
 
-[1]: http://www.facebook.com/pages/The-Myth-of-Reason/116275235082831
+[1]: http://www.podcast.immortalgothicangel.com/
 [2]: http://www.facebook.com/wolfdjtyler
 [3]: http://www.facebook.com/people/Shane-Mckenzie/100001044080971
 [4]: http://www.1023thewolf.com/
-[5]: http://www.oaktreebuyrite.com/
+[5]: http://www.facebook.com/oaktreewine
