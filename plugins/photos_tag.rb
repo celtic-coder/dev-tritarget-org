@@ -22,7 +22,7 @@
 #     {% fancyboxstylefix %}
 #
 # Examples:
-# {% photo photo1.jpg My Photo %}
+# {% photo photo1_b.jpg My Photo %}
 # {% photo /path/to/photo.jpg %}
 # {% gallery %}
 # photo1.jpg: my title 1
@@ -31,12 +31,12 @@
 # {% endgallery %}
 #
 # Output:
-# <a href="photo1.jpg" class="fancybox" title="My Photo"><img src="photo1_m.jpg" alt="My Photo" /></a>
-# <a href="/path/to/photo.jpg" class="fancybox" title="My Photo"><img src="/path/to/photo_m.jpg" alt="My Photo" /></a>
+# <a href="photo1_b.jpg" class="fancybox" title="My Photo"><img src="photo1_t.jpg" alt="My Photo" /></a>
+# <a href="/path/to/photo.jpg" class="fancybox" title="My Photo"><img src="/path/to/photo_t.jpg" alt="My Photo" /></a>
 # <ul class="gallery">
-#   <li><a href="photo1.jpg" class="fancybox" rel="gallery-e566c90e554eb6c157de1d5869547f7a" title="my title 1"><img src="photo1_m.jpg" alt="my title 1" /></a></li>
-#   <li><a href="photo2.jpg" class="fancybox" rel="gallery-e566c90e554eb6c157de1d5869547f7a" title="my title 2"><img src="photo2_m.jpg" alt="my title 2" /></a></li>
-#   <li><a href="photo3.jpg" class="fancybox" rel="gallery-e566c90e554eb6c157de1d5869547f7a" title="my title 3"><img src="photo3_m.jpg" alt="my title 3" /></a></li>
+#   <li><a href="photo1.jpg" class="fancybox" rel="gallery-e566c90e554eb6c157de1d5869547f7a" title="my title 1"><img src="photo1_t.jpg" alt="my title 1" /></a></li>
+#   <li><a href="photo2.jpg" class="fancybox" rel="gallery-e566c90e554eb6c157de1d5869547f7a" title="my title 2"><img src="thumnail.jpg" alt="my title 2" /></a></li>
+#   <li><a href="photo3.jpg" class="fancybox" rel="gallery-e566c90e554eb6c157de1d5869547f7a" title="my title 3"><img src="photo3_t.jpg" alt="my title 3" /></a></li>
 # </ul>
 
 require 'digest/md5'
@@ -59,9 +59,9 @@ module Jekyll
       filename = filename.strip
       # FIXME: This seems excessive
       if filename =~ /\./
-        thumb = (thumb unless thumb == 'default') || filename.gsub(/(?:_b)?\.(?<ext>[^\.]+)?$/, "_m.\\k<ext>")
+        thumb = (thumb unless thumb == 'default') || filename.gsub(/(?:_b)?\.(?<ext>[^\.]+)?$/, "_t.\\k<ext>")
       else
-        thumb = (thumb unless thumb == 'default') || "#{filename}_m"
+        thumb = (thumb unless thumb == 'default') || "#{filename}_t"
       end
       path_for(thumb)
     end
