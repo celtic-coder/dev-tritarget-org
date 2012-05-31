@@ -59,7 +59,7 @@ module Jekyll
       filename = filename.strip
       # FIXME: This seems excessive
       if filename =~ /\./
-        thumb = (thumb unless thumb == 'default') || filename.gsub(/(?:_b)?\.(?<ext>[^\.]+)?$/, "_t.\\k<ext>")
+        thumb = (thumb unless thumb == 'default') || filename.gsub(/(?:_[a-bA-B])?\.(?<ext>[^\.]+)?$/, "_t.\\k<ext>")
       else
         thumb = (thumb unless thumb == 'default') || "#{filename}_t"
       end
