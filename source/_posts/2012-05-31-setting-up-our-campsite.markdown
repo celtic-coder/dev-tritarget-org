@@ -6,6 +6,9 @@ comments: true
 categories: [ photography, panos, vacations ]
 published: false
 ---
+Our camping experience had no Internet. So all the gritty details will be
+posted over the days following the vacation.
+
 Our first day camping! Well, it was a bit interesting to say the least.
 The campsite lays between two motor-homes and the ground was very rocky.
 But the good news is that was just the _first_ site. The real site was
