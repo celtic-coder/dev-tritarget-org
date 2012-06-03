@@ -4,7 +4,7 @@ title: "Setting up our campsite"
 date: 2012-05-31 19:17
 comments: true
 categories: [ photography, panos, vacations ]
-published: false
+published: true
 ---
 Our camping experience had no Internet. So all the gritty details will be
 posted over the days following the vacation.
