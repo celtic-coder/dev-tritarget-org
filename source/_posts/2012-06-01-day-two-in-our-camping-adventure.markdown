@@ -36,7 +36,7 @@ catskills/river_under_bridge.jpg: Under the covered bridge
 The one hiking trail I took was to a 20 foot waterfall which of course I
 made a panorama of it. The interesting part is I had to hop rocks over the
 creek and then I had to wade though it again to get to this waterfall. It
-was fun but defiantly a bit of a hike (for me anyway).
+was fun but definitely a bit of a hike (for me anyway).
 
 {% gallery %}
 catskills/waterfall1.jpg: The waterfall in the mountains
