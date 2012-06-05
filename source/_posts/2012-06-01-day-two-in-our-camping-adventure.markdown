@@ -4,7 +4,7 @@ title: "Day two in our camping adventure"
 date: 2012-06-01 21:27
 comments: true
 categories: [ photography, panos, vacations ]
-published: false
+published: true
 ---
 Today I got a chance to look around the camp grounds. They had a bunch of
 farm animals. From chickens to ducks to donkeys.
