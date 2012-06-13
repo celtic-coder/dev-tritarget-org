@@ -12,7 +12,7 @@ published: false
 .probably { color: #bfbf00; }
 .bad { color: red; }
 th { font-weight: bold; }
-td { padding: 5px; }
+td { padding: 0 5px; }
 </style>
 </div>
 
@@ -81,6 +81,32 @@ foods (most notably in fruits).
 
 ![Fructose Chem Figure][Fructose-img]
 
+#### What's so bad about Fructose? ####
+According the [video above][1] Fructose is metabolized in the liver the
+exact same way [Ethenal][] (Alcohol) is. Which means the side effects are
+pretty sever. We know what chronic alcoholism does to the body. Well
+Fructose does the same thing (mostly). So a can of soda (which has Fructose
+in it) is about the same as drinking a beer except you don't get a buzz.
+
+Count how many cans of soda you drink a day. Now imagine if each one was a
+beer or glass of wine. Now add in all the other things you eat that has
+Fructose in it. Pizza, Coffee (sweetened), juice, Bread, etc. Each one can
+roughly equate to a glass of wine or a beer (roughly for this exercise,
+amounts vary in practise). Add that all up and you are very drunk. Now take
+away the buzz / delirium and side effects and imagine what your liver is
+processing this amount. Is the visual enough for you to imagine hepatic
+failure (liver disease)?
+
+Granted that is an extreme case however the cumulative effects can be seen
+in the side effects: weight gain, Insulin resistance, hunger suppressant,
+addiction. These effects are the by product of Fructose metabolism.
+
+To dumb it down: **the body metabolises Glucose cleanly, Fructose is
+dirty**. The by product of Fructose metabolism is a slew of reactions and
+chemicals that you just don't see with Glucose.
+
+volume issue
+
 ## The Antidote: Fiber ##
 
 ## Sugar Substitutes ##
@@ -92,28 +118,38 @@ foods (most notably in fruits).
 ## Ketosis ##
 
 ## Summary ##
+Using the metabolism ratings table below you can quickly get an idea of what
+to look for in the ingredients portion of the food labels.
 
 #### Metabolism Ratings ####
-Ingredient | Rating |
------------|-------:|
-Glucose    | <span class="ok">OK</span>
-Dextrose   | <span class="ok">OK</span>
-Maltose    | <span class="ok">OK</span>
-Fructose   | <span class="bad">BAD</span>
-Sucrose    | <span class="bad">BAD</span>
-Sucralose  | <span class="bad">BAD</span>
-Aspertame  | <span class="bad">BAD</span>
-Stevia     | <span class="ok">OK</span>
-Galatose   |
-Corn Syrup | <span class="probably">Probably OK</span>
-HFCS       | <span class="bad">BAD</span>
-Ethenol    | <span class="bad">BAD</span>
+Ingredient               | Rating |
+-------------------------|--------|
+[Glucose][]              | <span class="ok">OK</span>
+[Dextrose][Glucose]      | <span class="ok">OK</span>
+[Maltose][]              | <span class="ok">OK</span>
+[Fructose][] &diams;     | <span class="bad">BAD</span>
+[Sucrose][] &diams;      | <span class="bad">BAD</span>
+[Sucralose][]            | <span class="bad">VERY BAD</span>
+[Aspertame][]            | <span class="bad">VERY BAD</span>
+[Stevia][]               | <span class="ok">OK</span>
+[Lactose][]              | <span class="ok">OK</span>
+[Galatose][]             | <span class="ok">OK</span>
+[Milk][Lactose]          | <span class="ok">OK</span>
+[Whey][Lactose]          | <span class="ok">OK</span>
+[Corn Syrup][corn-syrup] | <span class="probably">Probably OK</span>
+[HFCS][] &diams;         | <span class="bad">BAD</span>
+[Ethenol][] &diams;      | <span class="bad">BAD</span>
+[Sugar][Sucrose] &diams; | <span class="bad">BAD</span>
+Cane Sugar &diams;       | <span class="bad">BAD</span>
+Beat Sugar &diams;       | <span class="bad">BAD</span>
+Agave Nectar &diams;     | <span class="bad">BAD</span>
+Honey &diams;            | <span class="bad">BAD</span>
 
+&diams;: Metabolized the same as Fructose, Dealt with the same way.
 
 #### Bundling Poison and Antidote ####
 
 #### Moderation ####
-
 
 [corn-syrup]: http://en.wikipedia.org/wiki/Corn_syrup
 [Glucose]: http://en.wikipedia.org/wiki/Glucose
@@ -129,6 +165,8 @@ Ethenol    | <span class="bad">BAD</span>
 [Fiber]: http://en.wikipedia.org/wiki/Dietary_fiber
 [Galatose]: http://en.wikipedia.org/wiki/Galactose
 [Galactose-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Beta-D-Galactopyranose.svg/200px-Beta-D-Galactopyranose.svg.png
+[Lactose]: http://en.wikipedia.org/wiki/Lactose
+[Lactose-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Beta-D-Lactose.svg/200px-Beta-D-Lactose.svg.png
 [Sucrose]: http://en.wikipedia.org/wiki/Sucrose
 [Sucrose-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Saccharose2.svg/200px-Saccharose2.svg.png
 [Aspertame]: http://en.wikipedia.org/wiki/Aspartame
@@ -141,3 +179,5 @@ Ethenol    | <span class="bad">BAD</span>
 [corn-syrup]: http://en.wikipedia.org/wiki/Corn_syrup
 [HFCS]: http://en.wikipedia.org/wiki/High-fructose_corn_syrup
 [HFCS-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/D-Fructose_vs._D-Glucose_Structural_Formulae_V.1.svg/200px-D-Fructose_vs._D-Glucose_Structural_Formulae_V.1.svg.png
+
+<!-- vim:set tw=76: -->
