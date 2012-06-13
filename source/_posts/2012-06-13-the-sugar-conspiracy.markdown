@@ -6,6 +6,16 @@ comments: true
 categories: [ research, politics, science ]
 published: false
 ---
+<div>
+<style type="text/css">
+.ok { color: green; }
+.probably { color: #bfbf00; }
+.bad { color: red; }
+th { font-weight: bold; }
+td { padding: 5px; }
+</style>
+</div>
+
 I'd like to discuss a bit of frustration I'm having concerning the recent
 popularity of vilifying sugar and High Fructose Corn Syrup. But to do so I
 have to take you on a long journey to get there.
@@ -13,8 +23,8 @@ have to take you on a long journey to get there.
 So why _Yet Another Blog Post About Sugar_? Well simply the information I
 have gathered didn't make much sense for me. The very idea of _what do you
 do_ didn't seem to follow the _your gonna die_ propaganda. So I figured I
-take a stab at it and bring it down to normal understanding levels. And
-hopefully how to implement a change.
+would take a stab at it and bring it down to normal understanding levels.
+And hopefully how to implement a change.
 
 My investigation (although paliminary) started with a jaw dropping YouTube
 Video called [Sugar: The Bitter Truth][1] which was a speech given by Dr.
@@ -32,15 +42,50 @@ sugar and how it effects our bodies.
 
 <!-- more -->
 
-## Life: Glucose, Dextrose, Malatose ##
+## Energy of Life: Glucose, Dextrose and Maltose ##
+[Glucose][] is the fuel that our bodies run on. It is what the cells use to
+create their energy. The cells are very efficient in converting the Glucose
+to energy with little or manageable waste product.
+
+![Glucose Chem Figure][Glucose-img]
+
+You don't see Glucose in many products because it doesn't package well in
+it's pure form. You will see it usually packaged as Dextrose or
+[Maltose][]. Dextrose is just two Glucose packaged together (1 Dextrose = 2
+Glucose). Maltose is another Glucose pair that uses a different bond (AKA
+malt sugar).
+
+![Maltose Chem Figure][Maltose-img]
+
+Glucose, Dextrose and Maltose are <span class="ok">OK</span>.
+
+A note about [Corn Syrup][corn-syrup]: To the best of my knowledge based on
+[the WikiPedia article][corn-syrup] Corn Syrup is based on Glucose (Maltose)
+bonded together to form a syrup. Unlike [High Fructose Corn Syrup][HFCS]
+which is processed further to develop a Glucose/Fructose mix. Based on that
+I rate Corn Syrup as <span class="probably">Probably OK</span>.
 
 ## The Poison: Sucrose and Fructose ##
+[Sucrose][] is Table Sugar. The white stuff you put into your coffee or tea.
+Guess what... Sucrose is 50% Glucose _(hexagon on left in figure)_ and 50%
+Fructose _(pentagon on riht in figure)_. Which means when you ingest
+Sucrose, Sugar, Cane Sugar, Beat Sugar, Agave Nectar, and Honey are a mix of
+Glucose and **Fructose**. So when we talk about Fructose we are talking
+about these as well.
+
+![Sucrose Chem Figure][Sucrose-img]
+
+[Fructose][] is the focus on a lot of controversy. And the reasons is mostly
+political but also miss interpretations. Fructose is found naturally in many
+foods (most notably in fruits).
+
+![Fructose Chem Figure][Fructose-img]
 
 ## The Antidote: Fiber ##
 
 ## Sugar Substitutes ##
 
-#### Sucrolose and Aspertame ####
+#### Sucralose and Aspertame ####
 
 #### Stevia ####
 
@@ -48,12 +93,35 @@ sugar and how it effects our bodies.
 
 ## Summary ##
 
+#### Metabolism Ratings ####
+Ingredient | Rating |
+-----------|-------:|
+Glucose    | <span class="ok">OK</span>
+Dextrose   | <span class="ok">OK</span>
+Maltose    | <span class="ok">OK</span>
+Fructose   | <span class="bad">BAD</span>
+Sucrose    | <span class="bad">BAD</span>
+Sucralose  | <span class="bad">BAD</span>
+Aspertame  | <span class="bad">BAD</span>
+Stevia     | <span class="ok">OK</span>
+Galatose   |
+Corn Syrup | <span class="probably">Probably OK</span>
+HFCS       | <span class="bad">BAD</span>
+Ethenol    | <span class="bad">BAD</span>
+
+
+#### Bundling Poison and Antidote ####
+
+#### Moderation ####
+
+
+[corn-syrup]: http://en.wikipedia.org/wiki/Corn_syrup
 [Glucose]: http://en.wikipedia.org/wiki/Glucose
 [Glucose-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Glucose_chain_structure.svg/200px-Glucose_chain_structure.svg.png
 [Ethenol]: http://en.wikipedia.org/wiki/Ethanol
 [Ethanol-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Ethanol-2D-flat.png/320px-Ethanol-2D-flat.png
-[Malatose]: http://en.wikipedia.org/wiki/Maltose
-[Malatose-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Maltose2.svg/200px-Maltose2.svg.png
+[Maltose]: http://en.wikipedia.org/wiki/Maltose
+[Maltose-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Maltose2.svg/200px-Maltose2.svg.png
 [Sucralose]: http://en.wikipedia.org/wiki/Sucralose
 [Sucralose-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Sucralose2.svg/200px-Sucralose2.svg.png
 [Fructose]: http://en.wikipedia.org/wiki/Fructose
@@ -70,4 +138,6 @@ sugar and how it effects our bodies.
 [Ketosis]: http://en.wikipedia.org/wiki/Ketosis
 [grc-health]: http://www.grc.com/health.htm
 [Splenda]: http://www.womentowomen.com/healthyweight/splenda.aspx
-
+[corn-syrup]: http://en.wikipedia.org/wiki/Corn_syrup
+[HFCS]: http://en.wikipedia.org/wiki/High-fructose_corn_syrup
+[HFCS-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/D-Fructose_vs._D-Glucose_Structural_Formulae_V.1.svg/200px-D-Fructose_vs._D-Glucose_Structural_Formulae_V.1.svg.png
