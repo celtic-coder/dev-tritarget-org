@@ -5,6 +5,7 @@ date: 2012-05-18 08:24
 comments: true
 sharing: true
 footer: true
+sitemap_excluded: true
 ---
 I wanted to share some panoramas of the Yale [SYN:APSE Simulation Center][1]
 simulation rooms.
