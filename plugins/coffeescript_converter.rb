@@ -17,9 +17,14 @@ module Jekyll
         content = CoffeeScript.compile content
         # OctoPress will pass all content though a RubyPants filter.
         # RubyPants will conver quotes to smart quotes.
-        # RubyPants will ignore any convertions when content is surrounded by HTML comment tags
-        # This adds HTML comment tags to the output to prevent RubyPants from processing the JavaScript code.
-        "// <!-- HTML comment to prevent OctoPress filtering through RubyPants\n#{content}\n// -->"
+        # RubyPants will ignore any convertions when content is surrounded by HTML <script> tags
+        # This adds HTML <script> tags to the output to prevent RubyPants from processing the JavaScript code.
+        <<EOS
+// <script> To prevent OctoPress filtering through RubyPants ([See Gist][1])
+#{content}
+// [1]: https://gist.github.com/2925325
+// </script>
+EOS
       rescue StandardError => e
         puts "CoffeeScript error:" + e.message
       end
