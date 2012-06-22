@@ -115,11 +115,12 @@ module Jekyll
 
     def render(context)
       # Convert the entire content array into one large string
-      lines = super.map(&:strip).join("\n")
+      content = super
+      # lines = super.map(&:strip).join("\n")
       # Get a unique identifier based on content
-      md5 = Digest::MD5.hexdigest(lines)
+      md5 = Digest::MD5.hexdigest(content)
       # split the text by newlines
-      lines = lines.split("\n")
+      lines = content.split("\n")
 
       p = PhotosUtil.new(context)
       list = ""
