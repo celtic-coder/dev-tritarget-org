@@ -62,8 +62,8 @@ employees just do. Without fostering that spark of inspiration or that seed of
 free thinking you can't expect high intensity productivity from the employees.
 {" People want to be more then themselves. "} They want to experience ownership
 in their work. They want to be proud of what they do. And stiffiling that seed
-make people go to work for the sake of money. And productivity and innovation
-go out the window to the companies closest competetor.
+makes people go to work for the sake of money. And productivity and innovation
+go out the window to the companies' closest competetors.
 {% endpullquote %}
 
 As a friend of mine once said **"A happy employee is a productive employee."**
