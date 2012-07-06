@@ -13,6 +13,6 @@ things that I was shooting. Like the sun which offered a lot of lens flare.
 Also the tripod shadow really messed with me. So I was stuck having to crop the
 final result which is why there are black circles above and below.
 
-{% pano taking_a_photo default "Taking a photo" %}
+{% pano taking_a_photo default Taking a photo %}
 
 But then again it isn't so bad.
