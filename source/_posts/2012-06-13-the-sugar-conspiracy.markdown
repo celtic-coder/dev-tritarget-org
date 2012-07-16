@@ -151,6 +151,8 @@ Honey &diams;            | <span class="bad">BAD</span>
 
 #### Moderation ####
 
+[nytimes]: http://www.nytimes.com/2011/04/17/magazine/mag-17Sugar-t.html?pagewanted=all
+[stacks]: http://www.sugarstacks.com/
 [corn-syrup]: http://en.wikipedia.org/wiki/Corn_syrup
 [Glucose]: http://en.wikipedia.org/wiki/Glucose
 [Glucose-img]: http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Glucose_chain_structure.svg/200px-Glucose_chain_structure.svg.png
