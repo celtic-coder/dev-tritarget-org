@@ -19,6 +19,9 @@ a very rewarding experience.
 For more information you can read [A Beginner's Guide to Playing Interactive
 Fiction][1].
 
+Or for a more *interactive tutorial* check out the [Playfic
+Tutorial](http://playfic.com/games/cooper/tutorial).
+
 - [Underworld][2] - During a guided meditation I did on the eve of Samhain I
   envisioned the following story. Travel to the underworld and meet a few
   mythical people and animals like Hecate, Persephone, and Cerberus. Can you
