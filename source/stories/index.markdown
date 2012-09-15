@@ -34,7 +34,7 @@ Or for a more *interactive tutorial* check out the [Playfic Tutorial][2].
 [1]: http://www.microheaven.com/ifguide/index.html
 [2]: http://playfic.com/games/cooper/tutorial
 [3]: http://if.tritarget.org/Underworld/
-[4]: http://if.underworld.org/InteractiveResume/
+[4]: http://if.tritarget.org/InteractiveResume/
 
 ## Stories
 
