@@ -20,12 +20,14 @@ For more information you can read [A Beginner's Guide to Playing Interactive Fic
 
 Or for a more *interactive tutorial* check out the [Playfic Tutorial][2].
 
-- [Underworld][3] - During a guided meditation I did on the eve of Samhain I
+For the mutimedia folks: a quick informative [history on youtube][3].
+
+- [Underworld][4] - During a guided meditation I did on the eve of Samhain I
   envisioned the following story. Travel to the underworld and meet a few
   mythical people and animals like Hecate, Persephone, and Cerberus. Can you
   give up enough negativity to make it back out?
 
-- [Interactive Resume][4] - This is an interactive resume. Well -- it is my
+- [Interactive Resume][5] - This is an interactive resume. Well -- it is my
   unique and quirky way to show the world who I am. It is a text adventure like
   the old mainframe kind (but newer). You may go directly to the information
   with the links provided or play the game for a more fun and -- interactive
@@ -33,8 +35,9 @@ Or for a more *interactive tutorial* check out the [Playfic Tutorial][2].
 
 [1]: http://www.microheaven.com/ifguide/index.html
 [2]: http://playfic.com/games/cooper/tutorial
-[3]: http://if.tritarget.org/Underworld/
-[4]: http://if.tritarget.org/InteractiveResume/
+[3]: http://www.youtube.com/watch?v=9d4Fu90ubmA
+[4]: http://if.tritarget.org/Underworld/
+[5]: http://if.tritarget.org/InteractiveResume/
 
 ## Stories
 
