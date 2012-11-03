@@ -36,6 +36,7 @@ These are some of the projects I am working on or have worked on.
 [jQuery]: http://jquery.com/
 [PERL]: http://www.perl.org/
 [jekyll]: http://jekyllrb.com/
+[zen]: http://www.vim.org/scripts/script.php?script_id=2981
 
 ## Blog Posts
 
