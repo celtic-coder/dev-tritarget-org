@@ -14,6 +14,8 @@ These are some of the projects I am working on or have worked on.
   use qr-codes to "check-out" equipment.
 - **[skiQuery](http://sukima.github.com/skiQuery/)** - A JavaScript port of the old
   classic command-line game ski.
+- **[99-bottles-cs](http://sukima.github.com/99-bottles-cs/)** - A CoffeeScript
+  implementation of the [99 bottles of beer](http://www.99-bottles-of-beer.net/) song.
 - **[bjurl](http://sukima.github.com/bjurl)** - A [PERL][] plugin for [irssi][]
   that collects URLs from a channel and dynamically updates a JavaScript based
   website for easy opening in a remote browser. Includes WebKit Desktop
@@ -41,7 +43,7 @@ These are some of the projects I am working on or have worked on.
 ## Blog Posts
 
 <div id="blog-archives">
-{% for post in site.categories['coding'] limit: 5 %}
+{% for post in site.categories['coding'] limit: 20 %}
 <article>
   {% include archive_post.html %}
 </article>
