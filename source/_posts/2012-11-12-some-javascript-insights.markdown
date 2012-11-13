@@ -7,6 +7,10 @@ categories: [ "coding", "JavaScript" ]
 ---
 I did a few [jsFiddle's][jsFiddle] and realized there were some things about JavaScript that I did not know.
 
+Following is three examples I found useful to me when working with JavaScript.
+
+## Objects passed by reference
+
 For example the `prototype` object will hold sub-objects by by reference. Take a look at [this example][1]:
 
 {% jsfiddle tvEjJ js,result %}
