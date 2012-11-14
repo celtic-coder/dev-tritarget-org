@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "How I understand JavaScript Object Oriented Programming"
-date: 2012-11-13 20:59
+date: 2012-11-12 10:55
 comments: true
 categories: [ "coding", "JavaScript" ]
-published: false
+published: true
 ---
 One of the great things about [CoffeeScript][] is that it compiles into
 JavaScript. I found that when addressing several problems in JavaScript I would
@@ -75,18 +75,113 @@ var instance = new MyObject();
 
 ## Static methods and attributes
 
-Static methods and attributes are accessible to the object itself not bu
-instances of that object.
+Static methods and attributes are accessible to the object itself not
+instances of that object. In other words you access it by the Class name not
+using the `new` keyword:
+
+{% codeblock Static methods (static.js) %}
+var MyObject = (function() {
+  function MyObject() {}
+
+  MyObject.foo = function() { return "Foo"; };
+
+  return MyObject;
+})();
+
+MyObject.foo(); // "Foo"
+var bar = new MyObject();
+bar.foo(); // Error: no such method foo
+{% endcodeblock %}
+
+As you see above that the method foo is static. Obviously this is quite verbose for what you could use as an object literal for:
+
+    var MyObject = {
+      foo: function() { return "Foo"; }
+    };
+
+However, if you want to have dual use (say in a Factory Pattern) it might look like this:
+
+{% codeblock Factory Pattern (factory.js) %}
+var MyObject = (function() {
+  function MyObject() {}
+  
+  MyObject.factory = function() {
+    if (MyObject.instance) {
+      return MyObject.instance;
+    } else {
+      return MyObject.instance = new MyObject();
+    }
+  };
+
+  return MyObject;
+}).call(this); // Notice the explicit scoping here.
+
+var obj = MyObject.factory();
+{% endcodeblock %}
+
+**Don't forget the `call(this)` above.**
 
 ## Instance attributes
 
+Instance attributes are referenced with the `this` keyword.
+
+{% codeblock Instance attributes (attributes.js) %}
+var MyObject = (function() {
+  function MyObject(value) {
+    this.value = value;
+  }
+  return myObject;
+})();
+
+var foo = new MyObject("Foo");
+var bar = new MyObject("Bar");
+
+foo.value; // "Foo"
+bar.value; // "Bar"
+{% endcodeblock %}
+
 ## Instance methods
+
+This is where `prototype` comes in handy.
+
+{% codeblock Instance methods (methods.js) %}
+var MyObject;
+
+MyObject = (function() {
+  function MyObject(value) {
+    this.value = value;
+  }
+
+  MyObject.prototype.getValue = function() {
+    return this.value;
+  };
+
+  return MyObject;
+})();
+
+var foo = new MyObject("Foo");
+var bar = new MyObject("Bar");
+
+foo.getValue(); // "Foo"
+bar.getValue(); // "Bar"
+{% endcodeblock %}
 
 ## Private methods and attributes (closures)
 
-First things in JavaScript there are no private attributes. If you attempt to
-make one it will be a static attribute.
+First things in JavaScript there are no true private attributes. But you can
+make variables that are private using closures. You can also make private
+methods the same way.
 
-On the other hand you can make private methods. And here is how.
+{% codeblock Pivate methods (closure.js) %}
+var MyObject = (function() {
+
+  var private_attribute = null;
+
+  function private_method() {}
+
+  function MyObject() {}
+  return MyObject;
+})();
+{% endcodeblock %}
 
 [CoffeeScript]: http://www.coffeescript.org/
