@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How I understand JavaScript Object Oriented Programming"
-date: 2012-11-12 10:55
+date: 2012-11-14 10:55
 comments: true
 categories: [ "coding", "JavaScript" ]
 published: true
