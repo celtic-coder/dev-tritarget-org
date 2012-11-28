@@ -10,7 +10,7 @@ categories: [ "coding", "JavaScript" ]
 
 [1]: http://javascriptjabber.com/001-jsj-asynchronous-programming/
 
-In JavaScript that uses AJAX and other asynchronus methods they all take a
+In JavaScript that uses AJAX and other asynchronous methods they all take a
 function as a callback argument. A common yet ugly style to code this is using
 anonymous functions:
 
@@ -22,12 +22,12 @@ setTimeout( function() {
 
 Although these are quick and easy they can really get over complicated producing
 a ever increasing indent to the code. This has the effect of making a pyramid
-like shape out of the whitespace whe you turn it on it side:
+like shape out of the whitespace when you turn it on it side:
 
 <!-- more -->
 
 {% codeblock The Pyramid of Doom (pyramid.js) %}
-// Code uses jQuery to illistrate the Pyramid of Doom
+// Code uses jQuery to illustrate the Pyramid of Doom
 (function($) {
   $(function(){
     $("button").click(function(e) {
