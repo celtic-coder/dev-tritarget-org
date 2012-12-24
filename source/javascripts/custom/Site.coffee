@@ -1,6 +1,26 @@
 $ = jQuery
 
-class window.site
+class Site
+  @init: ->
+    # site.initDialogBoxes();
+
+    # TODO: Fix keypress code (See site.js)
+    # site.initKonamiCode();
+
+    # Load fancybox
+    unless pano.isIOS()
+      $(".fancybox").fancybox
+        helpers:
+          thumbs:
+            width: 50
+            height: 50
+
+    $(".fancybox-pano").click pano.openPano
+
+    $(".accordion").accordion
+      collapsible: true
+      heightStyle: "content"
+
   # Function: initCollapsibleDivs() [[[1
   @initCollapsibleDivs: =>
     $(".box_top").each ->
@@ -93,5 +113,9 @@ class window.site
     $(id).fadeIn 2000
 
 # ]]]1
+
+window.Site = Site
+
+$(Site.init)
 
 # vim:set sw=2 ts=2 et fdm=marker fmr=[[[,]]]:
