@@ -1,6 +1,3 @@
----
-layout: nil
----
 $ = jQuery
 
 class window.site
