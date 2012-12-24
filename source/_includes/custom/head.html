@@ -1,15 +1,9 @@
 <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-<!-- Load jQuery -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    jQuery.noConflict(); // ender.js conflicts with jQuery
-</script>
-
 <!-- Load jQuery UI -->
-<!-- <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/{{ site.jqueryui_theme }}/jquery-ui.css" type="text/css" media="all"/> -->
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script> -->
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/{{ site.jqueryui_theme }}/jquery-ui.css" type="text/css" media="all"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
 
 <!-- Load FancyBox -->
 <link rel="stylesheet" href="{{ root_url }}/fancybox/jquery.fancybox.css" />
@@ -21,28 +15,3 @@
 {% fancyboxstylefix %}
 
 <!-- Custom Scripts -->
-<script language="javascript" type="text/javascript" src="/javascripts/site.js"> </script>
-<script src="/javascripts/pano.js" type="text/javascript"></script>
-<script language="Javascript" type="text/javascript">
-    // ender.js gobbles jQuery's ready events: Use ender.js $ instead
-    $(document).ready(function() {
-        //site.initDialogBoxes();
-
-        // TODO: Fix keypress code (See site.js)
-        //site.initKonamiCode();
-
-        // Load fancybox
-        if (!pano.isIOS()) {
-            jQuery(".fancybox").fancybox({
-                helpers: {
-                    thumbs: {
-                        width: 50,
-                        height: 50
-                    }
-                }
-            });
-        }
-
-        jQuery(".fancybox-pano").click(pano.openPano);
-    });
-</script>
