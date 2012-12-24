@@ -2,41 +2,38 @@ require './plugins/pygments_code'
 
 module BacktickCodeBlock
   include HighlightCode
-  AllOptions = /([^\s]+)\s+(.+?)(https?:\/\/\S+)\s*(.+)?/i
+  AllOptions = /([^\s]+)\s+(.+?)(https?:\/\/\S+|\/\S+)\s*(.+)?/i
   LangCaption = /([^\s]+)\s*(.+)?/i
   def render_code_block(input)
-    @options = nil
-    @caption = nil
-    @lang = nil
-    @url = nil
-    @title = nil
-    input.gsub(/^`{3} *([^\n]+)?\n(.+?)\n`{3}/m) do
-      @options = $1 || ''
-      str = $2
+    input.encode!("UTF-8")
+    input.gsub /^`{3}(.+?)`{3}/m do
+      str = $1.to_s
+      str.gsub /([^\n]+)?\n(.+?)\Z/m do
+        markup = $1 || ''
+        code = $2.to_s
 
-      if @options =~ AllOptions
-        @lang = $1
-        @caption = "<figcaption><span>#{$2}</span><a href='#{$3}'>#{$4 || 'link'}</a></figcaption>"
-      elsif @options =~ LangCaption
-        @lang = $1
-        @caption = "<figcaption><span>#{$2}</span></figcaption>"
-      end
+        options    = parse_markup(markup)
+        @lang      = options[:lang]
+        @title     = options[:title]
+        @lineos    = options[:lineos]
+        @marks     = options[:marks]
+        @url       = options[:url]
+        @link_text = options[:link_text]
+        @start     = options[:start]
+        markup     = clean_markup(markup)
 
-      if str.match(/\A( {4}|\t)/)
-        str = str.gsub(/^( {4}|\t)/, '')
-      end
-      if @lang.nil? || @lang == 'plain'
-        code = tableize_code(str.gsub('<','&lt;').gsub('>','&gt;'))
-        "<figure class='code'>#{@caption}#{code}</figure>"
-      else
-        if @lang.include? "-raw"
-          raw = "``` #{@options.sub('-raw', '')}\n"
-          raw += str
-          raw += "\n```\n"
+        if markup =~ AllOptions
+          @lang      ||= $1
+          @title     ||= $2
+          @url       ||= $3
+          @link_text ||= $4
+        elsif markup =~ LangCaption
+          @lang      ||= $1
+          @title     ||= $2
         else
-          code = highlight(str, @lang)
-          "<figure class='code'>#{@caption}#{code}</figure>"
+          @lang = 'plain'
         end
+        highlight(code, @lang, {title: @title, url: @url, link_text: @link_text, linenos: @linenos, marks: @marks, start: @start })
       end
     end
   end

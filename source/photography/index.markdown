@@ -21,6 +21,7 @@ view:
 
 <div id="blog-archives">
 {% for post in site.categories['photography'] limit: 5 %}
+{% include post/variables.html %}
 <article>
   {% include archive_post.html %}
 </article>

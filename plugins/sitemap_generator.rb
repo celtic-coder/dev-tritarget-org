@@ -46,7 +46,7 @@ module Jekyll
   SITEMAP_FILE_NAME = "sitemap.xml"
 
   # Any files to exclude from being included in the sitemap.xml
-  EXCLUDED_FILES = ["atom.xml"]
+  EXCLUDED_FILES = ["atom.xml", "404.markdown"]
 
   # Any files that include posts, so that when a new post is added, the last
   # modified date of these pages should take that into account
@@ -57,7 +57,6 @@ module Jekyll
   # for which you want to include these properties
   CHANGE_FREQUENCY_CUSTOM_VARIABLE_NAME = "change_frequency"
   PRIORITY_CUSTOM_VARIABLE_NAME = "priority"
-  EXCLUDED_CUSTOM_VARIABLE_NAME = "sitemap_excluded"
 
   class Post
     attr_accessor :name
@@ -143,7 +142,7 @@ module Jekyll
     def fill_posts(site, urlset)
       last_modified_date = nil
       site.posts.each do |post|
-        if !excluded?(post)
+        if !excluded?(post.name)
           url = fill_url(site, post)
           urlset.add_element(url)
         end
@@ -162,7 +161,7 @@ module Jekyll
     # Returns last_modified_date of index page
     def fill_pages(site, urlset)
       site.pages.each do |page|
-        if !excluded?(page)
+        if !excluded?(page.name)
           path = page.full_path_to_source
           if File.exists?(path)
             url = fill_url(site, page)
@@ -281,8 +280,8 @@ module Jekyll
     # Is the page or post listed as something we want to exclude?
     #
     # Returns boolean
-    def excluded?(page_or_post)
-      EXCLUDED_FILES.include?(page_or_post.name) || page_or_post.data[EXCLUDED_CUSTOM_VARIABLE_NAME]
+    def excluded?(name)
+      EXCLUDED_FILES.include? name
     end
 
     def posts_included?(name)

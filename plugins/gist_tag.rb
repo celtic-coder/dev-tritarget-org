@@ -1,5 +1,6 @@
 # A Liquid tag for Jekyll sites that allows embedding Gists and showing code for non-JavaScript enabled browsers and readers.
-# by: Brandon Tilly
+# Written by: Brandon Mathis, Parker Moore
+# Inspired by: Brandon Tilly
 # Source URL: https://gist.github.com/1027674
 # Post http://brandontilley.com/2011/01/31/gist-tag-for-jekyll.html
 #
@@ -9,38 +10,50 @@ require 'cgi'
 require 'digest/md5'
 require 'net/https'
 require 'uri'
+require './plugins/pygments_code'
 
 module Jekyll
   class GistTag < Liquid::Tag
-    def initialize(tag_name, text, token)
+    include HighlightCode
+    def initialize(tag_name, markup, token)
       super
-      @text           = text
       @cache_disabled = false
       @cache_folder   = File.expand_path "../.gist-cache", File.dirname(__FILE__)
+
+      options    = parse_markup(markup)
+      @lang      = options[:lang]
+      @title     = options[:title]
+      @lineos    = options[:lineos]
+      @marks     = options[:marks]
+      @url       = options[:url]
+      @link_text = options[:link_text]
+      @start     = options[:start]
+      @end       = options[:end]
+      @markup    = clean_markup(markup)
+
       FileUtils.mkdir_p @cache_folder
     end
 
     def render(context)
-      if parts = @text.match(/([\d]*) (.*)/)
+      if parts = @markup.match(/([\d]*) (.*)/)
         gist, file = parts[1].strip, parts[2].strip
-        script_url = script_url_for gist, file
         code       = get_cached_gist(gist, file) || get_gist_from_web(gist, file)
-        html_output_for script_url, code
+
+        length = code.lines.count
+        @end ||= length
+        return "#{file} is #{length} lines long, cannot begin at line #{@start}" if @start > length
+        return "#{file} is #{length} lines long, cannot read beyond line #{@end}" if @end > length
+        if @start > 1 or @end < length
+          code = code.split(/\n/).slice(@start -1, @end + 1 - @start).join("\n")
+        end
+
+        lang  = file.empty? ? @lang || '' : file.split('.')[-1]
+        link  = "https://gist.github.com/#{gist}"
+        title = file.empty? ? "Gist: #{gist}" : file
+        highlight(code, lang, { title: @title || title, url: link, link_text: @link_text || 'Gist page', marks: @marks, linenos: @linenos, start: @start })
       else
         ""
       end
-    end
-
-    def html_output_for(script_url, code)
-      code = CGI.escapeHTML code
-      <<-HTML
-<div><script src='#{script_url}'></script>
-<noscript><pre><code>#{code}</code></pre></noscript></div>
-      HTML
-    end
-
-    def script_url_for(gist_id, filename)
-      "https://gist.github.com/#{gist_id}.js?file=#{filename}"
     end
 
     def get_gist_url_for(gist, file)
@@ -82,14 +95,15 @@ module Jekyll
       https.verify_mode = OpenSSL::SSL::VERIFY_NONE
       request           = Net::HTTP::Get.new raw_uri.request_uri
       data              = https.request request
-      data              = data.body
-      cache gist, file, data unless @cache_disabled
-      data
+      code              = data.body.to_s
+
+      cache gist, file, code unless @cache_disabled
+      code
     end
   end
 
   class GistTagNoCache < GistTag
-    def initialize(tag_name, text, token)
+    def initialize(tag_name, markup, token)
       super
       @cache_disabled = true
     end

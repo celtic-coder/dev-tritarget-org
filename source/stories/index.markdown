@@ -45,6 +45,7 @@ The following is any creative writing I have posted to this site:
 
 <div id="blog-archives">
 {% for post in site.categories['creative writing'] limit: 10 %}
+{% include post/variables.html %}
 <article>
   {% include archive_post.html %}
 </article>

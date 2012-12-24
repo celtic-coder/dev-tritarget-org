@@ -58,6 +58,7 @@ sample projects I've made in the learning process.
 
 <div id="blog-archives">
 {% for post in site.categories['coding'] limit: 20 %}
+{% include post/variables.html %}
 <article>
   {% include archive_post.html %}
 </article>
