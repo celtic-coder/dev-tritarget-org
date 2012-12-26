@@ -115,8 +115,6 @@ class Site
 
 # ]]]1
 
-$(Site.init)
-
 module.exports = Site
 
 # vim:set sw=2 ts=2 et fdm=marker fmr=[[[,]]]:
