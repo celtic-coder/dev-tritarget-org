@@ -105,12 +105,10 @@ However, if you want to have dual use (say in a Factory Pattern) it might look l
 var MyObject = (function() {
   function MyObject() {}
   
-  MyObject.factory = function() {
-    if (MyObject.instance) {
-      return MyObject.instance;
-    } else {
-      return MyObject.instance = new MyObject();
-    }
+  MyObject.factory = function(message) {
+    var theObject = new MyObject();
+    theObject.message = message;
+    return theObject;
   };
 
   return MyObject;
@@ -182,6 +180,30 @@ var MyObject = (function() {
   function MyObject() {}
   return MyObject;
 })();
+{% endcodeblock %}
+
+This can be usefull in a Singleton Pattern:
+
+{% codeblock Singleton with private subclass (singleton.js) %}
+var Singleton = (function() {
+  var instance, PrivateClass, SingletonClass;
+  instance = null;
+
+  PrivateClass = (function() {
+    function PrivateClass() { }
+    return PrivateClass;
+  })();
+
+  SingletonClass = {
+    getInstance: function() {
+      return (instance != null) ? instance : instance = new PrivateClass();
+    }
+  };
+
+  return SingletonClass;
+})();
+
+Singleton.getInstance();
 {% endcodeblock %}
 
 [CoffeeScript]: http://www.coffeescript.org/
