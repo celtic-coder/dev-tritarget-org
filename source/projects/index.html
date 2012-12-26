@@ -20,12 +20,17 @@ footer: false
     {% render_partial projects/_exercises.markdown %} 
   </div>
 
+  <h3>Deprecated and Outdated</h3>
+  <div>
+    {% render_partial projects/_deprecated.markdown %}
+  </div>
+
   <h3>Incubator</h3>
   <div>
     {% render_partial projects/_incubator.markdown %}
   </div>
 
-  <h3>Blog Posts</h3>
+  <h3>Blog Posts About Coding</h3>
   <div id="blog-archives">
     {% for post in site.categories['coding'] limit: 20 %}
     {% include post/variables.html %}
