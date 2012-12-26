@@ -1,4 +1,5 @@
 $ = jQuery
+Pano = require("Pano")
 
 class Site
   @init: ->
@@ -8,14 +9,14 @@ class Site
     # site.initKonamiCode();
 
     # Load fancybox
-    unless pano.isIOS()
+    unless Pano.isIOS()
       $(".fancybox").fancybox
         helpers:
           thumbs:
             width: 50
             height: 50
 
-    $(".fancybox-pano").click pano.openPano
+    $(".fancybox-pano").click Pano.openPano
 
     $(".accordion").accordion
       collapsible: true
@@ -114,8 +115,8 @@ class Site
 
 # ]]]1
 
-window.Site = Site
-
 $(Site.init)
+
+module.exports = Site
 
 # vim:set sw=2 ts=2 et fdm=marker fmr=[[[,]]]:
