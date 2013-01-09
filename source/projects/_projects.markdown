@@ -14,7 +14,7 @@ These are some of the projects I am working on or have worked on.
   Mode (Incude missing pre block) (Add [jekyll][] YAML support)
 
 [irssi]: http://irssi.org/
-[redmine]: http:/www.redmine.org/
+[redmine]: http://www.redmine.org/
 [jQuery]: http://jquery.com/
 [PERL]: http://www.perl.org/
 [jekyll]: http://jekyllrb.com/

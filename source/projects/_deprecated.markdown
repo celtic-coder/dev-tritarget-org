@@ -4,7 +4,7 @@ abandoned.
 - **[xmledit](http://github.com/sukima/xmledit)** - A filetype plugin for [VIM][]
   to help edit XML files. (I deprecated this for [ZenCodeing][zen] but still
   maintain it for bugs).
-- **[SimNotify](http://sukima.github.com/SimNotify/)** - A Ruby on Rails
+- **[SimNotify](http://github.com/sukima/SimNotify/)** - A Ruby on Rails
   scheduling program for medical simulation centers. This app is very site
   specific for a simulation center that I work for. This project is my attempt
   to allow people to schedule a simulation by entering in key data needed and
