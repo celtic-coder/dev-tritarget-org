@@ -1,0 +1,19 @@
+---
+layout: page
+title: "Short URLs"
+date: 2013-01-09 16:47
+comments: false
+sharing: false
+footer: false
+---
+<div id="error" style="display:none">Unable to find a url for that id. Try one below.</div>
+<div id="urls-loading">Loading...</div>
+<ul id="urls"></ul>
+<script src="urls.js" type="text/javascript"></script>
+<script type="text/javascript">
+  (function() {
+    var s, ShortUrl = require("ShortUrl");
+    s = new ShortUrl(__site_short_urls);
+    s.checkUrl();
+  })();
+</script>
