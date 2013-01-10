@@ -22,13 +22,25 @@ class ShortUrl
   constructor: (@json) ->
     @data = null
     @isReady = false
-    @setSiteUrl "/"
+    @setPath()
     $.getJSON @json, (@data) =>
       @checkUrl()
-  # Explicitly set the domain / site root
-  setSiteUrl: (site) ->
-    site = "#{site}/" unless site[site.length-1] is '/'
-    @site_url = site
+  # Explicity set the short url path (default: '/s/')
+  #
+  # Examples:
+  #     setPath();                            // => "/s/"
+  #     setPath("/foo/");                     // => "/foo/"
+  #     setPath("http://foobar/", "/foo/");   // => "http://foobar/foo/"
+  #     setPath("http://foobar", "bar.html"); // => "http://foobar/bar.html"
+  setPath: (domain,path) ->
+    if path?
+      domain = "#{domain}/" unless domain[domain.length-1] is '/'
+      path = path.substring(1) if path[0] is '/'
+      @short_path = "#{domain}#{path}"
+    else if domain?
+      @short_path = domain
+    else
+      @short_path = "/s/"
   # Atempt to redirect the browser
   loadLocation: (id) ->
     if @data[id]?
@@ -45,7 +57,7 @@ class ShortUrl
   output: =>
     el = $("#urls")
     for id, url of @data
-      short = "#{@site_url}s/##{id}"
+      short = "#{@site_path}##{id}"
       $("<li/>").html("""
         <b title="#{short}">#{id}</b> - <a href="#{short}">#{url}</a>
       """).appendTo(el)

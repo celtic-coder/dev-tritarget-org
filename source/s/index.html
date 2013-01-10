@@ -13,7 +13,7 @@ footer: false
   (function() {
     var s, ShortUrl = require("ShortUrl");
     s = new ShortUrl("urls.json");
-    s.setSiteUrl("{{ site.url }}");
+    s.setPath("{{ site.url }}", "/s/");
     s.ready();
   })();
 </script>
