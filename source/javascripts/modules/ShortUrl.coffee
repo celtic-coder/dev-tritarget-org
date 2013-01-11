@@ -13,7 +13,7 @@
 #
 # ## Usage ##
 #     var s = new ShortUrl("path/to/json");
-#     s.setSiteUrl("http://mysite.com");
+#     s.setPath("http://mysite.com/s/");
 #     s.ready();
 $ = jQuery
 
