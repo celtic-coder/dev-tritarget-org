@@ -14,10 +14,7 @@ Feel free to contact me if you wish to collaborate.
 - **InventoryTracking** - A project that will track inventory based on scanned
   barcodes. Web app for management and reporting. Mobile apps to scanand record
   changes to the inventory quantity.
-- **Pomodoro App** - Lots of baddly writen pomodoro timers out there. I want
-  one that is in the browser, cross-platform (including mobile), available
-  of-line, and does not depend on some incompatable or desktop only technology
-  like Air. Making an HTML5/JS based app that can be cached as a web app on
-  mobile devices or installed as a Chrome plugin would be perfect.
+- A pomodoro chrom extention. A start on
+  [github](https://github.com/sukima/omnibox-timer).
 
 [1]: JSAuth/
