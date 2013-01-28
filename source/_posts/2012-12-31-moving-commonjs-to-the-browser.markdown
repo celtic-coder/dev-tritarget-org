@@ -5,6 +5,13 @@ date: 2012-12-31 11:35
 comments: true
 categories: [ "coding", "JavaScript" ]
 ---
+**THIS POST IS DEPRECATED**
+
+This is an exercise of understanding. To do this properly take a look at
+[hem][] or [browserify][]. It takes care of this automatically.
+
+- - -
+
 I started understanding modular JavaScript from the server side using [hem][].
 Hem is a bundler for JavaScript. It collects each file and adds them together
 into on master file that you can easily load in the browser. It uses the
@@ -24,6 +31,7 @@ to load CommonJS modules inside of [jsbin](jsbin.com) and
 methodology. And I'll explain a possible solution.
 
 [hem]: http://spinejs.com/docs/hem
+[browserify]: http://browserify.org/
 [CommonJS]: http://www.commonjs.org/
 [RequireJS]: http://requirejs.org/
 
