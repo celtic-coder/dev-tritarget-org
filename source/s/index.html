@@ -6,14 +6,43 @@ comments: false
 sharing: false
 footer: false
 ---
+<style type="text/css">
+  #urls { font-family: monospace; }
+</style>
 <div id="error" style="display:none">Unable to find a url for the id <b id="error-id"></b>. Try one below.</div>
 <div id="urls-loading">Loading...</div>
 <ul id="urls"></ul>
 <script type="text/javascript">
-  (function() {
-    var s, ShortUrl = require("ShortUrl");
+  (function($) {
+    var s, displayError, displayRedirect, displayItems,
+        ShortUrl = require("ShortUrl");
+
+    displayError = function(e) {
+      $("#error-id").text(e.id);
+      $("#error").show();
+      $("#urls-loading").hide()
+    };
+
+    displayRedirect = function(e) {
+      $("#urls-loading").html("Redirecting to <a href=\""+ e.url +"\">"+ e.url +"</a>...");
+    };
+
+    displayItems = function(e) {
+      var i, len, item, el = $("#urls");
+      for (i = 0, len = e.items.length; i < len; i++) {
+        item = e.items[i];
+        el.append("<li><b title=\""+ item.short_path +"\">"+
+                  item.id + "</b> - <a href=\""+ item.short_path
+                  +"\">"+ item.url +"</a></li>");
+      }
+      $("#urls-loading").hide()
+    };
+
     s = new ShortUrl("urls.json");
-    s.setPath("{{ site.url }}", "/s/");
-    s.ready();
-  })();
+    s.setPath("{{ site.url }}", "/s/")
+      .onDisplay(displayItems)
+      .onRedirect(displayRedirect)
+      .onError(displayError)
+      .ready();
+  })(jQuery);
 </script>
