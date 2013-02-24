@@ -12,7 +12,7 @@
     beforeEach(function() {
       this.test_loading_JSON = $.Deferred()
       spyOn($, "getJSON").andReturn(this.test_loading_JSON.promise());
-      spyOn(ShortUrl, "redirectTo");
+      spyOn(ShortUrl, "redirectTo"); // Prevent testing from causing a redirect.
     });
 
     describe("#constructor", function() {
