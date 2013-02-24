@@ -3,6 +3,7 @@ source "http://rubygems.org"
 group :development do
   gem 'rake', '~> 0.9.2'
   gem 'rack', '~> 1.4.1'
+  gem 'thin'
   gem 'jekyll', '~> 0.11.2'
   gem 'kramdown', "~> 0.14.1"
   gem 'pygments.rb', '~> 0.3.3'
