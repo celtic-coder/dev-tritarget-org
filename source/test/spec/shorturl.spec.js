@@ -1,6 +1,6 @@
 (function($) {
 
-  describe("ShortUrl Object", function() {
+  describe("ShortUrl", function() {
     var ShortUrl = require("ShortUrl");
 
     beforeEach(function() {
@@ -74,6 +74,33 @@
       });
     });
 
+    describe("#onRedirect", function() {
+      beforeEach(function() {
+        this.test = new ShortUrl();
+      });
+      it("should be chainable", function() {
+        expect( this.test.onRedirect() ).toEqual(this.test);
+      });
+    });
+
+    describe("#onError", function() {
+      beforeEach(function() {
+        this.test = new ShortUrl();
+      });
+      it("should be chainable", function() {
+        expect( this.test.onError() ).toEqual(this.test);
+      });
+    });
+
+    describe("#onDisplay", function() {
+      beforeEach(function() {
+        this.test = new ShortUrl();
+      });
+      it("should be chainable", function() {
+        expect( this.test.onDisplay() ).toEqual(this.test);
+      });
+    });
+
     describe("#setPath", function() {
       beforeEach(function() {
         this.test = new ShortUrl();
@@ -101,42 +128,13 @@
         this.test.setPath("foo/", "/bar");
         expect( this.test.path ).toBe("foo/bar");
       });
-    });
-
-    describe("#setOutputWith", function() {
-      beforeEach(function() {
-        this.test = new ShortUrl();
-      });
-      it("should assign output_function", function() {
-        var callback = jasmine.createSpy("output_function");
-        this.test.setOutputWith(callback);
-        expect( this.test.output_function ).toEqual(callback);
-        expect( callback ).not.toHaveBeenCalled();
+      it("should be chainable", function() {
+        expect( this.test.setPath() ).toEqual(this.test);
       });
     });
 
     describe("#redirectTo (static)", function() {
       it("needs no test");
-    });
-
-    describe("#outputData (static)", function() {
-      beforeEach(function() {
-        this.test = new ShortUrl({
-          json: "test_json",
-          path: "test_path"
-        });
-      });
-      it("should add 'short_path' property to item", function() {
-        var result = this.test.outputData({
-          id: "test_id",
-          url: "test_url"
-        });
-        expect( result.id ).toBeDefined();
-        expect( result.url ).toBeDefined();
-        expect( result.short_path ).toBeDefined();
-        expect( result.short_path ).toContain("test_path");
-        expect( result.short_path ).toContain("#test_id");
-      });
     });
 
     describe("#loadLocation", function() {
@@ -158,34 +156,124 @@
       it("should return false when id is not found in data", function() {
         expect( this.test.loadLocation("test_bad_id") ).toBeFalsy();
       });
-      it("should trigger 'redirect' event when id is found in data", function() {
-        var event_callback = jasmine.createSpy("onRedirect");
-        $(this.test).on("redirect", event_callback);
-        this.test.loadLocation("test_id");
-        expect( event_callback ).toHaveBeenCalled();
+      describe("'redirect' event", function() {
+        beforeEach(function() {
+          this.event_callback = jasmine.createSpy("onRedirect");
+          $(this.test).on("redirect", this.event_callback);
+          this.test.loadLocation("test_id");
+        });
+        it("should trigger when id is found in data", function() {
+          expect( this.event_callback ).toHaveBeenCalled();
+        });
+        describe("passed in event object", function() {
+          beforeEach(function() {
+            this.result = this.event_callback.mostRecentCall.args[0];
+          });
+          it("should have id property", function() {
+            expect( this.result.id ).toBeDefined();
+            expect( this.result.id ).toEqual(jasmine.any(String));
+          });
+          it("should have url property", function() {
+            expect( this.result.url ).toBeDefined();
+            expect( this.result.url ).toEqual(jasmine.any(String));
+          });
+          it("should have short_path property", function() {
+            expect( this.result.short_path ).toBeDefined();
+            expect( this.result.short_path ).toEqual(jasmine.any(String));
+          });
+        });
       });
-      it("should trigger 'error' when id is not found in data", function() {
-        var event_callback = jasmine.createSpy("onError");
-        $(this.test).on("error", event_callback);
-        this.test.loadLocation("test_bad_id");
-        expect( event_callback ).toHaveBeenCalled();
+      describe("'error' event", function() {
+        beforeEach(function() {
+          this.event_callback = jasmine.createSpy("onError");
+          $(this.test).on("error", this.event_callback);
+          this.test.loadLocation("test_bad_id");
+        });
+        it("should trigger when id is not found in data", function() {
+          expect( this.event_callback ).toHaveBeenCalled();
+        });
+        describe("passed in event object", function() {
+          beforeEach(function() {
+            this.result = this.event_callback.mostRecentCall.args[0];
+          });
+          it("should have id property", function() {
+            expect( this.result.id ).toBeDefined();
+            expect( this.result.id ).toEqual(jasmine.any(String));
+          });
+        });
+      });
+    });
+
+    describe("#buildOutputItem", function() {
+      beforeEach(function() {
+        this.test = new ShortUrl({
+          json: "test_json",
+          path: "test_path"
+        });
+        this.test_id = "test_id";
+        this.test_url = "test_url";
+      });
+      it("should return an object", function() {
+        expect( this.test.buildOutputItem(this.test_id, this.test_url) ).toEqual(jasmine.any(Object));
+      });
+      describe("return object", function() {
+        beforeEach(function() {
+          this.result = this.test.buildOutputItem(this.test_id, this.test_url);
+        });
+        it("should have 'id' property", function() {
+          expect( this.result.id ).toBeDefined();
+          expect( this.result.id ).toBe("test_id");
+        });
+        it("should have 'url' property", function() {
+          expect( this.result.url ).toBeDefined();
+          expect( this.result.url ).toBe("test_url");
+        });
+        it("should have 'short_url' property", function() {
+          expect( this.result.short_path ).toBeDefined();
+          expect( this.result.short_path ).toContain("test_path");
+          expect( this.result.short_path ).toContain("#test_id");
+        });  
       });
     });
 
     describe("#output", function() {
       beforeEach(function() {
+        this.display_callback = jasmine.createSpy("display_callback");
         this.test = new ShortUrl();
-        this.test.data = {"test_id":"test_url"};
-        this.output_callback = jasmine.createSpy("output_callback");
-      });
-      it("should noop when no output callback is defined", function() {
-        var _this = this;
-        expect( function(){ _this.test.output(); } ).not.toThrow();
-      });
-      it("should call the output callback for each item in @data", function() {
-        this.test.setOutputWith(this.output_callback);
+        this.test.onDisplay(this.display_callback);
+        this.test.data = {
+          "test_id1": "test_url1",
+          "test_id2": "test_url2",
+          "test_id3": "test_url3",
+          "test_id4": "test_url4"
+        };
         this.test.output();
-        expect( this.output_callback ).toHaveBeenCalledWith(jasmine.any(Object));
+      });
+      it("should trigger 'display' event", function() {
+        expect( this.display_callback ).toHaveBeenCalled();
+      });
+      describe("passed in event object", function() {
+        beforeEach(function() {
+          this.result = this.display_callback.mostRecentCall.args[0];
+        });
+        it("should have 'items' property as an array", function() {
+          expect( this.result.items ).toBeDefined();
+          expect( this.result.items ).toEqual(jasmine.any(Array));
+        });
+        describe("'items' array", function() {
+          it("should have 'id' property", function() {
+            expect( this.result.items[0].id ).toBeDefined();
+            expect( this.result.items[0].id ).toEqual(jasmine.any(String));
+          });
+          it("should have 'url' property", function() {
+            expect( this.result.items[0].url ).toBeDefined();
+            expect( this.result.items[0].url ).toEqual(jasmine.any(String));
+          });
+          it("should have 'short_path' property", function() {
+            expect( this.result.items[0].short_path ).toBeDefined();
+            expect( this.result.items[0].short_path ).toEqual(jasmine.any(String));
+          });
+        });
       });
     });
 

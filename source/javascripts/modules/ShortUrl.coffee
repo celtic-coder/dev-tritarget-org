@@ -13,34 +13,44 @@
 #
 # ## Usage ##
 #     var s = new ShortUrl("path/to/json");
-#     s.setPath("http://mysite.com/s/");
-#     s.setOutputWith(function(data) {
-#       console.log(data);
-#     });
-#     s.ready();
+#     s.setPath("http://mysite.com/s/")
+#       .onRedirect(function(e) {
+#         console.log(e.url);
+#       }).ready();
 #
-# #### Date Object ####
-# The callback for setOutputWith will send a data object of the form:
-#     {
-#       id: 1,                      // The short id
-#       url: "http://example.com/", // The URL the short id points to
-#       short_path: "/s/#1"         // The path used for the sortened URL
-#     }
+# The following functions can be chained: `onDisplay`, `onRedirect`,
+# `onError`, and `setPath` (`ready` only works at the end of the chain).
 #
-# #### Events ####
-# The following events are triggered:
-# * `redirect` - Called when the browser is about to redirect. Used to offer
-#   feed back to the user just before the redirect.
-# * `error` - Used to display any errors encountered. Passes a jQuery event
-#   object.
+# ### Events ###
+# The following events are triggered and data is sent with the event objects passed in.
 #
-# Example:
+# #### display ####
+# Used to build the list (view) of all items. The event object will have these
+# properties:
+#     items: [
+#       { id: "", url: "", short_path: "" },
+#       ...
+#     ]
+#
+# #### redirect ####
+# Called when the browser is about to redirect. Used to offer feed back to the
+# user just before the redirect. The event object will have these properties:
+#     id: "",
+#     url: "",
+#     short_path: ""
+#
+# #### error ####
+# Used to display any errors encountered. The event object will have these
+# properties:
+#     id: ""
+#
+# Examples:
 #     var s = new ShortUrl("path/to/json");
-#     $(s).on("redirect", function(data) {
-#       console.log(data);
+#     $(s).on("display", function(e) {
+#       console.log(e.items);
 #     });
-#     $(s).on("error", function(event) {
-#       console.log(event);
+#     s.onDisplay(function(e) {
+#       console.log(e.items);
 #     });
 $ = jQuery
 
@@ -59,14 +69,25 @@ class ShortUrl
     @_waiting_for_all_done = $.when(@_waiting_for_ready, @_loading_JSON)
       .done( => @checkUrl() )
     # Allows an object to preset parameters and immediatly declare ready state.
+    @setPath()
     if options?
-      @setPath(options.path)
-      @onError = options.onError
-      @onRedirect = options.onRedirect
-      @output_function = options.output
+      if options.domain? and options.path?
+        @setPath options.domain, options.path
+      else
+        @setPath options.path
+      @onError options.onError
+      @onRedirect options.onRedirect
+      @onDisplay options.onDisplay
       @_waiting_for_ready.resolve()
-    else
-      @setPath()
+  onRedirect: (fn) ->
+    $(@).on("redirect", fn) if fn?
+    @
+  onError: (fn) ->
+    $(@).on("error", fn) if fn?
+    @
+  onDisplay: (fn) ->
+    $(@).on("display", fn) if fn?
+    @
   # Explicity set the short url path (default: '/s/')
   #
   # Examples:
@@ -83,27 +104,36 @@ class ShortUrl
       @path = domain
     else
       @path = "/s/"
-  setOutputWith: (@output_function) ->
+    @
   # Abstact function for testing
   @redirectTo: (url) -> window.location.href = url
-  # Util function to make output data
-  outputData: (item) ->
-    $.extend item, { short_path: "#{@path}##{item.id}" }
   # Atempt to redirect the browser
   loadLocation: (id) ->
-    item = @data[id]
-    if item?
-      $(@).trigger "redirect", @outputData(item)
-      setTimeout ( => ShortUrl.redirectTo item ), 10
+    url = @data[id]
+    if url?
+      e = $.Event("redirect")
+      $(@).triggerHandler $.extend(e, @buildOutputItem(id, url))
+      setTimeout ( => ShortUrl.redirectTo url ), 10
       return true
     else
-      $(@).trigger "error", $.Event("error", { id: id })
+      $(@).triggerHandler
+        type: "error"
+        id: id
       return false
-  # Output the list of known short urls when not redirecting
+  # Util function to make output data
+  buildOutputItem: (id, url) ->
+    return {
+      id: id
+      url: url
+      short_path: "#{@path}##{id}"
+    }
+  # Build data then call output event callback
   output: ->
-    if @output_function?
-      @output_function @outputData(item) for item of @data
-    return
+    output_data = []
+    output_data.push @buildOutputItem(id,url) for id,url of @data
+    e = $.Event("display")
+    e.items = output_data
+    $(@).triggerHandler e
   # Abstact function for testing
   @getHash: -> window.location.hash
   # Check if requested a redirect or a list
@@ -119,7 +149,9 @@ class ShortUrl
     return true
   # Register that checking, redirecting or outputing is ready after all
   # asynchronous tasks are finished.
-  ready: -> @_waiting_for_ready.resolve()
+  ready: ->
+    @_waiting_for_ready.resolve()
+    return
 
 if module?
   # CommonJS
