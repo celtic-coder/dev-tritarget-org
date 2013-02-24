@@ -1,7 +1,13 @@
 (function($) {
 
   describe("ShortUrl", function() {
-    var ShortUrl = require("ShortUrl");
+    var ShortUrl;
+    if (typeof require !== "undefined" && require !== null) {
+      ShortUrl = require("ShortUrl");
+    }
+    else {
+      ShortUrl = window.ShortUrl;
+    }
 
     beforeEach(function() {
       this.test_loading_JSON = $.Deferred()
