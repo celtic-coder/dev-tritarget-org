@@ -38,6 +38,8 @@ footer: false
       $("#urls-loading").hide()
     };
 
+    // Source code and documentation available on this blog post:
+    // http://tritarget.org/blog/2013/01/10/building-a-static-javascript-based-url-shortener/
     s = new ShortUrl("urls.json");
     s.setPath("{{ site.url }}", "/s/")
       .onDisplay(displayItems)
