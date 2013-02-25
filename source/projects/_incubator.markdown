@@ -14,7 +14,5 @@ Feel free to contact me if you wish to collaborate.
 - **InventoryTracking** - A project that will track inventory based on scanned
   barcodes. Web app for management and reporting. Mobile apps to scanand record
   changes to the inventory quantity.
-- A pomodoro chrom extention. A start on
-  [github](https://github.com/sukima/omnibox-timer).
 
 [1]: JSAuth/
