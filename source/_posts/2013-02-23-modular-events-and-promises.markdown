@@ -27,4 +27,16 @@ the proper way a piece of code _should_ work using a specifically styled API.
 
 The reason this became so important is that it provided me a much better idea
 behind what I actually wanted to accomplish. It showed ways that my code could
-work, ways it should not work, and helped hunt down many issues.
+work, ways it should not work, and helped hunt down many issues. Although the
+lead up was quite steep it was worth it. 
+
+I used [Jasmine][] as my test environment and you can see running [here][4].
+
+[Jasmine]: http://pivotal.github.com/jasmine/
+[4]: {{ site.url }}/test/
+
+Feel free to comment for questions. Here is the code used to test:
+
+<!-- more -->
+
+{% gist 4504087 shorturl.spec.js %}
