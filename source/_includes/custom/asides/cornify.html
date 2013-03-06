@@ -1,23 +1,29 @@
 <a href="http://www.cornify.com" id="cornify-link">
   <img src="http://www.cornify.com/assets/cornify.gif" width="61" height="16" border="0" alt="Cornify" />
 </a>
+<!--[if lte IE 6]><script type="text/javascript" src="http://www.cornify.com/js/cornifie.js"></script><![endif]-->
 <script type="text/javascript">
-  (function($, g) {
-    var Cornify = require("cornify"),
-        Konami = require("konami");
-        cornify_link_clicked;
-    // Allow link to initiate easter egg.
-    function cornify_link_clicked(e) {
-      e.preventDefault();
-      Cornify.add();
-      return false;
-    }
-    $("#cornify-link").click(cornify_link_clicked);
-    // Load the Konami easter egg trigger.
-    g.cornify_easter_egg = new Konami(Cornify.add);
-    // Remove the extra (return / tap) for the "start" button.
-    g.cornify_easter_egg.pattern = "38384040373937396665";
-    g.cornify_easter_egg.iphone.keys = ["UP","UP","DOWN","DOWN","LEFT","RIGHT","LEFT","RIGHT","TAP","TAP"];
-  })(jQuery, this);
+  // cornify_ie6_add is only defined if the above is loaded which is only
+  // loaded from IE6. Skip the "real" code if this is the case.
+  // Run screaming...
+  if (typeof cornify_ie6_add === "undefined" || cornify_ie6_add === null) {
+    (function($, g) {
+      var Cornify = require("cornify"),
+          Konami = require("konami");
+          cornify_link_clicked;
+      // Allow link to initiate easter egg.
+      function cornify_link_clicked(e) {
+        e.preventDefault();
+        Cornify.add();
+        return false;
+      }
+      $("#cornify-link").click(cornify_link_clicked);
+      // Load the Konami easter egg trigger.
+      g.cornify_easter_egg = new Konami(Cornify.add);
+      // Remove the extra (return / tap) for the "start" button.
+      g.cornify_easter_egg.pattern = "38384040373937396665";
+      g.cornify_easter_egg.iphone.keys = ["UP","UP","DOWN","DOWN","LEFT","RIGHT","LEFT","RIGHT","TAP","TAP"];
+    })(jQuery, this);
+  }
 </script>
 <!-- vim:set et sw=2: -->
