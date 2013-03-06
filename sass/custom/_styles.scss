@@ -257,3 +257,9 @@ ul.gallery {
 
 /* Fix footnotes */
 sup { vertical-align: super; }
+
+/* Fixes for cornify easter egg */
+div.cornified {
+  background: transparent;
+  border: none;
+}
