@@ -32,35 +32,17 @@ software development was not a valued commodity anymore (too many fish in the
 sea). I began work as an electrician for about 3 years while I trained to be an
 [EMT][]. I began that career in the medical field where I eventually became a
 Paramedic. I finished my associates degree and after 10 years in the medical
-field I found a job at a top hospital as a medical simulation technician.
+field I found a job at a top hospital as a
+[medical simulation technician](https://gist.github.com/sukima/5328751).
 
-## What is Medical Simulation?
-Medical simulation is a term I use to describe what I do. The premise is the
-doctors and nurses and students will enter a scenario or classroom with a high
-fidelity manikin that is capable of simulating many form of medical cases. I
-run that equipment. A clinician will describe what they want from a clinical
-and educational perspective and I translate that into a simulated scenario.
-
-For example say we want a scenario where a patient suddenly develops a cardiac
-arrest while a nurse is talking to them what I do is turn the monitor that
-reading the patients heart into the arrest. Stop the manikin from breathing,
-and provide the equipment and environment so the nurse can then begin CPR.
-
-Goals range anywhere from the clinical skills used to more critical thinking
-like remembering to call for help or how to communicate effectively in a scene.
-These simulations run the gambit of situations from giving birth to [ECMO][]
-simulations to elderly care to simply how to have good bedside manners.
-
-In my current position I run the jack-of-all-trades game where I will be
-responsible for ordering new parts, Fixing the mechanics, installing new system
-software, developing procedures equipment use, software backups, etc. Teaching
-users to run the simulators, programming scheduling and issue tracking
-software, room construction, make-up skills to make the simulators more
-realistic, Acting in the scenarios, and sometime running the simulations from a
-clinical perspective and teaching the students some of the knowledge I have as
-a paramedic. I am hoping soon this position will develop into management of a
-few technicians just like me.
+I developed my technical as well as my software development skills. Becoming a
+active member in the development community, I studied modern web and mobile
+technologies such as [JavaScript][JS], [Ruby on Rails][RoR], and iPhone
+development. I now work in this field and am excited to continue my childhood
+dreams of creating great software for everyone to enhance their lives with.
 
 [BASIC]: http://en.wikipedia.org/wiki/BASIC
 [EMT]: http://en.wikipedia.org/wiki/Emergency_medical_technician
 [ECMO]: http://en.wikipedia.org/wiki/Extracorporeal_membrane_oxygenation
+[JS]: http://en.wikipedia.org/wiki/JavaScript
+[RoR]: http://rubyonrails.org/
