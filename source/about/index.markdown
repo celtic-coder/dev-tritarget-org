@@ -46,3 +46,9 @@ dreams of creating great software for everyone to enhance their lives with.
 [ECMO]: http://en.wikipedia.org/wiki/Extracorporeal_membrane_oxygenation
 [JS]: http://en.wikipedia.org/wiki/JavaScript
 [RoR]: http://rubyonrails.org/
+
+## PGP Public Key
+
+<pre>
+{% include custom/pgp_key.asc %}
+</pre>
