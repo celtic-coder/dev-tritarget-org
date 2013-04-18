@@ -10,5 +10,6 @@
   "events": "https://gist.github.com/sukima/4683467",
   "gnome-terminal": "https://gist.github.com/sukima/2509971",
   "shorturl": "https://gist.github.com/sukima/4504087",
-  "dotty": "https://github.com/sukima/dotfiles/blob/master/dotty_import.yml"
+  "dotty": "https://github.com/sukima/dotfiles/blob/master/dotty_import.yml",
+  "getopt": "https://gist.github.com/sukima/5409618"
 }
