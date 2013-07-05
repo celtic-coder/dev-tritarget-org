@@ -1,0 +1,160 @@
+---
+layout: post
+title: "Fun trick with underscore templates (check this out)"
+date: 2013-07-05 16:04
+comments: true
+external-url:
+categories: [ "javascript", "underscore", "coding" ]
+---
+Doing some work in [Titanium][] and I found some code I needed to translate
+*and* DRY up. In the process I descoved a really cool trick with
+[Underscore][]'s template engine.
+
+When translating strings in Titanium you use the format:
+
+    Titanium.Local.getString("message_id", "Default text")
+
+or `L("message_id", "Default text")` for short. There was an example when this
+format served a hindrance:
+
+{% codeblock Sample titanium i18n usage (sample.js) %}
+var textField1 = Ti.UI.createTextField({
+  hintText: "e.g. 123 Washington Rd. (required)"
+});
+var textField1 = Ti.UI.createTextField({
+  hintText: "e.g. example@example.com (required)"
+});
+var textField1 = Ti.UI.createTextField({
+  hintText: "e.g. (123) 555-5555 (optional)"
+});
+{% endcodeblock %}
+
+The above asked to localize three string that were not easily international
+(e.g. ?) and looked fairly close in concept. Using string interpolation would
+be a mess and still required many message id.
+
+I'm going to show you how I handled this using Underscore's template engine.
+I'll explain the process progressively so you can see how I ened up with the
+cool trick I did. And why I mentioned you should _check **this** out_.
+
+[Titanium]: http://www.appcelerator.com/platform/titanium-platform/
+[Underscore]: http://underscorejs.org/
+
+<!-- more -->
+
+At first I thought lets break this up and use string concatenation. Although
+this was the simpilest solution it looks ugly.
+
+{% codeblock String concatenation example (example1.js) %}
+function Sample() {
+  this.output = L("foo", "Foo") +
+    " " + L("bar", "Bar") +
+    " (" + L("foobar", "Foobar") + ")";
+}
+Sample.prototype.render = function() { return this.output; };
+
+var sample = new Sample();
+console.log( sample.render() );
+{% endcodeblock %}
+
+_Live demo on [JS Bin](http://jsbin.com/ovizip/2/edit?javascript,console)_
+
+So I opted instead for Underscore's template. This looks much cleaner with one
+small problem. The `L("foo", "Foo")` and `L("foobar", "Foobar")` repeat That
+seems silly to attempt to pull the same values out every time.
+
+{% codeblock String concatenation example (example1.js) %}
+_.extend( _.templateSettings, { variable: "data" } );
+
+function Sample() {}
+Sample.prototype.render = _.template(
+  "<%= data.foo %> <%= data.bar %> (<%= data.foobar %>)"
+);
+
+var sample = new Sample();
+
+console.log( sample.render({
+  foo:    L("foo", "Foo"),
+  bar:    L("bar", "Bar"),
+  foobar: L("foobar", "Foobar")
+}) );
+console.log( sample.render({
+  foo:    L("foo", "Foo"),
+  bar:    L("bar1", "Bar one"),
+  foobar: L("foobar", "Foobar")
+}) );
+console.log( sample.render({
+  foo:    L("foo", "Foo"),
+  bar:    L("bar2", "Bar two"),
+  foobar: L("foobar", "Foobar")
+}) );
+{% endcodeblock %}
+_Live demo on [JS Bin](http://jsbin.com/ovizip/3/edit?javascript,console)_
+
+If you haven't guessed I setup the templating as an object. So I'm going to add
+the pseudo-static content on instantiation and only worry about the dynamic
+part. I use the `this` keyword to differentiate content that is passed into
+the `render()` function and content that was created prior (pseudo-static).
+
+{% codeblock String concatenation example (example1.js) %}
+_.extend( _.templateSettings, { variable: "data" } );
+
+function Sample() {
+  this.foo    = L("foo", "Foo");
+  this.foobar = L("foobar", "Foobar");
+}
+Sample.prototype.render = _.template(
+  "<%= this.foo %> <%= data.bar %> (<%= this.foobar %>)"
+);
+
+var sample = new Sample();
+
+console.log( sample.render({
+  bar: L("bar", "Bar")
+}) );
+console.log( sample.render({
+  bar: L("bar1", "Bar one")
+}) );
+console.log( sample.render({
+  bar: L("bar2", "Bar two")
+}) );
+{% endcodeblock %}
+_Live demo on [JS Bin](http://jsbin.com/ovizip/4/edit?javascript,console)_
+
+Ultimately this allowed me to easily expand on the template and develop a
+concise method of extracting the rendered string with internationalization
+support
+
+{% codeblock Better titanium i18n usage (finished.js) %}
+_.extend( _.templateSettings, { variable: "data" } );
+
+var hintTextTemplate = {
+  example_text:  L("for_example", "e.g."),
+  required_text: L("required", "required"),
+  optional_text: L("optional", "optional"),
+  render: _.template(
+    "<%= this.example_text %> <%= data.content %> " +
+    "(<%= data.required ? this.required_text : this.optional_text %>)"
+  )
+};
+
+var textField1 = Ti.UI.createTextField({
+  hintText: hintTextTemplate.render({
+    content: "123 Washington Rd.",
+    required: true
+  })
+});
+var textField1 = Ti.UI.createTextField({
+  hintText: hintTextTemplate.render({
+    content: "example@example.com",
+    required: true
+  })
+});
+var textField1 = Ti.UI.createTextField({
+  hintText: hintTextTemplate.render({
+    content: "(123) 555-5555",
+    required: false
+  })
+});
+{% endcodeblock %}
+
