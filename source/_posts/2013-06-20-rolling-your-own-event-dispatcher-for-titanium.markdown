@@ -118,7 +118,7 @@ example.addEventListener("test", function(message) {
 example.test();
 {% endcodeblock %}
 
-_See a live demo at [JS Bin](http://jsbin.com/opehif/1/edit)._
+_See a live demo at [JS Bin](http://jsbin.com/opehif/1/edit?javascript,console)._
 
 Did you know that in JavaScript you can inherit from a parent object by calling
 it as a function with the scope of `this` in the child constructor then assign
