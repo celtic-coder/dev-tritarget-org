@@ -4,7 +4,7 @@ title: "Fun trick with underscore templates (check this out)"
 date: 2013-07-05 16:04
 comments: true
 external-url:
-categories: [ "javascript", "underscore", "coding" ]
+categories: [ "javascript", "underscore", "coding", "titanium" ]
 ---
 Doing some work in [Titanium][] and I found some code I needed to translate
 *and* DRY up. In the process I descoved a really cool trick with
@@ -45,7 +45,7 @@ var textField1 = Ti.UI.createTextField({
 });
 {% endcodeblock %}
 
-I'll be honest, `"%s %s (%s)` looks confusing as hell.
+I'll be honest, `"%s %s (%s)"` looks confusing as hell.
 
 I'm going to show you how I handled this using Underscore's template engine.
 I'll explain the process progressively so you can see how I ened up with the
