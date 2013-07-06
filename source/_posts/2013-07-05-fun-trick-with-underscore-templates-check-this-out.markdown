@@ -172,3 +172,5 @@ var textField1 = Ti.UI.createTextField({
 });
 {% endcodeblock %}
 
+What do you think? Did I over think this? Or is it more scalable? Let me know,
+leave a comment.
