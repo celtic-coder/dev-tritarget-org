@@ -18,6 +18,8 @@ I want to discuss my solution to this by showing a neat trick to roll your own
 event dispatcher that is object oriented and scoped to your own object. Oh and
 it is pretty simple.
 
+[Titanium]: http://www.appcelerator.com/platform/titanium-platform/
+
 <!-- more -->
 
 I had noticed others had the same trouble and would develop their own even
@@ -45,7 +47,7 @@ Foo.prototype.fireEvent = function(event, data) {
 {% endcodeblock %}
 
 I could have gone the route of the [Super Simple Event Dispatcher][1] but that
-would not match the established practise of Titaniums event model
+would not match the established practice of Titanium's event model
 (`addEventListener`, `fireEvent`, `removeEventListener`). So I made the
 [Damn Simple Event Dispatcher][2] instead. (This uses [Underscore][]).
 
@@ -76,7 +78,7 @@ exports.EventEmitter = (function() {
   };
   return EventEmitter;
 })();
-{% codeblock %}
+{% endcodeblock %}
 
 _See the [gist][2] to view the documentation and test specs._
 
