@@ -29,9 +29,23 @@ var textField1 = Ti.UI.createTextField({
 });
 {% endcodeblock %}
 
-The above asked to localize three string that were not easily international
-(e.g. ?) and looked fairly close in concept. Using string interpolation would
-be a mess and still required many message id.
+The above asked to localize three strings that were not easily
+internationalize-able (e.g. ?) and all of them looked fairly close in concept.
+Using string interpolation would be a mess and would still require many message
+ids.
+
+{% codeblock Sample titanium i18n usage with string interpolation (sample_bad.js) %}
+var textField1 = Ti.UI.createTextField({
+  hintText: String.format(
+    "%s %s (%s)",
+    L("example_text", "e.g."),
+    L("example_address", "123 Washington Rd."),
+    L("required", "required")
+  )
+});
+{% endcodeblock %}
+
+I'll be honest, `"%s %s (%s)` looks confusing as hell.
 
 I'm going to show you how I handled this using Underscore's template engine.
 I'll explain the process progressively so you can see how I ened up with the
@@ -140,19 +154,19 @@ var hintTextTemplate = {
 
 var textField1 = Ti.UI.createTextField({
   hintText: hintTextTemplate.render({
-    content: "123 Washington Rd.",
+    content: L("example_address", "123 Washington Rd."),
     required: true
   })
 });
 var textField1 = Ti.UI.createTextField({
   hintText: hintTextTemplate.render({
-    content: "example@example.com",
+    content: L("example_email", "example@example.com"),
     required: true
   })
 });
 var textField1 = Ti.UI.createTextField({
   hintText: hintTextTemplate.render({
-    content: "(123) 555-5555",
+    content: L("example_phone", "(123) 555-5555"),
     required: false
   })
 });
