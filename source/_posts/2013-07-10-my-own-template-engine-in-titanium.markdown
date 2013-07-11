@@ -11,8 +11,10 @@ I ran into an interesting problem while trying to internationalize a
 to interpolate the localized string you grabbed from the `L()` method. Here is
 an example:
 
-    String.format( L("message_id", "Default %s text"), "foobar" );
-    // => "Default foobar text"
+{% highlight js %}
+String.format( L("message_id", "Default %s text"), "foobar" );
+// => "Default foobar text"
+{% endhighlight %}
 
 {% pullquote %}
 This was all well and good till some problems presented themselves. {" If I
