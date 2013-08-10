@@ -9,6 +9,7 @@ footer: false
 <p>Perhaps you might be interested in one of these pages?</p>
 <div id="blog-archives" class="missing">
 {% for post in site.posts limit: 10 %}
+{% include post/variables.html %}
 <article>
   {% include archive_post.html %}
 </article>
