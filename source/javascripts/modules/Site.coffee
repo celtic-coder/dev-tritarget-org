@@ -22,6 +22,16 @@ class Site
       collapsible: true
       heightStyle: "content"
 
+    emojify.setConfig
+      emojify_tag_type:  'span'
+      emoticons_enabled: false
+      people_enabled:    true
+      nature_enabled:    true
+      objects_enabled:   true
+      places_enabled:    true
+      symbols_enabled:   true
+    emojify.run()
+
   # Function: initCollapsibleDivs() [[[1
   @initCollapsibleDivs: =>
     $(".box_top").each ->
