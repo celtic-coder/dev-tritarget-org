@@ -47,7 +47,9 @@ dreams of creating great software for everyone to enhance their lives with.
 [JS]: http://en.wikipedia.org/wiki/JavaScript
 [RoR]: http://rubyonrails.org/
 
-## PGP Public Key
+### PGP Public Key
+
+Download key: [DE767C8A :closed_lock_with_key:]({{ root_url }}/key)
 
 <pre>
 {% include custom/pgp_key.asc %}
