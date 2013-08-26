@@ -49,7 +49,7 @@ dreams of creating great software for everyone to enhance their lives with.
 
 ### PGP Public Key
 
-Download key: [DE767C8A :closed_lock_with_key:]({{ root_url }}/key)
+Download key: [DE767C8A :closed_lock_with_key:]({{ root_url }}/key) / `FA9F 1400 8BA5 A847 B097 7C06 EBD9 9C92 DE76 7C8A`
 
 <pre>
 {% include custom/pgp_key.asc %}
