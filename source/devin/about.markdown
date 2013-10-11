@@ -14,5 +14,9 @@ and track non-emergency issues anywhere in the world via the internet. This
 empowers citizens, community groups, media organizations and governments to take
 care of and improve their neighborhoods.
 
-[CoffeeScript]: http://coffeescript.org
+And BTW this little mobile site was made with [jQuery-mobile][jqm] so
+*rockzor*! 👊😎
+
+[CoffeeScript]: http://coffeescript.org/
 [Titanium]: http://www.appcelerator.com/
+[jqm]: http://jquerymobile.com/
