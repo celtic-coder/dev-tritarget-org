@@ -1,0 +1,34 @@
+---
+layout: jqm-page
+title: Projects
+backButton: true
+showGravatar: true
+---
+<div data-role="collapsible-set" data-inset="false">
+
+  <div data-role="collapsible" data-collapsed="false">
+    <h3>Projects</h3>
+    {% render_partial projects/_projects.markdown %}
+  </div>
+
+  <div data-role="collapsible">
+    <h3>Sample Code</h3>
+    {% render_partial projects/_exercises.markdown %} 
+  </div>
+
+  <div data-role="collapsible">
+    <h3>Deprecated and Outdated</h3>
+    {% render_partial projects/_deprecated.markdown %}
+  </div>
+
+  <div data-role="collapsible">
+    <h3>Incubator</h3>
+    {% render_partial projects/_incubator.markdown %}
+  </div>
+
+</div>
+
+<a href="{{ root_url }}/blog/categories/coding/" rel="external" data-role="button">
+  <img src="icons/166-newspaper.png" alt="newspaper icon" width="28" height="23">
+  View my blog about programming
+</a>
