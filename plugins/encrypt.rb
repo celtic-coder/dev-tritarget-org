@@ -10,6 +10,30 @@
 # putting sensitive data inside a `_secrets.yml` file and look them up by id.
 # Add _secrets.yml to your .gitignore to avoid adding it to the repo.
 #
+# The _secrets.yml file has two formats. Either it is `key: value` or you can
+# use a special hash:
+#
+#    email:
+#      href: "http://foobar.com"
+#      text: "Link to foobar site"
+#
+# In which case a `{% encrypt :email %} will result in encrypted output of:
+#
+#    <a href="http://foobar.com">Link to foobar site</a>
+#
+# If you want full control use the block version:
+#
+#   {% encryptblock %}
+#   <li>
+#     <a href="{{ email.href }}">
+#       <span class="foo">XXX:</span> {{ email.text }}
+#     </a>
+#   </li>
+#   {% endencryptblock %}
+#
+# Which will interpolate the values based on what is in the `_secrets.yml` file
+# and then encrypt the entire thing
+#
 # DISCLAIMER: This is nothing more then an XOR over each character. Not only
 # that but the same key is used every time. Also, the key is simply the number
 # 4. Lastly the key is part of the output. This have not even the remote chance
@@ -21,7 +45,7 @@
 #   {% encrypt 555-1234 %}
 #   OR
 #   {% encryptblock %}
-#   Wheeee!
+#   Wheeee! {{ email }}
 #   {% endencryptblock %}
 #   ...
 #   <script>
@@ -55,43 +79,66 @@ module Jekyll
       end
       @encrypted_text = @encrypted_text.gsub(/'/, "\\'")
     end
+
   end
+
 
   class EncryptBlock < Liquid::Block
 
     def render(context)
-      content = Encryptor.new(super)
-      content.to_js
+      begin
+        secrets = YAML::load_file("_secrets.yml")
+      rescue
+        secrets = {}
+      end
+      content = ""
+      context.stack do
+        secrets.each {|key,val| context[key] = val}
+        content = super(context)
+      end
+      Encryptor.new(content).to_js
     end
 
   end
+
 
   class EncryptTag < Liquid::Tag
 
     def initialize(tag_name, markup, tokens)
       super
       @markup = markup.lstrip.rstrip
-      @errors = nil
+      @error = nil
       if @markup =~ /^:(\w+)/
         begin
           secrets = YAML::load_file("_secrets.yml")
-          @markup = secrets[$1]
+          prepared_text = add_link_if_needed(secrets[$1])
+          if prepared_text.nil?
+            @error = "Unable to find #{@markup} in _secrets.yml."
+          end
+          @markup = prepared_text
         rescue
-          @errors = "Encrypt plugin failed to load _secrets.yml. Unable to lookup #{@markup}."
-        end
-        if @markup.nil?
-          @errors = "Unable to find #{@markup} in _secrets.yml."
+          @error = "Encrypt plugin failed to load _secrets.yml. Unable to lookup #{@markup}."
         end
       end
     end
 
     def render(context)
-      if @errors.nil?
+      if @error.nil?
         content = Encryptor.new(@markup)
         content.to_js
       else
-        puts @errors
-        @errors
+        puts @error
+        context.handle_error @error
+      end
+    end
+
+    private
+    def add_link_if_needed(node)
+      return node if node.kind_of? String
+      begin
+        "<a href=\"#{node['href']}\">#{node['text']}</a>"
+      rescue
+        nil
       end
     end
 
