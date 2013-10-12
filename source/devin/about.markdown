@@ -5,8 +5,8 @@ backButton: true
 showGravatar: true
 ---
 I am a mobile application developer. Oh, and I also do web development to. You
-see I am a *big* fan of JavaScript. I also love Ruby and am head-over-heals in
-love with [CoffeeScript][].
+see I am a *big* fan of JavaScript. I also love Ruby and am head-over-heels for
+[CoffeeScript][].
 
 I mainly work on [Titanium][] for the company
 [SeeClickFix](http://seeclickfix.com). A company which allows anyone to report
