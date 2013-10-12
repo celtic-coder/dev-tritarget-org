@@ -1,0 +1,70 @@
+---
+layout: jqm-page
+title: Contact Me
+backButton: true
+showGravatar: true
+---
+<ul data-role="listview">
+  {% encryptblock %}
+  <li>
+    <a href="{{ phone.href }}">
+      <img src="icons/dog_on_phone2.jpg" alt="A dog on the phone">
+      <h2>Phone</h2>
+      <p>{{ phone.text }}</p>
+    </a>
+  </li>
+  {% endencryptblock %}
+  {% encryptblock %}
+  <li>
+    <a href="{{ email.href }}">
+      <img src="icons/email.png" alt="Email icon">
+      <h2>Email</h2>
+      <p>{{ email.text }}</p>
+    </a>
+  </li>
+  {% endencryptblock %}
+  {% encryptblock %}
+  <li>
+    <a href="{{ gmail.href }}">
+      <img src="icons/Google-Talk.png" alt="Google Talk logo">
+      <h2>GTalk</h2>
+      <p>{{ gmail.text }}</p>
+    </a>
+  </li>
+  {% endencryptblock %}
+  <li>
+    <a href="https://plus.google.com/104981501099138892251/posts/p/pub">
+      <img src="icons/gplus_logo.png" alt="Google Plus logo">
+      <h2>Google Plus</h2>
+      <p>104981501099138892251</p>
+    </a>
+  </li>
+  <li>
+    <a href="https://twitter.com/sukima">
+      <img src="icons/twitter-icon.png" alt="Twitter logo">
+      <h2>Twitter</h2>
+      <p>@sukima</p>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/sukima">
+      <img src="icons/github_button.png" alt="GitHub logo">
+      <h2>GitHub</h2>
+      <p>@sukima</p>
+    </a>
+  </li>
+  <li>
+    <a href="http://tritarget.com/">
+      <img src="icons/vim_by_liggliluff-d5g1led.png" alt="VIM logo with My Little Pony on it">
+      <h2>Website</h2>
+      <p>http://tritarget.org/</p>
+    </a>
+  </li>
+</ul>
+
+<p class="table-bottom">
+  <a href="http://tritarget.org/files/devin_weaver.vcf" download="devin_weaver.vcf" data-role="button">
+    <img src="icons/291-idcard.png" alt="ID card icon" valign="middle">
+    Download vCard
+  </a>
+</p>

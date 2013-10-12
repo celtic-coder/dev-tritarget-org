@@ -16,6 +16,10 @@ img.right {
   display: none;
 }
 
+.table-bottom {
+  margin-top: 40px;
+}
+
 @media screen and (max-width: 320px) {
   #selfpic {
     width: 114px;
