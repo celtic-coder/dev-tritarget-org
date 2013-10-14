@@ -5,10 +5,14 @@ date: 2012-11-28 11:03
 comments: true
 categories: [ "coding", "JavaScript" ]
 ---
+**DISCLAIMER**: Using [promises][] is a much better way to handle asynchronous
+situations. Use the advice in this post *only* as a last resort.
+
 *The term "Pyramid of Doom" was coined (as far as I know) from the
 [JavaScript Jabber podcast][1] episode 1: Asynchronous Programming.*
 
 [1]: http://javascriptjabber.com/001-jsj-asynchronous-programming/
+[promises]: http://www.kendoui.com/blogs/teamblog/posts/13-03-28/what-is-the-point-of-promises.aspx
 
 In JavaScript that uses AJAX and other asynchronous methods they all take a
 function as a callback argument. A common yet ugly style to code this is using
