@@ -6,10 +6,10 @@ comments: true
 external-url: 
 categories: [ "panos", "photography", "events", "travel" ]
 ---
-Had the wonderful opportunity to attend [TiAppCamp][] 2013 in Atlanta, GA. I
-had a wonderful time and learned a lot about the platform I use at work to make
-really cool things happen on mobile phones. While there I had time to take some
-interesting pictures.
+Had the wonderful opportunity to attend [TiAppCamp](http://tiappcamp.org/) 2013
+in Atlanta, GA. I had a wonderful time and learned a lot about the platform I
+use at work to make really cool things happen on mobile phones. While there I
+had time to take some interesting pictures.
 
 The hotel I stayed at was The Hotel Indigo which is right next to The Fox
 Theatre. The theme was all the tickets from people who were fans of The Fox
