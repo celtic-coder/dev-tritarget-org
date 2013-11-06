@@ -28,7 +28,7 @@ view:
 {% endfor %}
 </div>
 
-[View all posts]({{ root_url }}blog/categories/photography/)
+[View all posts](/blog/categories/photography/)
 
 ## What I use ##
 
