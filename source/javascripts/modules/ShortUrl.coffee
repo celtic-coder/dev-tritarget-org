@@ -106,7 +106,7 @@ class ShortUrl
       @path = "/s/"
     @
   # Abstact function for testing
-  @redirectTo: (url) -> window.location.href = url
+  @redirectTo: (url) -> window.location.replace url
   # Atempt to redirect the browser
   loadLocation: (id) ->
     url = @data[id]
