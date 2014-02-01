@@ -15,14 +15,15 @@ My first project was to build a Snow Globe inside [Secondlife][]. Then I tried
 making my own in [Blender 3D][blender] by making a stack of books, I rendered
 four different style each with a different level of detail. I moved on to
 modeling from a picture so I created an image for my work which included an
-internal logo / mascot. Finally I too a [YouTube tutorial][1] and created a
-impressive water simulation.
+internal logo / mascot. Finally I took a [YouTube tutorial][1] and created an
+impressive water simulation:
 
 {% gallery %}
 3d/SnowGlobe.jpg: A X-Mass Snow Globe with a snowman in Secondlife
 3d/StackOfBooks.png: Stack of books
 3d/SCFMan.png: SeeClickFix Man
-3d/WaterGlassWallpaper.png: Water in my glass
+3d/WaterGlassHigh2.png: Water in my glass
+3d/SCFManWaterSplash.png: SeeClickFix Man diving into water
 {% endgallery %}
 
 [blender]: http://www.blender.org/
