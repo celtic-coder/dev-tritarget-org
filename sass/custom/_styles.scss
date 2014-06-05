@@ -291,34 +291,36 @@ table tr:nth-child(2n) {
 
 /* Fun with side bar */
 
-aside.sidebar section {
-  -webkit-transform: rotateY(-15deg);
-  -moz-transform: rotateY(-15deg);
-  -ms-transform: rotateY(-15deg);
-  -o-transform: rotateY(-15deg);
-  transform: rotateY(-15deg);
-  -webkit-transition: -webkit-transform 1s;
-  -moz-transition: -moz-transform 1s;
-  -o-transition: -o-transform 1s;
-  -ms-transition: -ms-transform 1s;
-  transition: transform 1s;
-}
+@media (min-width: 768px) {
+  aside.sidebar section {
+    -webkit-transform: rotateY(-15deg);
+    -moz-transform: rotateY(-15deg);
+    -ms-transform: rotateY(-15deg);
+    -o-transform: rotateY(-15deg);
+    transform: rotateY(-15deg);
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    -ms-transition: -ms-transform 1s;
+    transition: transform 1s;
+  }
 
-aside.sidebar:hover section {
-  -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  -o-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-}
+  aside.sidebar:hover section {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -o-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
 
-aside.sidebar {
-  position:relative;
-  -moz-perspective:1500px;
-  -webkit-perspective:1500px;
-  -ms-perspective:1500px;
-  -o-perspective:1500px;
-  perspective:1500px;
+  aside.sidebar {
+    position:relative;
+    -moz-perspective:1500px;
+    -webkit-perspective:1500px;
+    -ms-perspective:1500px;
+    -o-perspective:1500px;
+    perspective:1500px;
+  }
 }
 
 @import "custom/coderwall";
