@@ -54,7 +54,7 @@ end
 #######################
 
 desc "Generate jekyll site"
-task :generate do
+task :generate => [:contact] do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
   system "compass compile --css-dir #{source_dir}/stylesheets"
@@ -124,16 +124,17 @@ task :preview do
   Rake::Task['minify_and_combine'].execute
   puts "Starting to watch source with Jekyll and Compass. Starting Rack, serving to http://#{server_host}:#{server_port}"
   system "compass compile --css-dir #{source_dir}/stylesheets"
+  gulpPid = Process.spawn("cd contact-app && ./node_modules/.bin/gulp watch --info ../info.json --prefix ../#{public_dir}/devin")
   jekyllPid = Process.spawn("jekyll --auto")
   compassPid = Process.spawn("compass watch")
   rackupPid = Process.spawn("rackup --host #{server_host} --port #{server_port}")
 
   trap("INT") {
-    [jekyllPid, compassPid, rackupPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
+    [jekyllPid, compassPid, rackupPid, gulpPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
     exit 0
   }
 
-  [jekyllPid, compassPid, rackupPid].each { |pid| Process.wait(pid) }
+  [jekyllPid, compassPid, rackupPid, gulpPid].each { |pid| Process.wait(pid) }
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
@@ -228,6 +229,7 @@ task :clean do
   rm "#{source_dir}/stylesheets/screen.css" if File.exists?("#{source_dir}/stylesheets/screen.css")
   system "compass clean"
   puts "## Cleaned Sass, Pygments and Gist caches, removed generated stylesheets ##"
+  rm_rf "#{source_dir}/devin"
 end
 
 desc "Update theme source and style"
@@ -517,4 +519,9 @@ desc "list tasks"
 task :list do
   puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
   puts "(type rake -T for more detail)\n\n"
+end
+
+desc "build the devin-contact-app"
+task :contact do
+  sh "cd contact-app && ./node_modules/.bin/gulp --prod --info ../info.json --prefix ../#{source_dir}/devin"
 end
