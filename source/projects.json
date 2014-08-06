@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Highlights",
+    "url": "/projects/projects.html"
+  },
+  {
+    "title": "Sample Code",
+    "url": "/projects/exercises.html"
+  },
+  {
+    "title": "Deprecated and Outdated",
+    "url": "/projects/deprecated.html"
+  },
+  {
+    "title": "Incubator",
+    "url": "/projects/incubator.html"
+  }
+]

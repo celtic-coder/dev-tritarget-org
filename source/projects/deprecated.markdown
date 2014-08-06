@@ -1,3 +1,6 @@
+---
+layout: nil
+---
 These are projects I have worked on or completed that have been out-dated or
 abandoned.
 
