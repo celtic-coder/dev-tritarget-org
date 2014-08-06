@@ -1,0 +1,3 @@
+[submodule "contact-app"]
+	path = contact-app
+	url = https://github.com/sukima/devin-contact-app.git
