@@ -1,3 +1,6 @@
+---
+layout: nil
+---
 Here are some ideas I plan on working on or have been put on the back burner.
 Feel free to contact me if you wish to collaborate.
 
