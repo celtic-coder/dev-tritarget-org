@@ -14,6 +14,14 @@
     "gulp-rsync": "0.0.4",
     "gulp-util": "^3.0.1",
     "gulpsmith": "^0.4.3",
-    "metalsmith": "^0.9.0"
+    "handlebars": "^2.0.0",
+    "metalsmith": "^0.9.0",
+    "metalsmith-collections": "^0.6.0",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-more": "^0.2.0",
+    "metalsmith-mtime": "0.0.2",
+    "metalsmith-permalinks": "^0.4.0",
+    "metalsmith-tags": "^0.6.1",
+    "metalsmith-templates": "^0.5.2"
   }
 }
