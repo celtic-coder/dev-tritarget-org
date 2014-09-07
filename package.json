@@ -1,0 +1,19 @@
+{
+  "name": "dev-tritarget-org",
+  "private": "true",
+  "version": "2.0.0",
+  "description": "A blog of personal quality",
+  "author": "Devin Weaver <suki@tritarget.org> (http://tritarget.org/)",
+  "license": "CC BY-NC-SA 3.0",
+  "devDependencies": {
+    "browserify": "^5.11.1",
+    "coffee-script": "^1.8.0",
+    "coffeeify": "^0.7.0",
+    "gulp": "^3.8.7",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-rsync": "0.0.4",
+    "gulp-util": "^3.0.1",
+    "gulpsmith": "^0.4.3",
+    "metalsmith": "^0.9.0"
+  }
+}
