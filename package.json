@@ -13,6 +13,7 @@
     "gulp": "^3.8.7",
     "gulp-rimraf": "^0.1.0",
     "gulp-rsync": "0.0.4",
+    "gulp-sass": "^0.7.3",
     "gulp-util": "^3.0.1",
     "gulpsmith": "^0.4.3",
     "handlebars": "^2.0.0",
@@ -23,6 +24,7 @@
     "metalsmith-mtime": "0.0.2",
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-tags": "^0.6.1",
-    "metalsmith-templates": "^0.5.2"
+    "metalsmith-templates": "^0.5.2",
+    "node-bourbon": "^1.2.3"
   }
 }

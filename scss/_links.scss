@@ -1,0 +1,43 @@
+@mixin custom-link() {
+  position: absolute;
+  display:  block;
+  left:     4px;
+  top:      0;
+  opacity:  0;
+  @include transition(all 0.2s);
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p a {
+  display:  inline-block;
+  position: relative;
+
+  &:hover {
+    opacity: 1;
+
+    &::before {
+      left: -4px;
+    }
+
+    &::after {
+      right: -4px;
+    }
+  }
+
+  &::before {
+    @include custom-link();
+    content: "[";
+  }
+
+  &::after {
+    @include custom-link();
+    content: "]";
+  }
+}
