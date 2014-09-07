@@ -9,6 +9,7 @@
     "browserify": "^5.11.1",
     "coffee-script": "^1.8.0",
     "coffeeify": "^0.7.0",
+    "debowerify": "^0.8.1",
     "gulp": "^3.8.7",
     "gulp-rimraf": "^0.1.0",
     "gulp-rsync": "0.0.4",
