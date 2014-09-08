@@ -9,5 +9,7 @@ gutil.env.prefix = gutil.env.prefix || 'build';
 
 fs.readdirSync(tasksPath)
 .forEach(function(module) {
-  require(path.join(tasksPath, module));
+  if (/\.coffee$|\.js$/.test(module)) {
+    require(path.join(tasksPath, module));
+  }
 });
