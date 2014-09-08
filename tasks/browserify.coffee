@@ -9,7 +9,7 @@ gulpif     = require "gulp-if"
 uglify     = require "gulp-uglify"
 streamify  = require "gulp-streamify"
 concat     = require "gulp-concat"
-header     = require "gulp-header"
+preamble   = require "./lib/preamble"
 
 bowerDir = "./bower_components"
 
@@ -34,5 +34,5 @@ gulp.task "browserify", ->
   es.concat(gulp.src(globalLibPaths), bundle)
     .pipe(streamify concat(outputFileName))
     .pipe(gulpif gutil.env.prod, uglify())
-    .pipe(header fs.readFileSync(preamblePath, 'utf-8'), {pkg})
+    .pipe(preamble preamblePath, {pkg})
     .pipe(gulp.dest gutil.env.prefix)
