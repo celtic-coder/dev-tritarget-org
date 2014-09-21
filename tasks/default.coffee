@@ -1,7 +1,7 @@
 gulp  = require "gulp"
 gutil = require "gulp-util"
 
-gulp.task "default", ["metalsmith", "browserify", "styles"], ->
+gulp.task "default", ["metalsmith", "browserify", "styles-delayed"], ->
   environment = if gutil.env.prod
     gutil.colors.blue "production"
   else
