@@ -1,7 +1,6 @@
 @mixin custom-link() {
   position: absolute;
   display:  block;
-  left:     4px;
   top:      0;
   opacity:  0;
   @include transition(all 0.2s);
@@ -19,25 +18,25 @@ p a {
   display:  inline-block;
   position: relative;
 
-  &:hover {
+  &:hover::before {
+    left: -4px;
     opacity: 1;
+  }
 
-    &::before {
-      left: -4px;
-    }
-
-    &::after {
-      right: -4px;
-    }
+  &:hover::after {
+    right: -4px;
+    opacity: 1;
   }
 
   &::before {
     @include custom-link();
+    left:    4px;
     content: "[";
   }
 
   &::after {
     @include custom-link();
+    right:   4px;
     content: "]";
   }
 }
