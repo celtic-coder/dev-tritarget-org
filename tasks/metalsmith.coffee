@@ -2,6 +2,7 @@ fs         = require "fs"
 path       = require "path"
 gulp       = require "gulp"
 gutil      = require "gulp-util"
+livereload = require "gulp-livereload"
 metalsmith = require "metalsmith"
 markdown   = require "metalsmith-markdown"
 templates  = require "metalsmith-templates"
@@ -17,6 +18,7 @@ gulp.task "metalsmith", (done) ->
     memo
 
   finished = ->
+    livereload.changed("Content files", auto: false)
     done()
 
   partials = fs.readdirSync(path.join gutil.env.projectdir, templateDir)
