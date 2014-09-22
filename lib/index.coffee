@@ -1,2 +1,5 @@
 require "./ie10-viewport-workaround"
-$ = require "jquery"
+AppManager = require "./appmanager.coffee"
+
+new AppManager()
+  .init()
