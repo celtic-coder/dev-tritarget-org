@@ -8,9 +8,8 @@ gulpif     = require "gulp-if"
 uglify     = require "gulp-uglify"
 streamify  = require "gulp-streamify"
 concat     = require "gulp-concat"
-livereload = require "gulp-livereload"
+connect    = require "gulp-connect"
 preamble   = require "./lib/preamble"
-
 
 headerFile     = "preamble.ejs"
 outputFileName = "index.js"
@@ -26,4 +25,4 @@ gulp.task "browserify", ->
     .pipe(gulpif gutil.env.prod, streamify uglify())
     .pipe(streamify preamble(preamblePath, {pkg}))
     .pipe(gulp.dest gutil.env.prefix)
-    .pipe(livereload auto: false)
+    .pipe(connect.reload())
