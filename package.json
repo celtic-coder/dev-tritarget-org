@@ -11,9 +11,9 @@
   },
   "devDependencies": {
     "browserify": "^5.11.1",
+    "browserify-shim": "^3.7.0",
     "coffee-script": "^1.8.0",
     "coffeeify": "^0.7.0",
-    "debowerify": "^0.8.1",
     "event-stream": "^3.1.7",
     "gulp": "^3.8.7",
     "gulp-concat": "^2.4.0",
@@ -41,7 +41,20 @@
   "browserify": {
     "transform": [
       "coffeeify",
-      "debowerify"
+      "browserify-shim"
     ]
+  },
+  "browser": {
+    "bootstrap": "./bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js",
+    "jquery": "./bower_components/jquery/dist/jquery.js"
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "extends": false,
+      "depends": [
+        "jquery"
+      ]
+    },
+    "jquery": "jQuery"
   }
 }
