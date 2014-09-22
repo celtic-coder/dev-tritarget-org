@@ -23,6 +23,7 @@ gulp.task "metalsmith", (done) ->
     .reduce(addPartials, {})
 
   metalsmith(gutil.env.projectdir)
+    .clean(false)
     .metadata({site, pkg})
     .use(markdown())
     .use(templates {engine: "handlebars", partials})
