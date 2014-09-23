@@ -7,7 +7,6 @@ browserify = require "browserify"
 gulpif     = require "gulp-if"
 uglify     = require "gulp-uglify"
 streamify  = require "gulp-streamify"
-concat     = require "gulp-concat"
 connect    = require "gulp-connect"
 preamble   = require "./lib/preamble"
 
