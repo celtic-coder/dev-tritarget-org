@@ -18,7 +18,7 @@ gulp.task "browserify", ->
   preamblePath = path.join gutil.env.projectdir, headerFile
   bundlePath   = path.join gutil.env.projectdir, "/lib/index.coffee"
 
-  browserify(bundlePath)
+  browserify(bundlePath, entry: true, debug: !gutil.env.prod)
     .bundle()
     .pipe(source outputFileName)
     .pipe(gulpif gutil.env.prod, streamify uglify())
