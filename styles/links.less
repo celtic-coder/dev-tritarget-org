@@ -1,9 +1,9 @@
-@mixin custom-link() {
+.custom-link() {
   position: absolute;
   display:  block;
   top:      0;
   opacity:  0;
-  @include transition(all 0.2s);
+  .transition(all 0.2s);
 }
 
 a {
@@ -29,13 +29,13 @@ p a {
   }
 
   &::before {
-    @include custom-link();
+    .custom-link();
     left:    4px;
     content: "[";
   }
 
   &::after {
-    @include custom-link();
+    .custom-link();
     right:   4px;
     content: "]";
   }

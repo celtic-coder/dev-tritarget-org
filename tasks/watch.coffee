@@ -19,7 +19,7 @@ gulp.task "watch", ["metalsmith", "browserify", "styles"], ->
   gulp.watch("./lib/**/*", ["browserify"])
     .on("change", reportChange)
 
-  gulp.watch("./scss/**/*", ["styles"])
+  gulp.watch("./styles/**/*", ["styles"])
     .on("change", reportChange)
 
 gulp.task "server", ["watch"]

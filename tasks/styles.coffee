@@ -1,11 +1,14 @@
-gulp           = require "gulp"
-gutil          = require "gulp-util"
-sass           = require "gulp-sass"
-connect        = require "gulp-connect"
-{includePaths} = require "node-bourbon"
+gulp    = require "gulp"
+gutil   = require "gulp-util"
+less    = require "gulp-less"
+connect = require "gulp-connect"
+
+lessIncludePaths = [
+  "./bower_components/bootstrap/less"
+]
 
 gulp.task "styles", ->
-  gulp.src("#{gutil.env.projectdir}/scss/index.scss")
-    .pipe(sass {includePaths})
+  gulp.src("#{gutil.env.projectdir}/styles/index.less")
+    .pipe(less paths: lessIncludePaths)
     .pipe(gulp.dest gutil.env.prefix)
     .pipe(connect.reload())
