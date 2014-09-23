@@ -22,6 +22,6 @@ gulp.task "browserify", ->
     .bundle()
     .pipe(source outputFileName)
     .pipe(gulpif gutil.env.prod, streamify uglify())
-    .pipe(streamify preamble(preamblePath, {pkg}))
+    .pipe(preamble(preamblePath, {pkg}))
     .pipe(gulp.dest gutil.env.prefix)
     .pipe(connect.reload())
