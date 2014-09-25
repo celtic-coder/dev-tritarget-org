@@ -1,15 +1,16 @@
-fs          = require "fs"
-path        = require "path"
-gulp        = require "gulp"
-gutil       = require "gulp-util"
-connect     = require "gulp-connect"
-metalsmith  = require "metalsmith"
-markdown    = require "metalsmith-markdown"
-templates   = require "metalsmith-templates"
-collections = require "metalsmith-collections"
-permalinks  = require "metalsmith-permalinks"
-site        = require "../site.json"
-pkg         = require "../package.json"
+fs           = require "fs"
+path         = require "path"
+gulp         = require "gulp"
+gutil        = require "gulp-util"
+connect      = require "gulp-connect"
+metalsmith   = require "metalsmith"
+markdown     = require "metalsmith-markdown"
+templates    = require "metalsmith-templates"
+collections  = require "metalsmith-collections"
+permalinks   = require "metalsmith-permalinks"
+findTemplate = require "./lib/findtemplate"
+site         = require "../site.json"
+pkg          = require "../package.json"
 
 templateDir = "templates"
 
@@ -40,6 +41,10 @@ gulp.task "metalsmith", (done) ->
     .use(permalinks(
       pattern: ":collection/:date/:title"
       date:    "YYYY/MM/DD"
+    ))
+    .use(findTemplate(
+      pattern:      "posts"
+      templateName: "post.hbs"
     ))
     .use(templates {engine: "handlebars", partials})
     .destination(gutil.env.prefix)
