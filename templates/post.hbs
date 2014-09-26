@@ -1,0 +1,15 @@
+{{> header}}
+
+  <div class="blog-post">
+    <h2 class="blog-post-title">{{ title }}</h2>
+    {{> post_header}}
+
+    {{{ contents }}}
+  </div>
+
+  <ul class="pager">
+    <li><a href="/{{ previous.path }}">Previous</a></li>
+    <li><a href="/{{ next.path }}">Next</a></li>
+  </ul>
+
+{{> footer}}
