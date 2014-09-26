@@ -1,0 +1,14 @@
+<p class="blog-post-meta">
+  {{formatDateYMD date}}
+  {{#if author}}
+    by <strong>
+      {{#if author.name}}
+        {{#if author.href}}<a href="{{ author.href }}">{{/if}}
+          {{ author.name }}
+        {{#if author.href}}</a>{{/if}}
+      {{else}}
+        {{ author }}
+      {{/if}}
+    </strong>
+  {{/if}}
+</p>
