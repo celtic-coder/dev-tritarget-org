@@ -1,3 +1,4 @@
+_            = require "lodash"
 fs           = require "fs"
 path         = require "path"
 gulp         = require "gulp"
@@ -12,7 +13,8 @@ findTemplate = require "./lib/findtemplate"
 site         = require "../site.json"
 pkg          = require "../package.json"
 
-templateDir = "templates"
+templateDir = path.join gutil.env.projectdir, "templates"
+helpersDir  = path.join gutil.env.projectdir, "helpers"
 
 collectionsConfig =
   blog:
@@ -20,18 +22,30 @@ collectionsConfig =
     sortBy:  'date'
     reverse: true
 
-gulp.task "metalsmith", (done) ->
-  addPartials = (memo, file) ->
-    name = file.match /^_(.+)\..+$/
+addPartials = ->
+  partialFilter = /^_(.+)/
+  (memo, file) ->
+    name = path.basename(file, ".hbs").match partialFilter
     memo[name[1]] = "_#{name[1]}" if name?
     memo
 
+loadHelpers = ->
+  (memo, file) ->
+    module = require(path.join helpersDir, file)
+    if _.isFunction(module)
+      name = path.basename(file, path.extname file)
+      memo[name] = module
+    else
+      _.extend(memo, module)
+    memo
+
+gulp.task "metalsmith", (done) ->
   finished = ->
     connect.reload().write(path: "Content files")
     done()
 
-  partials = fs.readdirSync(path.join gutil.env.projectdir, templateDir)
-    .reduce(addPartials, {})
+  partials = _(fs.readdirSync templateDir).reduce(addPartials(), {})
+  helpers  = _(fs.readdirSync helpersDir).reduce(loadHelpers(), {})
 
   metalsmith(gutil.env.projectdir)
     .clean(false)
@@ -39,13 +53,14 @@ gulp.task "metalsmith", (done) ->
     .use(collections(collectionsConfig))
     .use(markdown())
     .use(permalinks(
+      relative: false
       pattern: ":collection/:date/:title"
       date:    "YYYY/MM/DD"
     ))
     .use(findTemplate(
-      pattern:      "posts"
+      pattern:      "blog"
       templateName: "post.hbs"
     ))
-    .use(templates {engine: "handlebars", partials})
+    .use(templates {engine: "handlebars", partials, helpers})
     .destination(gutil.env.prefix)
     .build(finished)
