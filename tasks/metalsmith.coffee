@@ -9,6 +9,7 @@ markdown     = require "metalsmith-markdown"
 templates    = require "metalsmith-templates"
 collections  = require "metalsmith-collections"
 permalinks   = require "metalsmith-permalinks"
+more         = require "metalsmith-more"
 findTemplate = require "./lib/findtemplate"
 site         = require "../site.json"
 pkg          = require "../package.json"
@@ -62,5 +63,6 @@ gulp.task "metalsmith", (done) ->
       templateName: "post.hbs"
     ))
     .use(templates {engine: "handlebars", partials, helpers})
+    .use(more())
     .destination(gutil.env.prefix)
     .build(finished)
