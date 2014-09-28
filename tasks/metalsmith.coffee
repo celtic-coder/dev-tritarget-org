@@ -41,7 +41,10 @@ loadHelpers = ->
     memo
 
 gulp.task "metalsmith", (done) ->
-  finished = ->
+  finished = (err) ->
+    if err?
+      done(err)
+      return
     connect.reload().write(path: "Content files")
     done()
 
