@@ -17,12 +17,6 @@ pkg          = require "../package.json"
 templateDir = path.join gutil.env.projectdir, "templates"
 helpersDir  = path.join gutil.env.projectdir, "helpers"
 
-collectionsConfig =
-  blog:
-    pattern: "posts/*.md"
-    sortBy:  'date'
-    reverse: true
-
 addPartials = ->
   partialFilter = /^_(.+)/
   (memo, file) ->
@@ -51,16 +45,21 @@ gulp.task "metalsmith", (done) ->
   metalsmith(gutil.env.projectdir)
     .clean(false)
     .metadata({site, pkg})
-    .use(collections(collectionsConfig))
+    .use(collections(
+      blog:
+        pattern: "posts/*.md"
+        sortBy:  "date"
+        reverse: true
+    ))
     .use(markdown())
+    .use(findTemplate(
+      collection:   "blog"
+      templateName: "post.hbs"
+    ))
     .use(permalinks(
       relative: false
       pattern: ":collection/:date/:title"
       date:    "YYYY/MM/DD"
-    ))
-    .use(findTemplate(
-      pattern:      "blog"
-      templateName: "post.hbs"
     ))
     .use(templates {engine: "handlebars", partials, helpers})
     .use(more())
