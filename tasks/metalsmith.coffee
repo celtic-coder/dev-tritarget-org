@@ -52,6 +52,7 @@ gulp.task "metalsmith", (done) ->
         reverse: true
     ))
     .use(markdown())
+    .use(more())
     .use(findTemplate(
       collection:   "blog"
       templateName: "post.hbs"
@@ -62,6 +63,5 @@ gulp.task "metalsmith", (done) ->
       date:    "YYYY/MM/DD"
     ))
     .use(templates {engine: "handlebars", partials, helpers})
-    .use(more())
     .destination(gutil.env.prefix)
     .build(finished)
