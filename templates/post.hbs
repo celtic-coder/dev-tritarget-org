@@ -5,11 +5,12 @@
     {{> post_header}}
 
     {{{ contents }}}
+
   </div>
 
   <ul class="pager">
-    <li><a href="/{{ previous.path }}">Previous</a></li>
-    <li><a href="/{{ next.path }}">Next</a></li>
+    {{#if previous}}<li><a href="/{{ previous.path }}">Previous</a></li>{{/if}}
+    {{#if next}}<li><a href="/{{ next.path }}">Next</a></li>{{/if}}
   </ul>
 
 {{> footer}}

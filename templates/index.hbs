@@ -6,9 +6,17 @@
     {{> post_header}}
 
     {{#if less}}
+
       {{{ less }}}
+
+      <ul class="pager">
+        <li><a href="/{{ path }}">Read More</a></li>
+      </ul>
+
     {{else}}
+
       {{{ contents }}}
+
     {{/if}}
 
   </div>
