@@ -10,7 +10,6 @@ gulp.task "watch", ["metalsmith", "browserify", "styles"], ->
   connect.server
     root:       gutil.env.prefix
     port:       8000
-    fallback:   "index.html"
     livereload: true
 
   gulp.watch(["./src/**/*", "./templates/**/*"], ["metalsmith"])
