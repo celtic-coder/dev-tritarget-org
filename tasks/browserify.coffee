@@ -8,7 +8,7 @@ gulpif     = require "gulp-if"
 uglify     = require "gulp-uglify"
 streamify  = require "gulp-streamify"
 connect    = require "gulp-connect"
-preamble   = require "./lib/preamble"
+preamble   = require "../plugins/preamble"
 
 headerFile     = "preamble.ejs"
 outputFileName = "index.js"

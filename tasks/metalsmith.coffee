@@ -10,7 +10,7 @@ templates    = require "metalsmith-templates"
 collections  = require "metalsmith-collections"
 permalinks   = require "metalsmith-permalinks"
 more         = require "metalsmith-more"
-findTemplate = require "./lib/findtemplate"
+findTemplate = require "../plugins/findtemplate"
 site         = require "../site.json"
 pkg          = require "../package.json"
 
@@ -42,11 +42,8 @@ loadHelpers = ->
 
 gulp.task "metalsmith", (done) ->
   finished = (err) ->
-    if err?
-      done(err)
-      return
     connect.reload().write(path: "Content files")
-    done()
+    done(err)
 
   partials = _(fs.readdirSync templateDir).reduce(addPartials(), {})
   helpers  = _(fs.readdirSync helpersDir).reduce(loadHelpers(), {})
