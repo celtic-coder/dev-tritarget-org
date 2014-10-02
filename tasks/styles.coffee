@@ -5,6 +5,7 @@ connect = require "gulp-connect"
 
 lessIncludePaths = [
   "./bower_components/bootstrap/less"
+  "./bower_components/fontawesome/less"
   "./bower_components/highlightjs/styles"
 ]
 
