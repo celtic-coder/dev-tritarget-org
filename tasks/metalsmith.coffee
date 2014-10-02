@@ -10,6 +10,7 @@ templates    = require "metalsmith-templates"
 collections  = require "metalsmith-collections"
 permalinks   = require "metalsmith-permalinks"
 more         = require "metalsmith-more"
+highlight    = require "metalsmith-metallic"
 findTemplate = require "../plugins/findtemplate"
 site         = require "../site.json"
 pkg          = require "../package.json"
@@ -51,6 +52,7 @@ gulp.task "metalsmith", (done) ->
         sortBy:  "date"
         reverse: true
     ))
+    .use(highlight(tabReplace: "  "))
     .use(markdown())
     .use(more())
     .use(findTemplate(
