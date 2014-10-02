@@ -11,6 +11,7 @@ collections  = require "metalsmith-collections"
 permalinks   = require "metalsmith-permalinks"
 more         = require "metalsmith-more"
 highlight    = require "metalsmith-metallic"
+hbHelpers    = require "diy-handlebars-helpers"
 findTemplate = require "../plugins/findtemplate"
 preTemplates = require "../plugins/pretemplates"
 site         = require "../site.json"
@@ -44,7 +45,10 @@ gulp.task "metalsmith", (done) ->
   templateOptions =
     engine:   "handlebars"
     partials: _(fs.readdirSync templateDir).reduce(addPartials(), {})
-    helpers:  _(fs.readdirSync helpersDir).reduce(loadHelpers(), {})
+    helpers:  _(fs.readdirSync helpersDir).chain()
+      .reduce(loadHelpers(), {})
+      .extend(hbHelpers)
+      .value()
 
   metalsmith(gutil.env.projectdir)
     .clean(false)
