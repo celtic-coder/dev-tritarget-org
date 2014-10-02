@@ -5,6 +5,7 @@ connect = require "gulp-connect"
 
 lessIncludePaths = [
   "./bower_components/bootstrap/less"
+  "./bower_components/highlightjs/styles"
 ]
 
 gulp.task "styles", ->
