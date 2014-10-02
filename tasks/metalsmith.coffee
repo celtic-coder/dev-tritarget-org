@@ -12,6 +12,7 @@ permalinks   = require "metalsmith-permalinks"
 more         = require "metalsmith-more"
 highlight    = require "metalsmith-metallic"
 findTemplate = require "../plugins/findtemplate"
+preTemplates = require "../plugins/pretemplates"
 site         = require "../site.json"
 pkg          = require "../package.json"
 
@@ -40,8 +41,10 @@ gulp.task "metalsmith", (done) ->
     connect.reload().write(path: "Content files")
     done(err)
 
-  partials = _(fs.readdirSync templateDir).reduce(addPartials(), {})
-  helpers  = _(fs.readdirSync helpersDir).reduce(loadHelpers(), {})
+  templateOptions =
+    engine:   "handlebars"
+    partials: _(fs.readdirSync templateDir).reduce(addPartials(), {})
+    helpers:  _(fs.readdirSync helpersDir).reduce(loadHelpers(), {})
 
   metalsmith(gutil.env.projectdir)
     .clean(false)
@@ -64,6 +67,7 @@ gulp.task "metalsmith", (done) ->
       pattern: ":collection/:date/:title"
       date:    "YYYY/MM/DD"
     ))
-    .use(templates {engine: "handlebars", partials, helpers})
+    .use(preTemplates templateOptions)
+    .use(templates templateOptions)
     .destination(gutil.env.prefix)
     .build(finished)
