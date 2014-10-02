@@ -1,9 +1,13 @@
 /*
  * Globals
  */
+@defaultColor: #555;
+@headerColor: #333;
+@headerHoverColor: #55C;
+
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: #555;
+  color: @defaultColor;
   padding-top: 50px;
 }
 
@@ -16,7 +20,7 @@ h6, .h6 {
   margin-top: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
-  color: #333;
+  color: @headerColor;
 }
 
 
@@ -45,6 +49,26 @@ h6, .h6 {
     }
   }
 }
+
+.blog-post-title {
+  a {
+    color: @headerColor;
+    &:visited {
+      color: @headerColor;
+    }
+    &:hover {
+      color: @headerHoverColor;
+      text-decoration: none;
+    }
+    &:hover:before {
+      content: '☞';
+      position: absolute;
+      top: 0;
+      left: -15px;
+    }
+  }
+}
+
 .blog-title {
   margin-top: 10px;
   margin-bottom: 0;
