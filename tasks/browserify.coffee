@@ -12,6 +12,7 @@ preamble   = require "../plugins/preamble"
 
 headerFile     = "preamble.ejs"
 outputFileName = "index.js"
+ouputDest      = path.join gutil.env.prefix, "js"
 
 gulp.task "browserify", ->
   pkg          = require(path.join gutil.env.projectdir, "package.json")
@@ -23,5 +24,5 @@ gulp.task "browserify", ->
     .pipe(source outputFileName)
     .pipe(gulpif gutil.env.prod, streamify uglify())
     .pipe(preamble(preamblePath, {pkg}))
-    .pipe(gulp.dest gutil.env.prefix)
+    .pipe(gulp.dest ouputDest)
     .pipe(connect.reload())
