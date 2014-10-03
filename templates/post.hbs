@@ -6,11 +6,11 @@
 
     {{{ contents }}}
 
-  </div>
+    <div class="btn-group">
+      {{#if previous}}<a class="btn btn-lg btn-info" href="/{{ previous.path }}"><i class="fa fa-chevron-left"></i> Previous</a>{{/if}}
+      {{#if next}}<a class="btn btn-lg btn-info" href="/{{ next.path }}">Next <i class="fa fa-chevron-right"></i></a>{{/if}}
+    </div>
 
-  <ul class="pager">
-    {{#if previous}}<li><a href="/{{ previous.path }}">Previous</a></li>{{/if}}
-    {{#if next}}<li><a href="/{{ next.path }}">Next</a></li>{{/if}}
-  </ul>
+  </div>
 
 {{> footer}}
