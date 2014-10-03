@@ -1,21 +1,21 @@
-_            = require "lodash"
-fs           = require "fs"
-path         = require "path"
-gulp         = require "gulp"
-gutil        = require "gulp-util"
-connect      = require "gulp-connect"
-metalsmith   = require "metalsmith"
-markdown     = require "metalsmith-markdown"
-templates    = require "metalsmith-templates"
-collections  = require "metalsmith-collections"
-permalinks   = require "metalsmith-permalinks"
-more         = require "metalsmith-more"
-highlight    = require "metalsmith-metallic"
-hbHelpers    = require "diy-handlebars-helpers"
-findTemplate = require "../plugins/findtemplate"
-preTemplates = require "../plugins/pretemplates"
-site         = require "../site.json"
-pkg          = require "../package.json"
+_                = require "lodash"
+fs               = require "fs"
+path             = require "path"
+gulp             = require "gulp"
+gutil            = require "gulp-util"
+connect          = require "gulp-connect"
+metalsmith       = require "metalsmith"
+markdown         = require "metalsmith-markdown"
+collections      = require "metalsmith-collections"
+permalinks       = require "metalsmith-permalinks"
+more             = require "metalsmith-more"
+highlight        = require "metalsmith-metallic"
+pageTemplates    = require "metalsmith-templates"
+hbHelpers        = require "diy-handlebars-helpers"
+contentTemplates = require "../plugins/pretemplates"
+findTemplate     = require "../plugins/findtemplate"
+site             = require "../site.json"
+pkg              = require "../package.json"
 
 templateDir = path.join gutil.env.projectdir, "templates"
 helpersDir  = path.join gutil.env.projectdir, "helpers"
@@ -71,7 +71,7 @@ gulp.task "metalsmith", (done) ->
       pattern: ":collection/:date/:title"
       date:    "YYYY/MM/DD"
     ))
-    .use(preTemplates templateOptions)
-    .use(templates templateOptions)
+    .use(contentTemplates templateOptions)
+    .use(pageTemplates templateOptions)
     .destination(gutil.env.prefix)
     .build(finished)
