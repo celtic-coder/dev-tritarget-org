@@ -9,6 +9,7 @@ markdown         = require "metalsmith-markdown"
 collections      = require "metalsmith-collections"
 permalinks       = require "metalsmith-permalinks"
 more             = require "metalsmith-more"
+tags             = require "metalsmith-tags"
 highlight        = require "metalsmith-metallic"
 pageTemplates    = require "metalsmith-templates"
 hbHelpers        = require "diy-handlebars-helpers"
@@ -65,6 +66,13 @@ gulp.task "metalsmith", (done) ->
     .use(findTemplate(
       collection:   "blog"
       templateName: "post.hbs"
+    ))
+    .use(tags(
+      handle:   "categories"
+      path:     "categories"
+      template: "tags.hbs"
+      sortBy:   "date"
+      reverse:  true
     ))
     .use(permalinks(
       relative: false

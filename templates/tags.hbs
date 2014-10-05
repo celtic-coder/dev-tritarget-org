@@ -1,0 +1,9 @@
+{{> header}}
+
+<h2>Posts about {{ tag }}</h2>
+
+{{#each posts}}
+  {{> blog_item}}
+{{/each}}
+
+{{> footer}}
