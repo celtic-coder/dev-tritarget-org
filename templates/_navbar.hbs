@@ -8,16 +8,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">
-        <!-- <img src="/images/TriTarget_Logo-sm.jpg" alt="TriTarget.org" width="60" height="50"> -->
-        TriTarget
-      </a>
+      <a class="navbar-brand" href="/">TriTarget</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
+        <li {{activeClassFor 'about'}}><a href="/about">About</a></li>
+        <li {{activeClassFor 'badges'}}><a href="/badges">Badges</a></li>
+        <li {{activeClassFor 'archives'}}><a href="/archives">Archives</a></li>
+        <li {{activeClassFor 'coding'}}><a href="/coding">Coding</a></li>
+        <li {{activeClassFor 'photography'}}><a href="/photography">Photography</a></li>
+        <li {{activeClassFor 'writing'}}><a href="/writing">Creative Writing</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/atom.xml">RSS</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
