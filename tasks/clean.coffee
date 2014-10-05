@@ -1,7 +1,6 @@
-gulp = require "gulp"
+gulp  = require "gulp"
 gutil = require "gulp-util"
-rimraf = require "gulp-rimraf"
+del   = require "del"
 
-gulp.task "clean", ->
-  gulp.src(gutil.env.prefix, read: false)
-  .pipe(rimraf())
+gulp.task "clean", (done) ->
+  del(gutil.env.prefix, done)
