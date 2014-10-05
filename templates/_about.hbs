@@ -1,17 +1,26 @@
-{{#if site.gravatar_hash }}
-<img class="hidden-xs pull-right" src="http://gravatar.com/avatar/{{ site.gravatar_hash }}" alt="Gravatar image" title="Gravatar Image">
-{{/if}}
-
 <h3>About</h3>
 
-<p>
+{{#if site.gravatar_hash }}
+<img src="http://gravatar.com/avatar/{{ site.gravatar_hash }}"
+  class="gravatar img-thumbnail hidden-xs pull-right"
+  alt="Gravatar Image">
+{{/if}}
+
+<p class="about text-justify">
   A passionate software developer specialized in JavaScript, front end and back
   end, and mobile iOS development. I dabble in photography, 360 panoramic
-  tours, and geek culture.
+  tours, interactive fiction, and geek culture.
 </p>
 
 <p>
-  <strong>PGP key: <a href="/key"><tt>{{ site.pgp.id }}</tt></a> <i class="fa fa-lock"></i></strong>
+  <strong>
+    PGP key:
+    <a href="/key"><tt>{{ site.pgp.id }}</tt></a>
+    <i class="fa fa-lock"></i>
+  </strong>
   <br>
-  <tt>{{ site.pgp.fingerprint.[0] }}<br />{{ site.pgp.fingerprint.[1] }}</tt>
+  <tt>
+    {{ site.pgp.fingerprint.[0] }}<br />
+    {{ site.pgp.fingerprint.[1] }}
+  </tt>
 </p>

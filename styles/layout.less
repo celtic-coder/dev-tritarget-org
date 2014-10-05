@@ -5,6 +5,14 @@
 @headerColor: #333;
 @headerHoverColor: #55C;
 
+.hyphens (@value) {
+  hyphens:         @value;
+  -o-hyphens:      @value;
+  -ms-hyphens:     @value;
+  -moz-hyphens:    @value;
+  -webkit-hyphens: @value;
+}
+
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: @defaultColor;
@@ -175,4 +183,12 @@ h6, .h6 {
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+
+.gravatar {
+  margin: 0 0 5px 5px;
+}
+
+.about {
+  .hyphens(auto);
 }
