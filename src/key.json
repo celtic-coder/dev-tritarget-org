@@ -1,0 +1,13 @@
+---
+template: false
+---
+{
+  "key_id": "{{ site.pgp.id }}",
+  "fingerprint": "{{ site.pgp.fingerprint.[0] }} {{ site.pgp_fingerprint.[1] }}",
+  "fingerprint_parts": [
+    "{{ site.pgp.fingerprint.[0] }}",
+    "{{ site.pgp.fingerprint.[1] }}"
+  ],
+  "filename": "DevinWeaver.asc",
+  "key_url": "http://tritarget.org/key"
+}
