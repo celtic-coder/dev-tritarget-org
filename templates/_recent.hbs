@@ -1,0 +1,6 @@
+<h3>Recent</h3>
+<ol class="list-unstyled">
+  {{#each-limit blog 20}}
+  <li><a href="/{{ path }}">{{#chr-gt title 30}}{{truncate title 30 '…'}}{{else}}{{title}}{{/chr-gt}}</a></li>
+  {{/each-limit}}
+</ol>

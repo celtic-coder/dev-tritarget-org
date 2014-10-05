@@ -1,16 +1,14 @@
 {{> header}}
 
-  <div class="blog-post">
-    <h2 class="blog-post-title">{{ title }}</h2>
-    {{> post_header}}
+<div class="blog-post">
+  {{> post_header}}
 
-    {{{ contents }}}
+  {{{ contents }}}
 
-    <div class="btn-group">
-      {{#if previous}}<a class="btn btn-lg btn-info" href="/{{ previous.path }}"><i class="fa fa-chevron-left"></i> Previous</a>{{/if}}
-      {{#if next}}<a class="btn btn-lg btn-info" href="/{{ next.path }}">Next <i class="fa fa-chevron-right"></i></a>{{/if}}
-    </div>
-
+  <div class="btn-group">
+    {{#if previous}}<a class="btn btn-lg btn-info" href="/{{ previous.path }}"><i class="fa fa-chevron-left"></i> Previous</a>{{/if}}
+    {{#if next}}<a class="btn btn-lg btn-info" href="/{{ next.path }}">Next <i class="fa fa-chevron-right"></i></a>{{/if}}
   </div>
+</div>
 
 {{> footer}}
