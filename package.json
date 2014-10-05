@@ -11,7 +11,8 @@
   },
   "scripts": {
     "build": "gulp --prod",
-    "bower": "bower install"
+    "bower": "bower install",
+    "clean": "gulp clean"
   },
   "devDependencies": {
     "browserify": "^5.11.1",
