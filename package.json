@@ -10,7 +10,8 @@
     "url": "https://github.com/sukima/dev-tritarget-org"
   },
   "scripts": {
-    "build": "gulp --prod"
+    "build": "gulp --prod",
+    "bower": "bower install"
   },
   "devDependencies": {
     "browserify": "^5.11.1",
