@@ -39,7 +39,7 @@ loadHelpers = ->
 
 gulp.task "metalsmith", (done) ->
   finished = (err) ->
-    connect.reload().write(path: "Content files")
+    connect.reload().write(path: "Content files") unless err
     done(err)
 
   templateOptions =
