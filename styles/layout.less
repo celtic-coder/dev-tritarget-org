@@ -52,7 +52,6 @@ h6, .h6 {
 
 .blog-post-title a {
   color: @headerColor;
-  margin: -50px;
 
   &:visited {
     color: @headerColor;
@@ -62,15 +61,29 @@ h6, .h6 {
   &:hover {
     color: @link-hover-color;
     text-decoration: none;
+  }
+
+  @media (min-width: @screen-sm) {
+    margin: -50px;
+
+    &:focus,
+    &:hover {
+      .title-icon {
+        visibility: visible;
+      }
+    }
 
     .title-icon {
-      visibility: visible;
+      visibility: hidden;
     }
   }
 
-  .title-icon {
-    visibility: hidden;
+  @media (max-width: @screen-sm) {
+    .title-icon {
+      display: none;
+    }
   }
+
 }
 
 .blog-title {
