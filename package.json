@@ -43,6 +43,9 @@
     "moment": "^2.5.1",
     "vinyl-source-stream": "^1.0.0"
   },
+  "dependencies": {
+    "bad-cipher": "git://github.com/sukima/bad-cipher#1.0.0"
+  },
   "browserify": {
     "transform": [
       "coffeeify",

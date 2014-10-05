@@ -3,7 +3,7 @@ gutil      = require "gulp-util"
 connect    = require "gulp-connect"
 {basename} = require "path"
 
-gulp.task "watch", ["metalsmith", "browserify", "styles"], ->
+gulp.task "watch", ["metalsmith", "contact-data", "browserify", "styles"], ->
   reportChange = ({type, path}) ->
     gutil.log "#{type} #{gutil.colors.cyan basename(path)}"
 
@@ -19,6 +19,9 @@ gulp.task "watch", ["metalsmith", "browserify", "styles"], ->
     .on("change", reportChange)
 
   gulp.watch("./styles/**/*", ["styles"])
+    .on("change", reportChange)
+
+  gulp.watch("./info.json", ["contact-data"])
     .on("change", reportChange)
 
 gulp.task "server", ["watch"]
