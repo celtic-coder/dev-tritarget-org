@@ -1,10 +1,13 @@
+{{#if site.gravatar_hash }}
+<img class="hidden-xs pull-right" src="http://gravatar.com/avatar/{{ site.gravatar_hash }}" alt="Gravatar image" title="Gravatar Image">
+{{/if}}
+
 <h3>About</h3>
+
 <p>
-  {{#if site.gravatar_hash }}
-  <img src="http://gravatar.com/avatar/{{ site.gravatar_hash }}" alt="Gravatar image" title="Gravatar Image" align="right">
-  {{/if}}
   Adipisicing expedita sit sit hic magni harum est minus quaerat aliquam impedit tenetur itaque consequatur, exercitationem unde consectetur ipsa in iste alias earum. Commodi vero corrupti alias eveniet beatae quis?
 </p>
+
 <p>
   <strong>PGP key: <a href="/key"><tt>{{ site.pgp.id }}</tt> <i class="fa fa-lock"></i></a></strong>
   <br>

@@ -3,6 +3,7 @@
   "description": "A blog of personal quality",
   "owner": "Devin Weaver (@sukima)",
   "url": "http://tritarget.org/",
+  "gravatar_hash": "a33233f156a5531707f130c28565de69",
   "pgp": {
     "id": "DE767C8A",
     "fingerprint": [
