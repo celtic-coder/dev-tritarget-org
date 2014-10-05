@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/sukima/dev-tritarget-org"
   },
+  "scripts": {
+    "build": "gulp --prod"
+  },
   "devDependencies": {
     "browserify": "^5.11.1",
     "browserify-shim": "^3.7.0",
