@@ -6,13 +6,7 @@
 
 <div class="list-group">
 {{#each posts}}
-  <a href="/{{ path }}" class="list-group-item">
-    <h4 class="list-group-item-heading">{{ title }}</h4>
-    <p class="list-group-item-text">
-    {{> post_metadata}}
-    {{#each categories}}#{{ this }}{{/each}}
-    </p>
-  </a>
+  {{> blog_list_item}}
 {{/each}}
 </div>
 
