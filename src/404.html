@@ -1,0 +1,16 @@
+---
+title: "Error 404 - Not Found"
+template: page.hbs
+permalink: false
+---
+<div style="text-align:center;margin:auto;"><img src="/images/404.jpg" alt="404 Not found" /></div>
+<div style="clear:both;"></div>
+<p>I'm sorry but the page you requested doesn't seem to exists.</p>
+<p>Perhaps you might be interested in one of these pages?</p>
+<div class="panel panel-default">
+  <div class="list-group">
+  {{#each-limit blog 10}}
+    {{> blog_list_item}}
+  {{/each-limit}}
+  </div>
+</div>
