@@ -1,3 +1,5 @@
+Handlebars = require "handlebars"
+
 exports.activeClassFor = (path, classNames, options) ->
   unless options?
     options = classNames
@@ -7,9 +9,11 @@ exports.activeClassFor = (path, classNames, options) ->
   classes.push "active" if path == @path
   classes.push classNames if classNames?
 
-  if classes.length > 0
+  ret = if classes.length > 0
     """
     class="#{classes.join(" ")}"
     """
   else
     ""
+
+  new Handlebars.SafeString(ret)
