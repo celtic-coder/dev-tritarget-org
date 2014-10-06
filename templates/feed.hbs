@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[{{ site.title }}]]></title>
+  <link href="{{ site.url }}atom.xml" rel="self"/>
+  <link href="{{ site.url }}"/>
+  <updated>{{formatDate site.time "YYYY-MM-DDTHH:MM:SSZ"}}</updated>
+  <id>{{ site.url }}</id>
+  <author>
+    <name><![CDATA[{{ site.owner }}]]></name>
+  </author>
+  <generator uri="http://www.metalsmith.io/">Metalsmith</generator>
+  {{#each blog}}
+  <entry>
+    <title type="html"><![CDATA[{{ title }}]]></title>
+    <link href="{{ site.url }}{{ path }}"/>
+    <updated>{{formatDate date "YYYY-MM-DDTHH:MM:SSZ"}}</updated>
+    <id>{{ site.url }}{{ path }}</id>
+    {{#each tags}}<category term="{{ this }}" />{{/each}}
+    <content type="html"><![CDATA[{{{ contents }}}]]></content>
+  </entry>
+  {{/each}}
+</feed>
