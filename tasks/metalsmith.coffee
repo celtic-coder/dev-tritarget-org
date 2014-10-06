@@ -61,6 +61,8 @@ gulp.task "metalsmith", (done) ->
       .extend(hbHelpers)
       .value()
 
+  site.time = new Date()
+
   metalsmith(gutil.env.projectdir)
     .clean(false)
     .metadata({site, pkg})
@@ -70,13 +72,6 @@ gulp.task "metalsmith", (done) ->
         sortBy:  "date"
         reverse: true
     ))
-    .use(highlight(tabReplace: "  "))
-    .use(markdown())
-    .use(more())
-    .use(findTemplate(
-      collection:   "blog"
-      templateName: "post.hbs"
-    ))
     .use(tags(
       handle:   "categories"
       path:     "categories"
@@ -84,12 +79,19 @@ gulp.task "metalsmith", (done) ->
       sortBy:   "date"
       reverse:  true
     ))
+    .use(findTemplate(
+      collection:   "blog"
+      templateName: "post.hbs"
+    ))
+    .use(contentTemplates _.extend({}, templateOptions, partials: partials.files))
+    .use(highlight(tabReplace: "  "))
+    .use(markdown())
+    .use(more())
     .use(permalinks(
       relative: false
       pattern: ":collection/:date/:title"
       date:    "YYYY/MM/DD"
     ))
-    .use(contentTemplates _.extend({}, templateOptions, partials: partials.files))
     .use(pageTemplates _.extend({}, templateOptions, partials: partials.names))
     .destination(gutil.env.prefix)
     .build(finished)
