@@ -2,10 +2,16 @@
 # metalsmith-templates normally. Uses metalsmith-templates inPlace option but
 # filters out un-processable files first.
 _         = require "lodash"
+fs        = require "fs"
+path      = require "path"
 templates = require "metalsmith-templates"
 
 module.exports = (options) ->
-  template = templates(_.extend {}, options, inPlace: true)
+  partials = _(options.partials).chain().clone()
+    .mapValues (file) -> fs.readFileSync(file, "utf8")
+    .value()
+
+  template = templates(_.extend {}, options, {partials, inPlace: true})
   filterFn = (file) -> file.template?
 
   (files, metalsmith, done) ->

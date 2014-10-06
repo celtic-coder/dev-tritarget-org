@@ -21,11 +21,11 @@ pkg              = require "../package.json"
 templateDir = path.join gutil.env.projectdir, "templates"
 helpersDir  = path.join gutil.env.projectdir, "helpers"
 
-addPartials = ->
+addPartials = (transFn) ->
   partialFilter = /^_(.+)/
   (memo, file) ->
     name = path.basename(file, ".hbs").match partialFilter
-    memo[name[1]] = "_#{name[1]}" if name?
+    memo[name[1]] = transFn(file, name[1]) if name?
     memo
 
 loadHelpers = ->
@@ -43,9 +43,19 @@ gulp.task "metalsmith", (done) ->
     connect.reload().write(path: "Content files") unless err
     done(err)
 
+  partialFileNames = fs.readdirSync templateDir
+  partials =
+    names: _(partialFileNames).reduce(
+      addPartials((file, name) -> "_#{name}")
+      {}
+    )
+    files: _(partialFileNames).reduce(
+      addPartials((file) -> path.join(templateDir, file))
+      {}
+    )
+
   templateOptions =
     engine:   "handlebars"
-    partials: _(fs.readdirSync templateDir).reduce(addPartials(), {})
     helpers:  _(fs.readdirSync helpersDir).chain()
       .reduce(loadHelpers(), {})
       .extend(hbHelpers)
@@ -79,7 +89,7 @@ gulp.task "metalsmith", (done) ->
       pattern: ":collection/:date/:title"
       date:    "YYYY/MM/DD"
     ))
-    .use(contentTemplates templateOptions)
-    .use(pageTemplates templateOptions)
+    .use(contentTemplates _.extend({}, templateOptions, partials: partials.files))
+    .use(pageTemplates _.extend({}, templateOptions, partials: partials.names))
     .destination(gutil.env.prefix)
     .build(finished)
