@@ -1,0 +1,127 @@
+---
+title: Projects
+template: page.hbs
+---
+<p>Click on a section to view or hide it.</p>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#projects">
+          Projects
+        </a>
+      </h4>
+    </div>
+    <div id="projects" class="panel-collapse collapse in">
+      <div class="panel-body">
+        {{includeMarkdownFile "projects/projects.md"}}
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#sample-code">
+          Sample Code
+        </a>
+      </h4>
+    </div>
+    <div id="sample-code" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{includeMarkdownFile "projects/exercises.md"}}
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#deprecated">
+          Deprecated and Outdated
+        </a>
+      </h4>
+    </div>
+    <div id="deprecated" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{includeMarkdownFile "projects/deprecated.md"}}
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#incubator">
+          Incubator
+        </a>
+      </h4>
+    </div>
+    <div id="incubator" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{includeMarkdownFile "projects/incubator.md"}}
+      </div>
+    </div>
+  </div>
+
+  {{#if tags.coding}}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#posts">
+          Blog posts about coding
+        </a>
+      </h4>
+    </div>
+    <div id="posts" class="list-group panel-collapse collapse">
+      {{#each-limit tags.coding 10}}
+        {{> blog_list_item}}
+      {{/each-limit}}
+      {{#if-gt blog.length 10}}
+      <a href="/categories/coding" class="list-group-item normal">
+        <h4 class="list-group-item-heading">See All</h4>
+      </a>
+      {{/if-gt}}
+    </div>
+  </div>
+  {{/if}}
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#quote">
+          Not-so-random fortune quote
+        </a>
+      </h4>
+    </div>
+    <div id="quote" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>
+        When users see one GUI as beautiful,<br>
+        other user interfaces become ugly.<br>
+        When users see some programs as winners,<br>
+        other programs become lossage.
+        </p>
+        <p>
+        Pointers and NULLs reference each other.<br>
+        High level and assembler depend on each other.<br>
+        Double and float cast to each other.<br>
+        High-endian and low-endian define each other.<br>
+        While and until follow each other.
+        </p>
+        <p>
+        Therefore the Guru<br>
+        programs without doing anything<br>
+        and teaches without saying anything.<br>
+        Warnings arise and he lets them come;<br>
+        processes are swapped and he lets them go.<br>
+        He has but doesn't possess,<br>
+        acts but doesn't expect.<br>
+        When his work is done, he deletes it.<br>
+        That is why it lasts forever.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
