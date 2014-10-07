@@ -44,7 +44,7 @@
     "metalsmith-more": "^0.2.0",
     "metalsmith-mtime": "0.0.2",
     "metalsmith-permalinks": "^0.4.0",
-    "metalsmith-tags": "^0.6.1",
+    "metalsmith-tags": "git://github.com/sukima/metalsmith-tags#master",
     "metalsmith-templates": "^0.5.2",
     "moment": "^2.5.1",
     "vinyl-source-stream": "^1.0.0"
