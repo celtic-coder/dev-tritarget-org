@@ -6,8 +6,10 @@
   {{{ contents }}}
 
   <div class="pager">
-    {{#if previous}}<li class="previous"><a class="normal" href="/{{ previous.path }}"><i class="fa fa-chevron-left"></i> Previous</a></li>{{/if}}
-    {{#if next}}<li class="next"><a class="normal" href="/{{ next.path }}">Next <i class="fa fa-chevron-right"></i></a></li>{{/if}}
+    {{! TODO: Have a metalsmith plugin to reverse these. }}
+    {{! The collections plugin reverses the order without updating the previous/next. Hence the dyslexic links below. }}
+    {{#if next}}<li class="previous"><a class="normal" href="/{{ next.path }}"><i class="fa fa-chevron-left"></i> Previous</a></li>{{/if}}
+    {{#if previous}}<li class="next"><a class="normal" href="/{{ previous.path }}">Next <i class="fa fa-chevron-right"></i></a></li>{{/if}}
   </div>
 
   {{#not-eq comments false}}
