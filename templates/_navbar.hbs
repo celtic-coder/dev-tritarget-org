@@ -13,6 +13,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
       <ul class="nav navbar-nav">
         <li {{activeClassFor 'about'}}><a href="/about">About</a></li>
         <li {{activeClassFor 'badges'}}><a href="/badges">Badges</a></li>
@@ -21,9 +22,24 @@
         <li {{activeClassFor 'photography'}}><a href="/photography">Photography</a></li>
         <li {{activeClassFor 'writing'}}><a href="/writing">Creative Writing</a></li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/atom.xml">RSS <i class="fa fa-rss"></i></a></li>
       </ul>
+
+      <form class="nav navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="search" class="form-control" placeholder="Search…">
+            <span class="input-group-btn">
+              <button class="btn btn-default" title="Search">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
