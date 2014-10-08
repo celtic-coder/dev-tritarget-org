@@ -5,7 +5,9 @@ Handlebars     = require "handlebars"
 
 getContents = (filePath) ->
   # TODO: Path should not be hard coded.
-  readFileSync path.resolve("#{__dirname}/../src/#{filePath}"), "utf8"
+  contents = readFileSync path.resolve("#{__dirname}/../src/#{filePath}"), "utf8"
+  index = contents.indexOf("---", 3) + 4 # include ending new line
+  contents.substring(index)
 
 exports.includeFile = (filePath, options) ->
   new Handlebars.SafeString(getContents filePath)
