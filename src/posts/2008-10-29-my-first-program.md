@@ -1,6 +1,6 @@
 ---
 title: "My First Program"
-date: 2008-10-29 00:00
+date: 2008-10-29
 comments: true
 categories: coding
 ---

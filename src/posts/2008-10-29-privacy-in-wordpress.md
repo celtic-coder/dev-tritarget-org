@@ -1,6 +1,6 @@
 ---
 title: "Privacy in Wordpress"
-date: 2008-10-29 00:13
+date: 2008-10-29
 comments: true
 categories: coding
 ---
