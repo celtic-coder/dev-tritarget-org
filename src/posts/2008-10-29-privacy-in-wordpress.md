@@ -2,7 +2,7 @@
 title: "Privacy in Wordpress"
 date: 2008-10-29
 comments: true
-categories: coding
+tags: coding
 ---
 For the longest time I couldn't ever find any information on having a private
 blog. My problem was I wanted a homepage accessible to all and yet allow family

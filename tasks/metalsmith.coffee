@@ -73,7 +73,7 @@ gulp.task "metalsmith", (done) ->
         reverse: true
     ))
     .use(tags(
-      handle:   "categories"
+      handle:   "tags"
       path:     "categories"
       template: "categories.hbs"
       sortBy:   "date"

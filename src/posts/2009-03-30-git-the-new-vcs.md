@@ -2,7 +2,7 @@
 title: "Git the new VCS"
 date: 2009-03-30
 comments: true
-categories: coding, news
+tags: coding, news
 ---
 I did a lot of reading last night. Enough to convince me to switch my
 versioning software from Subversion to Git. I will be moving my sources there

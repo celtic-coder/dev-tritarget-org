@@ -2,7 +2,7 @@
 title: "My First Program"
 date: 2008-10-29
 comments: true
-categories: coding
+tags: coding
 ---
 So lets take a look at programming. This will be our first installment on
 programming. In this module we will look at making the computer do something

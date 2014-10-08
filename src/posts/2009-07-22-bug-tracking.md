@@ -2,7 +2,7 @@
 title: "Bug tracking"
 date: 2009-07-22
 comments: true
-categories: coding
+tags: coding
 ---
 I recently installed [MantisBT][1] a PHP based bug tracker. I found a
 [great plugin][2] that lets Mantis monitor a source repository and associate

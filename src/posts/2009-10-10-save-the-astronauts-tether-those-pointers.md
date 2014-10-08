@@ -2,7 +2,7 @@
 title: "Save the astronauts tether those pointers"
 date: 2009-10-10
 comments: true
-categories: coding, objc, tips
+tags: coding, objc, tips
 ---
 I think a lot of confusion comes from the idea of pointers and release
 responsibility. I find it is best to think of pointers as tether
