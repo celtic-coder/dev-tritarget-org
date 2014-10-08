@@ -1,3 +1,6 @@
+---
+permalink: false
+---
 These are some of the projects I am working on or have worked on.
 
 - **[Titanium CoffeeScript Plugin](http://sukima.github.io/ti_coffee_plugin/)** -

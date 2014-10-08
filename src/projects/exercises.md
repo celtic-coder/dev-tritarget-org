@@ -1,3 +1,6 @@
+---
+permalink: false
+---
 I like to spawn little projects to learn new technology. Here is a list of
 sample projects I've made in the learning process.
 
