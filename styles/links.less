@@ -1,39 +1,44 @@
+@bracket-spacing: 4px;
+@side-padding:    2px;
+
 .custom-link() {
+  .transition(all 0.2s);
   position: absolute;
   display:  block;
   top:      0;
   opacity:  0;
-  .transition(all 0.2s);
 }
 
 #content a:not(.normal) {
   text-decoration: none;
   display:         inline-block;
   position:        relative;
+  padding-left:    @side-padding;
+  padding-right:   @side-padding;
 
   &:hover {
     text-decoration: underline;
   }
 
   &:hover::before {
-    left: -4px;
+    left: -@bracket-spacing;
     opacity: 1;
   }
 
   &:hover::after {
-    right: -4px;
+    right: -@bracket-spacing;
     opacity: 1;
   }
 
   &::before {
     .custom-link();
-    left:    4px;
+    left:    @bracket-spacing;
     content: "[";
   }
 
   &::after {
     .custom-link();
-    right:   4px;
+    right:   @bracket-spacing;
     content: "]";
   }
 }
