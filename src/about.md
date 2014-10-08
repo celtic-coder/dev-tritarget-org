@@ -65,7 +65,7 @@ Download key: [{{ site.pgp.id }}](/key) <i class="fa fa-lock"></i>
 `{{join site.pgp.fingerprint " "}}`
 </p>
 
-<pre class="well">
+<pre class="underflow well">
 {{includeFile "key"}}
 </pre>
 
