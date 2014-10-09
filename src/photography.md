@@ -2,6 +2,8 @@
 title: Photography
 template: page.hbs
 ---
+{{> category_link tag="photography" list=tags.photography}}
+
 I am a bit of photography buff. I am an enthhusiest of panoramas. Especially
 the Virtual Tours on you find on [360cities](http://360cities.net/).
 
@@ -9,26 +11,6 @@ A lot of my knowlwdge came from the following tutorials:
 
 * [How To Get Started on 360° Panoramic Photography - 360cities.net](http://help.360cities.net/taking-panoramic-pictures/how-to-get-started)
 * [Panorama Tutorial Series by FloTube and elfloz](http://www.youtube.com/playlist?list=PL15B8C737F69319BE)
-
-{{#if tags.photography}}
-## Blog Posts ##
-
-These are the latest _five_ posts which have photos and panoramics for you to
-view:
-
-<div class="panel panel-default">
-  <div id="posts" class="list-group">
-    {{#each-limit tags.photography 5}}
-      {{> blog_list_item}}
-    {{/each-limit}}
-    {{#if-gt tags.photography 5}}
-    <a href="/categories/photography" class="list-group-item normal">
-      <h4 class="list-group-item-heading">See All</h4>
-    </a>
-    {{/if-gt}}
-  </div>
-</div>
-{{/if}}
 
 ## What I use ##
 

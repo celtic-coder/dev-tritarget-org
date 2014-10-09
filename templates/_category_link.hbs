@@ -1,0 +1,10 @@
+{{#if list}}
+<div class="panel panel-default">
+  <div class="list-group">
+    {{! How to use partials with passed / named arguments? }}
+    <a href="/categories/{{tag}}" class="list-group-item text-center normal">
+      <i class="fa fa-link"></i> There are {{abbr-count list.length}} articles about {{tag}}.
+    </a>
+  </div>
+</div>
+{{/if}}

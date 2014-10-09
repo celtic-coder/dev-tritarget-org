@@ -2,7 +2,7 @@
 title: "Creative Writing"
 template: page.hbs
 ---
-Here is my collection of creative writing.
+{{> category_link tag="writing" list=tags.writing}}
 
 ## Interactive Fiction
 
@@ -34,22 +34,3 @@ For the mutimedia folks: a quick informative [history on youtube][3].
 [3]: http://www.youtube.com/watch?v=9d4Fu90ubmA
 [4]: http://if.tritarget.org/Underworld/
 [5]: http://if.tritarget.org/InteractiveResume/
-
-{{#if tags.writing}}
-## Stories
-
-The following is any creative writing I have posted to this site:
-
-<div class="panel panel-default">
-  <div id="posts" class="list-group">
-    {{#each-limit tags.writing 10}}
-      {{> blog_list_item}}
-    {{/each-limit}}
-    {{#if-gt tags.writing 10}}
-    <a href="/categories/writing" class="list-group-item normal">
-      <h4 class="list-group-item-heading">See All</h4>
-    </a>
-    {{/if-gt}}
-  </div>
-</div>
-{{/if}}
