@@ -6,13 +6,14 @@ fs        = require "fs"
 path      = require "path"
 templates = require "metalsmith-templates"
 
+filterFn = (file) -> file.template? && file.preTemplate != false
+
 module.exports = (options) ->
   partials = _(options.partials).chain().clone()
     .mapValues (file) -> fs.readFileSync(file, "utf8")
     .value()
 
   template = templates(_.extend {}, options, {partials, inPlace: true})
-  filterFn = (file) -> file.template?
 
   (files, metalsmith, done) ->
     template _.filter(files, filterFn), metalsmith, done
