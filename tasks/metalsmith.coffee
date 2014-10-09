@@ -12,6 +12,7 @@ more             = require "metalsmith-more"
 tags             = require "metalsmith-tags"
 highlight        = require "metalsmith-metallic"
 pageTemplates    = require "metalsmith-templates"
+gist             = require "metalsmith-gist"
 hbHelpers        = require "diy-handlebars-helpers"
 contentTemplates = require "../plugins/pretemplates"
 findTemplate     = require "../plugins/findtemplate"
@@ -86,6 +87,7 @@ gulp.task "metalsmith", (done) ->
     .use(contentTemplates _.extend({}, templateOptions, partials: partials.files))
     .use(highlight(tabReplace: "  "))
     .use(markdown())
+    .use(gist())
     .use(more())
     .use(permalinks(
       relative: false
