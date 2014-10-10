@@ -50,6 +50,7 @@
     "vinyl-source-stream": "^1.0.0"
   },
   "dependencies": {
+    "backbone": "^1.1.2",
     "bad-cipher": "git://github.com/sukima/bad-cipher#1.0.0",
     "lodash": "^2.4.1"
   },
