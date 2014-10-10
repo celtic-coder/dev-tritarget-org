@@ -1,40 +1,67 @@
+_         = require "lodash"
 $         = require "jquery"
 BadCipher = require "bad-cipher"
 
-class ContactInfo
-  constructor: ->
-    @waitForDomReady = $.Deferred()
-    $.when(@loadInfo(), @waitForDomReady)
-      .then @addToDOM
+decryptData = (data) ->
+  if data.edata?
+    JSON.parse BadCipher.decrypt(data.edata)
+  else
+    data
 
-  init: ->
-    @waitForDomReady.resolve()
-
-  loadInfo: ->
-    $.getJSON("/info.json")
-      .then @decryptData
-      .then @buildDomElements
-
-  decryptData: (data) =>
-    if data.edata?
-      JSON.parse BadCipher.decrypt(data.edata)
+itemToContacts = (contacts) ->
+  (item) ->
+    if item == "all"
+      contacts
     else
-      data
+      _.find(contacts, id: item)
 
-  buildDomElements: (@contacts) =>
-    contactElements = []
-    $.each @contacts, (i, {mainpage, href, title, fa_icon}) =>
-      return true unless mainpage?
-      iconHtml = if fa_icon?
-        """<i class=\"fa fa-#{fa_icon}\"></i> """
-      else
-        ""
-      contactElements.push """
-        <li>#{iconHtml}<a href="#{href}">#{title}</a></li>
-        """
-    @listHtml = contactElements.join("")
+buildContactHTML = ({template}, isList) ->
+  template = if template
+    _.template template
+  else
+    _.template """<%= iconHtml %> <a href="<%= href %>"><%= title %></a>"""
 
-  addToDOM: =>
-    $(".contact-data").append(@listHtml)
+  (contact) ->
+    {href, title, value, fa_icon} = contact
+
+    titleHtml = if titleTemplate?
+      template(contact)
+    else
+      title
+
+    iconHtml = if fa_icon?
+      "<i class=\"fa fa-#{fa_icon}\"></i>"
+    else
+      ""
+
+    html = template _.extend(contact, {iconHtml})
+
+    if isList
+      "<li>#{html}</li>"
+    else
+      html
+
+loadInfo = (url) -> $.getJSON(url).then(decryptData)
+
+addToDOM = (selector) ->
+  (contacts) ->
+    $(selector).each (i, el) ->
+      $el          = $(el)
+      items        = ($el.data("items") ? "all").split(/[,\s]/)
+      isList       = items.length > 1 || items[0] == "all"
+      contactsHTML = _(items).chain()
+        .map(itemToContacts contacts)
+        .flatten()
+        .map(buildContactHTML $el.data(), isList)
+        .value().join("")
+      $el.append(contactsHTML)
+
+class ContactInfo
+  constructor: (@url="/info.json", @selector=".contact-data") ->
+    @waitForDomReady = $.Deferred()
+    $.when(loadInfo(@url), @waitForDomReady)
+      .then(addToDOM(@selector))
+
+  init: -> @waitForDomReady.resolve()
 
 module.exports = ContactInfo

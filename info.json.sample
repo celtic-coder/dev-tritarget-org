@@ -1,0 +1,34 @@
+[
+  {
+    "id": "phone",
+    "title": "Phone",
+    "value": "321-555-1234",
+    "href": "tel:+13215551234",
+    "icon": "icons/dog_on_phone2.jpg",
+    "fa_icon": "phone"
+  },
+  {
+    "id": "email",
+    "title": "Email",
+    "value": "fred (at) example.com",
+    "href": "mailto:fred@example.com",
+    "icon": "icons/email.png",
+    "fa_icon": "envelope"
+  },
+  {
+    "id": "github",
+    "title": "GitHub",
+    "value": "@sukima",
+    "href": "https://github.com/sukima",
+    "icon": "icons/github_button.png",
+    "fa_icon": "github"
+  },
+  {
+    "id": "website",
+    "title": "Website",
+    "value": "http://tritarget.com/",
+    "href": "http://tritarget.com/",
+    "icon": "icons/vim_by_liggliluff-d5g1led.png",
+    "fa_icon": "newspaper-o"
+  }
+]
