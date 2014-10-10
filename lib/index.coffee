@@ -4,4 +4,5 @@ AppManager = require "./appmanager.coffee"
 
 new AppManager()
   .use(require "./contactinfo.coffee")
+  .use(require "./printbutton.coffee")
   .init()
