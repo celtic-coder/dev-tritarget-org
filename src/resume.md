@@ -16,7 +16,9 @@ In my free time I enjoy contributing to open source projects, and exploring phot
 
 ## Proficiency
 
-JavaScript, Node, Ember, Backbone, jQuery, CSS, HTML5, CoffeeScript, Ruby on Rails, Node.js, JSON, PHP, Java, Shell scripting, SQL, XML, PostGIS, Git, BDD/TDD, Unix/Linux, Mac OS X, Windows
+JavaScript, Node, Ember, Backbone, jQuery, CSS, HTML5, CoffeeScript, Appcelerator Titanium, Ruby on Rails, Node.js, JSON, PHP, Java, iOS, Android, Shell scripting, SQL, XML, PostGIS, Git, BDD/TDD, Unix/Linux, Mac OS X, Windows
+
+Very proficient on command line using tmux, bash, and VIM
 
 ## Experience
 
@@ -34,11 +36,22 @@ JavaScript, Node, Ember, Backbone, jQuery, CSS, HTML5, CoffeeScript, Ruby on Rai
 
 ### System Administration
 
-* Webmaster, backups, helpdesk ticketing, equipment tracking, and networking ￼[Yale New Haven Health System ­ Linux, Apache, RoR, Bash]
+* Webmaster, backups, helpdesk ticketing, equipment tracking, and networking [Yale New Haven Health System ­ Linux, Apache, RoR, Bash]
 
 ## Work History
 
-### Simulation Specialist, Yale New Haven Health System 03/2010 - 03/2012
+### Software Developer, SeeClickFix, Inc. 04/2012 - Present
+
+I maintain an iOS application written in Appcelerator Titanium (JavaScript → native). I've written several Node based build system using Gulp, Browserify, Ember. I've written several (in-house) stream based plugins for Gulp. I help maintain our Native Android application. I actively maintain and enhance our main system with Ruby on Rails. I wrote a test suite frame work in Jasmine for Titanium code and later ported the same system to Mocha. Wrote web application in Ember, socket.io, and Node express to manage and build 30 different flavors of our Titanium iOS app.
+
+* iOS / Appcelerator Titanium developer
+* Resident Node expert
+* Ruby on Rails developer.
+* Resident Node expert
+* Bash guru
+* Git master
+
+### Simulation Specialist, Yale New Haven Health System 03/2010 - 04/2012
 
 * Linux system administration
 * Document technical manuals, process and procedures
