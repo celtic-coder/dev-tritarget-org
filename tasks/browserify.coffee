@@ -4,6 +4,7 @@ path       = require "path"
 fs         = require "fs"
 source     = require "vinyl-source-stream"
 browserify = require "browserify"
+mold       = require "mold-source-map"
 gulpif     = require "gulp-if"
 uglify     = require "gulp-uglify"
 streamify  = require "gulp-streamify"
@@ -21,6 +22,7 @@ gulp.task "browserify", ->
 
   browserify(bundlePath, entry: true, debug: !gutil.env.prod)
     .bundle()
+    .pipe(mold.transformSourcesRelativeTo(ouputDest))
     .pipe(source outputFileName)
     .pipe(gulpif gutil.env.prod, streamify uglify())
     .pipe(preamble(preamblePath, {pkg}))
