@@ -2,7 +2,7 @@
 title: "Musings of a Coder"
 date: 2012-04-03
 comments: true
-categories: coding
+tags: coding
 ---
 Lately I've has some insperation to try my hand at some coding homework. I was
 introduced to a site called [The Codecademy](http://www.codecademy.com/). This

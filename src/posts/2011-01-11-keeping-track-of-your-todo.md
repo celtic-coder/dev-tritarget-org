@@ -2,7 +2,7 @@
 title: "Keeping track of your todo"
 date: 2011-01-11
 comments: true
-categories: coding, productivity
+tags: coding, productivity
 ---
 I am a big fan of productivity tools. I love utilities that make my life
 better. "Life-hacking" is the term. I use a great tool called [Things][1].

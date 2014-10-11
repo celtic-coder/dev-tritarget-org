@@ -2,7 +2,7 @@
 title: "Do presentations need to be this complicated?"
 date: 2011-02-24
 comments: true
-categories:
+tags:
 ---
 So I was tasked to run a class on how to run and use a propriatary software.
 Our class room was all decked out with the latest SmartBoard technology. But

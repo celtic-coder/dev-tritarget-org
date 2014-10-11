@@ -2,7 +2,7 @@
 title: "I'm getting married no really"
 date: 2011-08-17
 comments: true
-categories:
+tags:
 ---
 So as an update on what I've been doing (considering I haven't posted in a long
 time). I've been pretty occupied. I planning a wedding and a buying a house all in the same month!
