@@ -1,7 +1,7 @@
 <a href="/{{ path }}" class="list-group-item normal">
   <h4 class="list-group-item-heading">{{ title }}</h4>
-  <p class="list-group-item-text">
-  {{> post_metadata}}
-  {{#each categories}}#{{ this }}{{/each}}
+  <p class="list-group-item-text clearfix">
+    {{> post_metadata}}
+    <span class="pull-right">{{tagList tags}}</span>
   </p>
 </a>

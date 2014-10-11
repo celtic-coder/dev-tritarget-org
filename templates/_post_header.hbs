@@ -1,10 +1,8 @@
 <h2 class="blog-post-title"><a class="normal" href="/{{ path }}"><i class="fa fa-link title-icon"></i> {{ title }}</a></h2>
 
-{{#if categories}}
+{{#if tags}}
 <p class="pull-right blog-post-meta">
-  {{#each categories}}
-  <a href="/categories/{{ this }}">#{{ this }}</a>
-  {{/each}}
+  {{tagListLinks tags "/categories/" " "}}
 <p>
 {{/if}}
 
