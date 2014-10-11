@@ -46,25 +46,33 @@
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-tags": "git://github.com/sukima/metalsmith-tags#master",
     "metalsmith-templates": "^0.5.2",
+    "mold-source-map": "^0.3.0",
     "moment": "^2.5.1",
     "vinyl-source-stream": "^1.0.0"
   },
   "dependencies": {
-    "backbone": "^1.1.2",
     "bad-cipher": "git://github.com/sukima/bad-cipher#1.0.0",
     "lodash": "^2.4.1"
   },
   "browserify": {
     "transform": [
-      "coffeeify",
-      "browserify-shim"
+      "browserify-shim",
+      "coffeeify"
     ]
   },
   "browser": {
+    "backbone": "./bower_components/backbone/backbone.js",
     "bootstrap": "./bower_components/bootstrap/dist/js/bootstrap.js",
     "jquery": "./bower_components/jquery/dist/jquery.js"
   },
   "browserify-shim": {
+    "backbone": {
+      "exports": "Backbone",
+      "depends": [
+        "lodash",
+        "jquery"
+      ]
+    },
     "bootstrap": {
       "exports": false,
       "depends": [
