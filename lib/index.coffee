@@ -1,5 +1,6 @@
 require "bootstrap"
 require "./ie10-viewport-workaround"
+window._   = require "lodash"
 AppManager = require "./appmanager.coffee"
 
 new AppManager()
