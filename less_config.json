@@ -1,0 +1,12 @@
+{
+  "includes": [
+    "./bower_components/bootstrap/less",
+    "./bower_components/fontawesome/less",
+    "./bower_components/highlightjs/styles",
+    "./bower_components/ekko-lightbox"
+  ],
+  "fonts": [
+    "./bower_components/bootstrap/fonts/*",
+    "./bower_components/fontawesome/fonts/*"
+  ]
+}

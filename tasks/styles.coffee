@@ -4,11 +4,18 @@ gutil   = require "gulp-util"
 less    = require "gulp-less"
 connect = require "gulp-connect"
 
-lessIncludePaths = require "../less_includes.json"
-outputDest       = path.join gutil.env.prefix, "styles"
+lessConfig  = require "../less_config.json"
+styleOutput = path.join gutil.env.prefix, "styles"
+fontsOutput = path.join gutil.env.prefix, "fonts"
 
-gulp.task "styles", ->
+gulp.task "styles", ["less", "fonts"]
+
+gulp.task "less", ->
   gulp.src("#{gutil.env.projectdir}/styles/index.less")
-    .pipe(less paths: lessIncludePaths)
-    .pipe(gulp.dest outputDest)
+    .pipe(less paths: lessConfig.includes)
+    .pipe(gulp.dest styleOutput)
     .pipe(connect.reload())
+
+gulp.task "fonts", ->
+  gulp.src(lessConfig.fonts)
+    .pipe(gulp.dest fontsOutput)
