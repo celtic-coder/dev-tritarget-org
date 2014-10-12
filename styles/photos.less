@@ -1,12 +1,32 @@
+.center-photos() {
+  width:        100%;
+  margin-left:  auto;
+  margin-right: auto;
+  text-align:   center;
+}
+
 .pano {
-  width: 60%;
-  color: @gray-dark;
+  .center-photos();
+
+  a {
+    color:  @gray-dark;
+  }
+
+  img {
+    width:  400px;
+    height: 125px;
+  }
+
   i.fa {
     .border-radius(4px);
     position:         relative;
     padding:          2px 2px 2px 4px;
-    right:            30px;
-    bottom:           -40px;
-    background-color: fade(@gray-light, 80%);
+    right:            33px;
+    bottom:           -45px;
+    background-color: fade(@gray-light, 90%);
   }
+}
+
+.photos {
+  .center-photos();
 }
