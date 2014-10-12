@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export CI=true
+
 public_dir="build" # compiled site directory
 ssh_user="ktohg@tritarget.org"
 ssh_port="22"
