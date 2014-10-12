@@ -9,14 +9,14 @@ exclude="--exclude-from ./rsync-exclude"
 
 deploy_build() {
   pushd $1
-  npm install
-  npm run-script bower
-  npm run-script clean
-  npm run-script build
+  npm install          || exit 1
+  npm run-script bower || exit 1
+  npm run-script clean || exit 1
+  npm run-script build || exit 1
   popd
 }
 
 deploy_build devin-contact-app
 deploy_build ./
 
-rsync -avze "ssh -p ${ssh_port} ${exclude} ${delete} ${public_dir}/ ${ssh_user}:${document_root}"
+echo rsync -avz -e "ssh -p ${ssh_port}" ${exclude} ${delete} ${public_dir}/ ${ssh_user}:${document_root}
