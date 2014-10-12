@@ -13,7 +13,7 @@ preamble   = require "../plugins/preamble"
 
 headerFile     = "preamble.ejs"
 outputFileName = "index.js"
-ouputDest      = path.join gutil.env.prefix, "js"
+outputDest      = path.join gutil.env.prefix, "js"
 
 gulp.task "browserify", ->
   pkg          = require(path.join gutil.env.projectdir, "package.json")
@@ -22,9 +22,9 @@ gulp.task "browserify", ->
 
   browserify(bundlePath, entry: true, debug: !gutil.env.prod)
     .bundle()
-    .pipe(mold.transformSourcesRelativeTo(ouputDest))
+    .pipe(gulpif !gutil.env.prod, mold.transformSourcesRelativeTo(outputDest))
     .pipe(source outputFileName)
     .pipe(gulpif gutil.env.prod, streamify uglify())
     .pipe(preamble(preamblePath, {pkg}))
-    .pipe(gulp.dest ouputDest)
+    .pipe(gulp.dest outputDest)
     .pipe(connect.reload())
