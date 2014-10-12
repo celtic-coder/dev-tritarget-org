@@ -62,7 +62,8 @@
   "browser": {
     "backbone": "./bower_components/backbone/backbone.js",
     "bootstrap": "./bower_components/bootstrap/dist/js/bootstrap.js",
-    "jquery": "./bower_components/jquery/dist/jquery.js"
+    "jquery": "./bower_components/jquery/dist/jquery.js",
+    "lightbox": "./bower_components/ekko-lightbox/dist/ekko-lightbox.js"
   },
   "browserify-shim": {
     "backbone": {
@@ -78,6 +79,13 @@
         "jquery"
       ]
     },
-    "jquery": "jQuery"
+    "jquery": "jQuery",
+    "lightbox": {
+      "exports": false,
+      "depends": [
+        "bootstrap",
+        "jquery"
+      ]
+    }
   }
 }
