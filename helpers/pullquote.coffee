@@ -10,7 +10,7 @@ exports.pullquote = (pull, options) ->
     quote = quoteText.trim()
 
   result = options.fn(this)
-    .replace(/{"\s*(.*)\s*"}/, saveQuote)
+    .replace(/{"\s*([\s\S]*)\s*"}/, saveQuote)
 
   new Handlebars.SafeString """
     <div class="pullquote pull-#{pull}">
