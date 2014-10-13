@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $(dirname $0)
+
 export CI=true
 
 public_dir="build" # compiled site directory
