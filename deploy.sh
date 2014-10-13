@@ -1,6 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd $(dirname $0)
+
+exec > >(tee deploy.log)
+exec 2>&1
 
 export CI=true
 
