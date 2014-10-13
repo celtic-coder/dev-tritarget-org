@@ -22,6 +22,7 @@ The static site generator was cobbled together with the following technologies:
 * [Less](http://lesscss.org/)
 * [Bootstrap](http://getbootstrap.com/)
 * [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+* [lightbox](http://ashleydw.github.io/lightbox/)
 
 [Markdown]: http://daringfireball.net/projects/markdown/
 [1]: https://github.com/sukima/dev-tritarget-org
