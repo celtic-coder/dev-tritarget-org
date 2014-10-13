@@ -4,7 +4,8 @@ template: resume.hbs
 ---
 # Devin Weaver
 
-<ul class="contact-data list-inline" data-items="website,email,phone" data-template="<a href='<%=href%>'><%=value%></a>"></ul>
+<ul class="contact-data list-inline visible-print-block" data-items="website" data-template="<i class='fa fa-<%=fa_icon%>'></i> <a href='<%=href%>'><%=value%></a>"></ul>
+<ul class="contact-data list-inline" data-items="email,phone,github" data-template="<i class='fa fa-<%=fa_icon%>'></i> <a href='<%=href%>'><%=value%></a>"></ul>
 
 ## Background
 
