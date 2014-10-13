@@ -10,7 +10,7 @@ ssh_port="22"
 document_root="~/tritarget.org/"
 delete="--delete"
 exclude="--exclude-from ./rsync-exclude"
-notify_url="http://localhost:8888/deploy/dev-tritarget-org"
+notify_url="http://river-song.herokuapp.com/deploy/dev-tritarget-org"
 
 branch=master
 deploy=no
@@ -53,7 +53,7 @@ done
 
 die() {
   if [[ $notify == yes ]]; then
-    curl -X POST -d "success=false" $notify_url
+    curl "${notify_url}?success=false"
   fi
   exit 1
 }
@@ -85,7 +85,7 @@ if [[ $deploy == yes ]]; then
 fi
 
 if [[ $notify == yes ]]; then
-  curl -X POST -d "success=true" $notify_url
+  curl "${notify_url}?success=true"
 fi
 
 echo "Build done"
