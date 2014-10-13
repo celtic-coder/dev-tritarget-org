@@ -10,7 +10,7 @@ ssh_port="22"
 document_root="~/tritarget.org/"
 delete="--delete"
 exclude="--exclude-from ./rsync-exclude"
-notify_url="http://localhost:8888/"
+notify_url="http://localhost:8888/deploy/dev-tritarget-org"
 
 branch=master
 deploy=no
