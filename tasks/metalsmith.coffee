@@ -39,9 +39,9 @@ loadHelpers = ->
       _.extend(memo, module)
     memo
 
-build = (sourceDir="./src", done) ->
+gulp.task "metalsmith", (done) ->
   finished = (err) ->
-    connect.reload().write(path: sourceDir) unless err
+    connect.reload().write(path: "Content files") unless err
     done(err)
 
   partialFileNames = fs.readdirSync templateDir
@@ -65,7 +65,6 @@ build = (sourceDir="./src", done) ->
   site.time = new Date()
 
   metalsmith(gutil.env.projectdir)
-    .source(sourceDir)
     .clean(false)
     .metadata({site, pkg})
     .use(collections(
@@ -98,7 +97,3 @@ build = (sourceDir="./src", done) ->
     .use(pageTemplates _.extend({}, templateOptions, partials: partials.names))
     .destination(gutil.env.prefix)
     .build(finished)
-
-gulp.task "pages", (done) -> build("./src", done)
-gulp.task "posts", (done) -> build("./src", done)
-gulp.task "metalsmith", ["pages", "posts"]

@@ -12,13 +12,7 @@ gulp.task "watch", ["metalsmith", "contact-data", "browserify", "styles"], ->
     port:       8000
     livereload: true
 
-  gulp.watch("./templates/**/*", ["metalsmith"])
-    .on("change", reportChange)
-
-  gulp.watch("./src/**/*", ["pages"])
-    .on("change", reportChange)
-
-  gulp.watch("./posts/**/*", ["posts"])
+  gulp.watch(["./src/**/*", "./templates/**/*"], ["metalsmith"])
     .on("change", reportChange)
 
   gulp.watch("./lib/**/*", ["browserify"])
