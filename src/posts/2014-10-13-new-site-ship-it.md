@@ -30,12 +30,12 @@ this is silly but for me I like the [github way][1].
 
 Our household chat client has a [Hubot][] running (named [River Song][2]) who
 politely monitors our [slack][] chat. When I tell her to deploy she opens an SSH
-session to my Ubuntu server sitting in my basement. It kicks of a deploy script
+session to my Ubuntu server sitting in my basement. It kicks off a deploy script
 which pull the latest from Github, installs any dependencies, builds the static
 site and rsync's it to my web server. Then it kicks off an HTTP request to River
 who promptly tells the chat the task is complete.
 
-![Diagram of deployment](/images/posts/river-deploy.png)
+![Diagram of deployment](/images/posts/river-deploy.gif)
 
 The cool part of this is that each step of the system is in it's own
 environment. River is on heroku, the deploy is on my server at home, the web
