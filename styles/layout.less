@@ -208,3 +208,22 @@ pre.underflow {
 .line-number {
   font-size: (@font-size-base - 1);
 }
+
+hr.section-split {
+  padding:      0;
+  border:       none;
+  border-top:   medium double #333;
+  color:        @gray-light;
+  border-color: @gray-light;
+  text-align:   center;
+
+  &:after {
+    content:    "§";
+    display:    inline-block;
+    position:   relative;
+    top:        -0.8em;
+    font-size:  1.2em;
+    padding:    0 0.25em;
+    background: @body-bg;
+  }
+}
