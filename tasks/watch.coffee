@@ -18,7 +18,7 @@ gulp.task "watch", ["metalsmith", "contact-data", "browserify", "styles"], ->
   gulp.watch("./lib/**/*", ["browserify"])
     .on("change", reportChange)
 
-  gulp.watch("./styles/**/*", ["styles"])
+  gulp.watch("./styles/**/*", ["less"])
     .on("change", reportChange)
 
   gulp.watch("./info.json", ["contact-data"])

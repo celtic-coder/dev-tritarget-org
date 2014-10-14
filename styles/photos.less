@@ -15,18 +15,37 @@
   img {
     width:  400px;
     height: 125px;
+
+    @media (max-width: @screen-xs-min) {
+      width:  250px;
+      height: 78px;
+    }
   }
 
   i.fa {
     .border-radius(4px);
-    position:         relative;
-    padding:          2px 2px 2px 4px;
-    right:            33px;
-    bottom:           -45px;
     background-color: fade(@gray-light, 90%);
+    position: relative;
+    padding:  2px 2px 2px 4px;
+
+    right:  33px;
+    bottom: -45px;
+
+    @media (max-width: @screen-xs-min) {
+      right:  30px;
+      bottom: -25px;
+    }
   }
 }
 
 .photos {
   .center-photos();
+
+  img {
+    max-width: 400px;
+
+    @media (max-width: @screen-xs-min) {
+      max-width: 250px;
+    }
+  }
 }
