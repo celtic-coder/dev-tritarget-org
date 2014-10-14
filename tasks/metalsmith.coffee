@@ -39,6 +39,19 @@ loadHelpers = ->
       _.extend(memo, module)
     memo
 
+profile = (name, fn) ->
+  return fn unless gutil.env.profile?
+
+  timeStart = null
+  timeStop = null
+  (files, metalsmith, done) ->
+    end = ->
+      timeStop = new Date().getTime()
+      console.log "#{name}: #{timeStop - timeStart}ms"
+      done.apply(this, arguments)
+    timeStart = new Date().getTime()
+    fn(files, metalsmith, end)
+
 gulp.task "metalsmith", (done) ->
   finished = (err) ->
     connect.reload().write(path: "Content files") unless err
@@ -67,33 +80,33 @@ gulp.task "metalsmith", (done) ->
   metalsmith(gutil.env.projectdir)
     .clean(false)
     .metadata({site, pkg})
-    .use(collections(
+    .use(profile "collections", collections(
       blog:
         pattern: "posts/*.md"
         sortBy:  "date"
         reverse: true
     ))
-    .use(tags(
+    .use(profile "tags", tags(
       handle:   "tags"
       path:     "categories"
       template: "categories.hbs"
       sortBy:   "date"
       reverse:  true
     ))
-    .use(findTemplate(
+    .use(profile "findTemplate", findTemplate(
       collection:   "blog"
       templateName: "post.hbs"
     ))
-    .use(contentTemplates _.extend({}, templateOptions, partials: partials.files))
-    .use(highlight(tabReplace: "  "))
-    .use(markdown())
-    .use(gist())
-    .use(more())
-    .use(permalinks(
+    .use(profile "contentTemplates", contentTemplates _.extend({}, templateOptions, partials: partials.files))
+    .use(profile "highlight", highlight(tabReplace: "  "))
+    .use(profile "markdown", markdown())
+    .use(profile "gist", gist())
+    .use(profile "more", more())
+    .use(profile "permalinks", permalinks(
       relative: false
       pattern: ":collection/:date/:title"
       date:    "YYYY/MM/DD"
     ))
-    .use(pageTemplates _.extend({}, templateOptions, partials: partials.names))
+    .use(profile "pageTemplates", pageTemplates _.extend({}, templateOptions, partials: partials.names))
     .destination(gutil.env.prefix)
     .build(finished)
