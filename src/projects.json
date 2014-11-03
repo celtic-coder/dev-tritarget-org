@@ -1,18 +1,18 @@
 [
   {
     "title": "Highlights",
-    "url": "/projects/projects/"
+    "url": "/projects/projects.html"
   },
   {
     "title": "Sample Code",
-    "url": "/projects/exercises/"
+    "url": "/projects/exercises.html"
   },
   {
     "title": "Deprecated and Outdated",
-    "url": "/projects/deprecated/"
+    "url": "/projects/deprecated.html"
   },
   {
     "title": "Incubator",
-    "url": "/projects/incubator/"
+    "url": "/projects/incubator.html"
   }
 ]
