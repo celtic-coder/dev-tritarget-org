@@ -29,11 +29,11 @@
         <li><a href="/atom.xml">RSS <i class="fa fa-rss"></i></a></li>
       </ul>
 
-      <form method="get" action="https://www.google.com/search" class="nav navbar-form navbar-right" role="search">
+      <form id="search-form" method="get" action="https://www.google.com/search" class="nav navbar-form navbar-right" role="search">
         <input type="hidden" name="sitesearch" value="{{ site.url }}">
         <div class="form-group">
           <div class="input-group">
-            <input type="search" class="form-control" name="q" placeholder="Search…">
+            <input id="search" type="search" class="form-control" name="q" placeholder="Search…">
             <span class="input-group-btn">
               <button type="submit" class="btn btn-default" title="Search">
                 <i class="fa fa-search"></i>
