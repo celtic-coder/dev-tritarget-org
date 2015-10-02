@@ -46,7 +46,6 @@ Very proficient on command line using tmux, bash, and VIM
 I maintain an iOS application written in Appcelerator Titanium (JavaScript → native). I've written several Node based build system using Gulp, Browserify, Ember. I've written several (in-house) stream based plugins for Gulp. I help maintain our Native Android application. I actively maintain and enhance our main system with Ruby on Rails. I wrote a test suite frame work in Jasmine for Titanium code and later ported the same system to Mocha. Wrote web application in Ember, socket.io, and Node express to manage and build 30 different flavors of our Titanium iOS app.
 
 * iOS / Appcelerator Titanium developer
-* Resident Node expert
 * Ruby on Rails developer.
 * Resident Node expert
 * Bash guru
