@@ -24,6 +24,7 @@ padding: 0;
 
 !!! Social Links
 
+* {{$:/tritarget/images/rss}} <a target="_blank" class="tc-tiddlylink-external" herf="/atom.xml">RSS Feed</a>
 * {{$:/core/images/github}} [[GitHub|https://github.com/sukima]]
 * {{$:/core/images/twitter}} [[Twitter|https://twitter.com/sukima]]
 * {{$:/core/images/locked-padlock}} [[Keybase|https://keybase.io/sukima]]
